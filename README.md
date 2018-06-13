@@ -1,3 +1,6 @@
+# fiori-for-ios-workshop
+Reference iOS application for SAP Fiori for iOS 2018 workshop series.
+
 # Install package ('Delivery Unit')
 
 ## Create Database
