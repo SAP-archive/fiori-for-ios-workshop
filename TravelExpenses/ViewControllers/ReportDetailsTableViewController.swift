@@ -26,7 +26,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.objectHeader.footnoteText = report.rangeString()
     }
 
-    // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment
+    // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment https://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst?page=2&tab=votes#comment54066953_18880341
     let objectHeader = FUIObjectHeader(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
 
     // MARK: View controller hooks

@@ -12,6 +12,8 @@ import UIKit
 /// Convenience base class for common bootstrapping
 class FioriBaseTableViewController: UITableViewController {
 
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +27,8 @@ class FioriBaseTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedSectionHeaderHeight = 44
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        
+        // Hack:  eliminate hairline from bottom of UINavigationBar  https://stackoverflow.com/a/19227158/242447
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
