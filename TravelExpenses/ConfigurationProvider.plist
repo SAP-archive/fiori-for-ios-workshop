@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>auth</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict/>
+			<key>type</key>
+			<string>none</string>
+		</dict>
+	</array>
+	<key>host</key>
+	<string>hcpms-i826181trial.hanatrial.ondemand.com</string>
+	<key>protocol</key>
+	<string>https</string>
+</dict>
+</plist>
