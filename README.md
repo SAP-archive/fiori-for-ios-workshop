@@ -1,12 +1,3 @@
-# Open issues:
-
- - [ ] Create mode not integrated to server
- - [ ] Implement `NSItemProviding` for `PHAsset`
- - [x] Encoded & peristed child entities are not recovered during Decode operation from `CompositeStore`.  
- - [ ] `SecureKeyValueStorage` is not successfully bound to `CompositeStore`, though key generation & handling is working.
- - [x] Minor model enhancements for Report child navigation links (e.g. `reportstatus`)
- - [x] Swiftification of the property & entity names on the backend  (will require regenration of proxy classes, can be done in Assistant)
-
 # Install package ('Delivery Unit')
 
 ## Create Database
