@@ -202,6 +202,52 @@
 			name = "Fiori Types";
 			sourceTree = "<group>";
 		};
+		1B5F26D320D0D5AA0073C63D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1BC0429820CCE28F008BF50D /* FioriBaseTableViewController.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		1B5F26D420D0D5BC0073C63D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1B5F26D520D0D5DF0073C63D /* Report */,
+				1B5F26D620D0D5E50073C63D /* Trip */,
+				1B5F26D720D0D5EB0073C63D /* Expense */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		1B5F26D520D0D5DF0073C63D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				1BC0429A20CCE290008BF50D /* ReportsTableViewController.swift */,
+				1BC0429520CCE28F008BF50D /* ReportDetailsTableViewController.swift */,
+			);
+			name = Report;
+			sourceTree = "<group>";
+		};
+		1B5F26D620D0D5E50073C63D /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				1BC0429720CCE28F008BF50D /* TripsTableViewController.swift */,
+			);
+			name = Trip;
+			sourceTree = "<group>";
+		};
+		1B5F26D720D0D5EB0073C63D /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				1BC0429220CCE28F008BF50D /* ExpensesTableViewController.swift */,
+				1BC0429420CCE28F008BF50D /* ExpenseDetailTableViewController.swift */,
+				1BC0429920CCE28F008BF50D /* CreateExpenseTableViewController.swift */,
+				1BC0429320CCE28F008BF50D /* EditExpenseTableViewController.swift */,
+			);
+			name = Expense;
+			sourceTree = "<group>";
+		};
 		1BC0428A20CCE18D008BF50D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,14 +261,8 @@
 		1BC0429120CCE27E008BF50D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1BC0429920CCE28F008BF50D /* CreateExpenseTableViewController.swift */,
-				1BC0429320CCE28F008BF50D /* EditExpenseTableViewController.swift */,
-				1BC0429420CCE28F008BF50D /* ExpenseDetailTableViewController.swift */,
-				1BC0429220CCE28F008BF50D /* ExpensesTableViewController.swift */,
-				1BC0429820CCE28F008BF50D /* FioriBaseTableViewController.swift */,
-				1BC0429520CCE28F008BF50D /* ReportDetailsTableViewController.swift */,
-				1BC0429A20CCE290008BF50D /* ReportsTableViewController.swift */,
-				1BC0429720CCE28F008BF50D /* TripsTableViewController.swift */,
+				1B5F26D320D0D5AA0073C63D /* Base */,
+				1B5F26D420D0D5BC0073C63D /* Screens */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

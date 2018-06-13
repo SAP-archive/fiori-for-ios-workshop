@@ -47,10 +47,6 @@ class ReportsTableViewController: FioriBaseTableViewController {
         }
     }
 
-    @objc func toggleEditing() {
-        self.setEditing(!self.isEditing, animated: true)
-    }
-
     // MARK: - Table view data source
     
     override func numberOfSections(in _: UITableView) -> Int {
@@ -126,5 +122,11 @@ class ReportsTableViewController: FioriBaseTableViewController {
         let reportDetail = ReportDetailsTableViewController(style: .grouped)
         reportDetail.setReport(report)
         self.navigationController?.pushViewController(reportDetail, animated: true)
+    }
+    
+    // MARK: - Actions
+    
+    @objc func toggleEditing() {
+        self.setEditing(!self.isEditing, animated: true)
     }
 }
