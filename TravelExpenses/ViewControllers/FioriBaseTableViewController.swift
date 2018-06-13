@@ -9,8 +9,8 @@
 import SAPFiori
 import UIKit
 
+/// Convenience base class for common bootstrapping
 class FioriBaseTableViewController: UITableViewController {
-//    var observations: [NSKeyValueObservation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

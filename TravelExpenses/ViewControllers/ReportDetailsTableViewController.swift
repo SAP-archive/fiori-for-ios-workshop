@@ -26,7 +26,8 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.objectHeader.footnoteText = report.rangeString()
     }
 
-    let objectHeader = FUIObjectHeader()
+    // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment
+    let objectHeader = FUIObjectHeader(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
 
     // MARK: View controller hooks
     
