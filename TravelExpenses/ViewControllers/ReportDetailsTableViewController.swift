@@ -80,7 +80,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         case (0, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
             cell.keyName = "Amount Due Employee"
-            let dueAmt: Double = report.expenseItems.filter({ $0.expenseType?.expensetypeid == "EMP" }).reduce(0) { $0 + $1.amount!.doubleValue() }
+            let dueAmt: Double = report.expenseItems.filter({ $0.paymenttypeid == "EMP" }).reduce(0) { $0 + $1.amount!.doubleValue() }
             cell.value = NumberFormatter(.currency).string(from: dueAmt as NSNumber)!
             cell.isEditable = false
             return cell
