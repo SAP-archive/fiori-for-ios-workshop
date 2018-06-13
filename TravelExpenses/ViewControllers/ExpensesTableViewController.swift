@@ -12,6 +12,8 @@ import UIKit
 
 class ExpensesTableViewController: FioriBaseTableViewController {
 
+    // MARK: - Model
+    
     var entities: [ExpenseItemType] = [] {
         didSet {
             if self.entities != oldValue {
@@ -19,6 +21,8 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             }
         }
     }
+    
+    // MARK: View controller hooks
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +47,6 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             }
             self?.entities = entities
         }
-    }
-    
-    @objc func addExpense() {
-        let vc = CreateExpenseTableViewController(style: .grouped)
-        let navigationController = UINavigationController(rootViewController: vc)
-        self.navigationController?.present(navigationController, animated: true, completion: nil)
-        
-    }
-
-    @objc func toggleEditing() {
-        self.setEditing(!self.isEditing, animated: true)
     }
 
     // MARK: - Table view data source
@@ -92,13 +85,6 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         return cell
     }
 
-    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let expense = entities[indexPath.row]
-        let detailViewController = ExpenseDetailTableViewController(style: .grouped)
-        detailViewController.setExpense(expense)
-        self.navigationController?.pushViewController(detailViewController, animated: true)
-    }
-
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: FUITableViewHeaderFooterView.reuseIdentifier) as! FUITableViewHeaderFooterView
         switch section {
@@ -108,5 +94,27 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             return nil
         }
         return view
+    }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let expense = entities[indexPath.row]
+        let detailViewController = ExpenseDetailTableViewController(style: .grouped)
+        detailViewController.setExpense(expense)
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    // MARK: - Actions
+    
+    @objc func addExpense() {
+        let vc = CreateExpenseTableViewController(style: .grouped)
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.navigationController?.present(navigationController, animated: true, completion: nil)
+        
+    }
+    
+    @objc func toggleEditing() {
+        self.setEditing(!self.isEditing, animated: true)
     }
 }

@@ -11,6 +11,9 @@ import SAPOData
 import UIKit
 
 class ReportsTableViewController: FioriBaseTableViewController {
+    
+    // MARK: - Model
+    
     var expenseReports: [ExpenseReportItemType] = [] {
         didSet {
             self.activeExpenseReports = expenseReports.filter { $0.reportstatusid == "ACT" }
@@ -20,6 +23,8 @@ class ReportsTableViewController: FioriBaseTableViewController {
 
     private(set) var activeExpenseReports: [ExpenseReportItemType] = []
 
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,7 +52,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in _: UITableView) -> Int {
         return 2
     }
@@ -111,6 +116,8 @@ class ReportsTableViewController: FioriBaseTableViewController {
         return view
     }
 
+    // MARK: - Table view delegate
+    
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section < 2 else { return }
 

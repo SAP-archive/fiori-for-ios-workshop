@@ -11,14 +11,16 @@ import SAPOData
 import UIKit
 
 class EditExpenseTableViewController: UITableViewController {
+    
+    // MARK: - Model
+    
+    var attachmentURLs: [URL] = [URL]()
+    
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(FUIKeyValueFormCell.self, forHeaderFooterViewReuseIdentifier: FUIKeyValueFormCell.reuseIdentifier)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -71,59 +73,7 @@ class EditExpenseTableViewController: UITableViewController {
             return cell
         }
 
-        // Configure the cell...
-
         return cell
     }
 
-    var attachmentURLs: [URL] = [URL]()
 }
-
-/*
- extension EditExpenseTableViewController: FUIAttachmentsViewControllerDataSource, FUIAttachmentsViewControllerDelegate {
-
- // MARK: FUIAttachmentsViewControllerDataSource methods
- func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, iconForAttachmentAtIndex index: Int) -> (image: UIImage, contentMode: UIViewContentMode)? {
- let urlString = self.attachmentURLs[index].absoluteString
- let image = FUIIconLibrary.docType.image.withRenderingMode(.alwaysTemplate)
- return (image, .scaleAspectFill)
- }
-
- func numberOfAttachments(in attachmentsViewController: FUIAttachmentsViewController) -> Int {
- return attachmentURLs.count
- }
-
- func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, urlForAttachmentAtIndex index: Int) -> URL? {
- return attachmentURLs[index]
- }
-
- // MARK:  FUIAttachmentsViewControllerDelegateMethods
- func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, couldNotPresentAttachmentAtIndex index: Int) {
-
- }
-
- func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, didPressDeleteAtIndex index: Int) {
- self.attachmentURLs.remove(at: index)
- self.tableView.reloadSections(IndexSet(integer:attachmentSection), with: .automatic)
- }
-
- //MARK: FUIAddPhotoAttachmentActionDelegate
- func addPhotoAttachmentAction(_ action: FUIAddPhotoAttachmentAction, didSelectPhotoAt url: URL) {
- self.addAttachmentURL(url)
- }
-
- //MARK: FUITakePhotoAttachmentActionDelegate
-
- func takePhotoAttachmentAction(_ action: FUITakePhotoAttachmentAction, didTakePhotoAt url: URL) {
- self.addAttachmentURL(url)
- }
-
- func addAttachmentURL(_ url: URL) {
- self.attachmentURLs.append(url)
- DispatchQueue.main.async {
- self.tableView.reloadSections(IndexSet(integer:self.attachmentSection), with: .automatic)
- self.tableView.scrollToRow(at: IndexPath(row: 0, section: self.attachmentSection) , at: .middle, animated: true)
- }
- }
- }
- */

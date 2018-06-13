@@ -8,11 +8,9 @@
 
 import UIKit
 import SAPFiori
-import SAPOData
 
 
-
-
+/// Utility extension to map `indexForUniqueIdentifier` to `cellForRowAt`
 extension FUIListPickerDataSource {
 
     func listPickerTableView(_ tableView: UITableView, cellForItemWithUniqueIdentifier uniqueIdentifier: String) -> UITableViewCell {

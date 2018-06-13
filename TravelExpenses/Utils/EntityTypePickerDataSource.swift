@@ -9,6 +9,7 @@
 import Foundation
 import SAPOData
 
+/// Convenience protocol, for supplying default implementations of the `FUIListPickerDataSource`
 protocol EntityTypePickerDataSource {
     
     associatedtype EntityType: EntityValue & PickableEntityType
@@ -57,7 +58,7 @@ extension EntityTypePickerDataSource {
 
 
 /*
- Placeholder
+ /// TODO:  Add searchable data source
 protocol SearchableEntityTypePickerDataSource: EntityTypePickerDataSource {
     var filteredEntities: [EntityType] { get set }
     var isFiltered: Bool { get set }

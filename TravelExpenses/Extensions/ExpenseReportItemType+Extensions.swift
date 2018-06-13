@@ -9,6 +9,8 @@
 import UIKit
 
 extension ExpenseReportItemType {
+    
+    // Convenience method to format start & finish date for Expense Report
     func rangeString() -> String {
         guard let reportStart = reportstart, let reportEnd = reportend else {
             return ""

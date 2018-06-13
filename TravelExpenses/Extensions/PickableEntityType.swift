@@ -8,9 +8,12 @@
 
 import Foundation
 
+// Convenience protocol to define the UUID for list pickers bound to lists of EntityValue
 protocol PickableEntityType {
     var pickerUUID: String { get }
 }
+
+// MARK: - PickableEntityType implementation for Currency
 
 extension CurrencyType: PickableEntityType {
     var pickerUUID: String {
@@ -21,6 +24,8 @@ extension CurrencyType: PickableEntityType {
     }
 }
 
+// MARK: - PickableEntityType implementation for Expense Report
+
 extension ExpenseReportItemType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.reportid else {
@@ -30,6 +35,8 @@ extension ExpenseReportItemType: PickableEntityType {
     }
 }
 
+// MARK: - PickableEntityType implementation for Expense Type
+
 extension ExpenseType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.expensetypeid else {
@@ -38,6 +45,8 @@ extension ExpenseType: PickableEntityType {
         return id
     }
 }
+
+// MARK: - PickableEntityType implementation for Payment Type
 extension PaymentType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.paymenttypeid else {

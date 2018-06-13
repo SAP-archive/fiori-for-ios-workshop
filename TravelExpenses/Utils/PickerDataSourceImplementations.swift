@@ -9,6 +9,8 @@
 import UIKit
 import SAPFiori
 
+// MARK: - List picker data source implementation for Expense Report
+
 class ReportsPickerDataSource: BaseEntityTypePickerDataSource<ExpenseReportItemType> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
@@ -19,6 +21,7 @@ class ReportsPickerDataSource: BaseEntityTypePickerDataSource<ExpenseReportItemT
     }
 }
 
+// MARK: - List picker data source implementation for Currency
 
 class CurrencyPickerDataSource: BaseEntityTypePickerDataSource<CurrencyType> {
     
@@ -28,8 +31,9 @@ class CurrencyPickerDataSource: BaseEntityTypePickerDataSource<CurrencyType> {
         cell.subheadlineText = entity.currencyid
         return cell
     }
-    
 }
+
+// MARK: - List picker data source implementation for Payment Type
 
 class PaymentTypePickerDataSource: BaseEntityTypePickerDataSource<PaymentType> {
     
@@ -40,6 +44,9 @@ class PaymentTypePickerDataSource: BaseEntityTypePickerDataSource<PaymentType> {
         return cell
     }
 }
+
+// MARK: - List picker data source implementation for Expense Type
+
 class ExpenseTypePickerDataSource: BaseEntityTypePickerDataSource<ExpenseType> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {

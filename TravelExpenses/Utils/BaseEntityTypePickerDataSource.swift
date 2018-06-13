@@ -10,7 +10,7 @@ import UIKit
 import SAPFiori
 import SAPOData
 
-
+/// Common implementation of `FUIListPickerDataSource`
 class BaseEntityTypePickerDataSource<EntityType: EntityValue & PickableEntityType>: EntityTypePickerDataSource, FUIListPickerDataSource {
     
     var entities: [EntityType] = []

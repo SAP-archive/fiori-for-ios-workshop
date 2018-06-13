@@ -10,7 +10,7 @@ import SAPFiori
 import UIKit
 
 class FioriBaseTableViewController: UITableViewController {
-    var observations: [NSKeyValueObservation] = []
+//    var observations: [NSKeyValueObservation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

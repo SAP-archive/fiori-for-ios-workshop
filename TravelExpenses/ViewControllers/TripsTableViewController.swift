@@ -12,12 +12,16 @@ import UIKit
 
 class TripsTableViewController: FioriBaseTableViewController {
     
+    // MARK: - Model
+    
     var entities: [TripItemType] = [] {
         didSet {
             self.tableView.reloadData()
         }
     }
 
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

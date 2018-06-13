@@ -12,6 +12,7 @@ import SAPOData
 
 extension ExpenseItemType {
     
+    // Convenience method to get validation method for the different String type key paths of Expense Item
     func validationMessage(for keyPath: KeyPath<ExpenseItemType, String?>) -> String? {
         switch keyPath {
         case \.vendor:
@@ -29,6 +30,7 @@ extension ExpenseItemType {
         }
     }
     
+    // Convenience method to get validation method for the BigDecimal type key paths of Expense Item
     func validationMessage(for keyPath: KeyPath<ExpenseItemType, BigDecimal?>) -> String? {
         switch keyPath {
         case \.amount:

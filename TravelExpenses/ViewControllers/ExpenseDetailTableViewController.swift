@@ -10,17 +10,22 @@ import SAPFiori
 import UIKit
 
 class ExpenseDetailTableViewController: FUIFormTableViewController {
+    
+    // MARK: - Model
+    
     private var expense: ExpenseItemType!
-
-    // TODO: add receipts to ExpenseItemType
-    private var receipts: [UIImage] = [#imageLiteral(resourceName: "Receipt.jpg")]
 
     func setExpense(_ expense: ExpenseItemType) {
         self.expense = expense
         self.title = self.expense.itemid
         self.tableView.reloadData()
     }
+    
+    // TODO: add receipts to ExpenseItemType
+    private var receipts: [UIImage] = [#imageLiteral(resourceName: "Receipt.jpg")]
 
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,6 +89,8 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
         return cell
     }
 }
+
+// MARK: - Attachments data source & delegate
 
 extension ExpenseDetailTableViewController: FUIAttachmentsViewControllerDataSource, FUIAttachmentsViewControllerDelegate {
     func numberOfAttachments(in _: FUIAttachmentsViewController) -> Int {

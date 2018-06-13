@@ -10,6 +10,9 @@ import SAPFiori
 import UIKit
 
 class ReportDetailsTableViewController: FioriBaseTableViewController {
+    
+    // MARK: - Model
+    
     private var report: ExpenseReportItemType!
 
     func setReport(_ report: ExpenseReportItemType) {
@@ -25,6 +28,8 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     let objectHeader = FUIObjectHeader()
 
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,7 +88,13 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             return cell
         }
     }
+    
+    override func tableView(_: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section > 0
+    }
 
+    // MARK: - Table view delegate
+    
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section > 0 else { return }
         let expense = report.expenseItems[indexPath.row]
@@ -92,13 +103,9 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 
-    // MARK: - Handle Edit mode
+    // MARK: - Actions
 
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
-    }
-
-    override func tableView(_: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section > 0
     }
 }

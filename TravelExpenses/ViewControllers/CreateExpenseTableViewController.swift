@@ -14,10 +14,12 @@ import MobileCoreServices
 
 class CreateExpenseTableViewController: FUIFormTableViewController {
 
+    // MARK: - Model
+    
+    // Newly created Expense Item
     let expense = ExpenseItemType()
     
-    var currency: String?
-    
+    // Data sources for list picker rows
     let currencyPickerDataSource = CurrencyPickerDataSource()
     let reportsPickerDataSource = ReportsPickerDataSource()
     let expenseTypePickerDataSource = ExpenseTypePickerDataSource()
@@ -30,36 +32,41 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             DispatchQueue.main.async {
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
-                
             }
         }
     }
     weak var attachmentController: FUIAttachmentsViewController?
     
+    // MARK: View controller hooks
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configure table view
         self.title = "Create Expense"
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
+        // Register cell classes
         self.tableView.register(FUITitleFormCell.self, forCellReuseIdentifier: FUITitleFormCell.reuseIdentifier)
         self.tableView.register(FUIListPickerFormCell.self, forCellReuseIdentifier: FUIListPickerFormCell.reuseIdentifier)
         self.tableView.register(FUIDatePickerFormCell.self, forCellReuseIdentifier: FUIDatePickerFormCell.reuseIdentifier)
         self.tableView.register(FUINoteFormCell.self, forCellReuseIdentifier: FUINoteFormCell.reuseIdentifier)
         self.tableView.register(FUIAttachmentsFormCell.self, forCellReuseIdentifier: FUIAttachmentsFormCell.reuseIdentifier)
         
-        
+        // Setup bar button items
         let createItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveItem))
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         self.navigationItem.leftBarButtonItem = cancelItem
         self.navigationItem.rightBarButtonItem = createItem
         
+        // Set defaults for newly created expense item
         expense.itemid = UUID().uuidString
         expense.currencyid = "USD"
         expense.paymenttypeid = "EMP"
         expense.itemdate = LocalDateTime.from(utc: Date())
         
+        // Populate options for the list picker data sources
         do {
             try currencyPickerDataSource.entities = DataHandler.shared.service.fetchCurrency()
             try reportsPickerDataSource.entities = DataHandler.shared.service.fetchExpenseReportItem()
@@ -69,8 +76,6 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         catch {
             print(error)
         }
-
-        
     }
 
     // MARK: - Table view data source
@@ -94,6 +99,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Utility method for configuring the table view cells displayed in the list pickers
         func applyDefaultConfiguration(forListPickerFormCell cell: FUIListPickerFormCell, dataSource: FUIListPickerDataSource) {
             cell.listPicker.register(FUIObjectTableViewCell.self, forCellReuseIdentifier: FUIObjectTableViewCell.reuseIdentifier)
             cell.listPicker.dataSource = dataSource
@@ -103,6 +109,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         }
         
         switch (indexPath.section, indexPath.row) {
+            
+        // Setup editable `FUITitleFormCell` for Vendor
         case (0, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
             
@@ -117,6 +125,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             }
             cell.validationMessage = self.expense.validationMessage(for: \.vendor)
             return cell
+            
+        // Setup editable `FUITitleFormCell` for Amount
         case (0, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
             
@@ -139,6 +149,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             }
             cell.validationMessage = self.expense.validationMessage(for: \.amount)
             return cell
+            
+        // Setup editable `FUIListPickerFormCell` for Currency selection
         case (1, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: currencyPickerDataSource)
@@ -162,6 +174,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             }
             return cell
+        
+        // Setup editable `FUIListPickerFormCell` for Expense Type selection
         case (1, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: expenseTypePickerDataSource)
@@ -184,6 +198,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.expense.expensetypeid = entity?.expensetypeid
             }
             return cell
+            
+        // Setup editable `FUIListPickerFormCell` for Location selection
         case (1, 2):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             cell.keyName = "Location"
@@ -198,6 +214,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 return [index]
             }()
             return cell
+        
+        // Setup editable `FUIDatePickerFormCell` for item Date selection
         case (1, 3):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
             cell.keyName = "Date"
@@ -206,6 +224,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.expense.itemdate = LocalDateTime.from(utc: $0)
             }
             return cell
+            
+        // Setup editable `FUIListPickerFormCell` for Report selection
         case (1, 4):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: reportsPickerDataSource)
@@ -228,6 +248,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.expense.reportid = entity?.reportid
             }
             return cell
+        
+        // Setup editable `FUIListPickerFormCell` for Payment Type selection
         case (1, 5):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: paymentTypePickerDataSource)
@@ -250,6 +272,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.expense.paymenttypeid = entity?.paymenttypeid
             }
             return cell
+            
+        // Setup editable `FUINoteFormCell` for adding Comments
         case (2, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUINoteFormCell.reuseIdentifier, for: indexPath) as! FUINoteFormCell
             cell.placeholderText = "Add Comment"
@@ -258,6 +282,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 self?.expense.notes = $0
             }
             return cell
+            
+        // Setup editable `FUIAttachmentsFormCell` for adding receipt Images
         case (3, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIAttachmentsFormCell.reuseIdentifier, for: indexPath) as! FUIAttachmentsFormCell
             self.attachmentController = cell.attachmentsController
@@ -285,6 +311,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         }
     }
     
+    // MARK: - Actions
     
     @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
@@ -324,25 +351,20 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             changeSet.createLink(from: self.expense, property: ExpenseItemType.currency, to: currency)
             changeSet.createLink(from: self.expense, property: ExpenseItemType.expenseType, to: expenseType)
             changeSet.createLink(from: self.expense, property: ExpenseItemType.paymentType, to: paymentType)
-            
-//            if let reportID = self.expense.reportid {
-//                let reportQuery = DataQuery().withKey(ExpenseReportItemType.key(reportid: self.expense.reportid!))
-//                let report = try Single.required(DataHandler.shared.service.fetchExpenseReportItem(matching: reportQuery))
-//            }
+
             try DataHandler.shared.service.applyChanges(changeSet)
 
         }
         catch {
             print(error)
         }
-        
-        
-        //TODO:  send to server, when nested types added.
+
         self.dismiss(animated: true, completion: nil)
-        //        DataHandler.shared.service.processBatch(requestBatch) { [weak self] (error) in
-        //        }
     }
     
+    // MARK: - Utility methods
+    
+    // Utility method, for adding attachment to the local data model
     func addAttachmentURL(_ url: URL, withThumbnail thumbnail: UIImage) {
         if !self.attachmentURLs.contains(url) { self.attachmentURLs.append(url) }
         self.attachmentThumbnails.updateValue(thumbnail, forKey: url)
@@ -351,15 +373,16 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         DispatchQueue.main.async {
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
-            
         }
     }
     
+    // Utility method, for removing attachment from the local data model
     func removeAttachment(at index: Int) {
         let url = attachmentURLs.remove(at: index)
         attachmentThumbnails.removeValue(forKey: url)
     }
     
+    // Utility method, for accessing Photos images
     func addPHAsset(_ asset: PHAsset, atURL url: URL) {
         let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
@@ -373,6 +396,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         }
     }
 }
+
+// MARK: - Attachments data source & delegate
 
 extension CreateExpenseTableViewController: FUIAttachmentsViewControllerDataSource, FUIAttachmentsViewControllerDelegate {
     func numberOfAttachments(in _: FUIAttachmentsViewController) -> Int {
@@ -406,11 +431,15 @@ extension CreateExpenseTableViewController: FUIAttachmentsViewControllerDataSour
     }
 }
 
+// MARK: - Get photo from Camera
+
 extension CreateExpenseTableViewController: FUITakePhotoAttachmentActionDelegate {
     func takePhotoAttachmentAction(_ action: FUITakePhotoAttachmentAction, didTakePhoto asset: PHAsset, at url: URL) {
         self.addPHAsset(asset, atURL: url)
     }
 }
+
+// MARK: - Get photo from Photo Roll
 
 extension CreateExpenseTableViewController: FUIAddPhotoAttachmentActionDelegate {
     func addPhotoAttachmentAction(_ action: FUIAddPhotoAttachmentAction, didSelectPhoto asset: PHAsset, at url: URL) {
@@ -418,9 +447,10 @@ extension CreateExpenseTableViewController: FUIAddPhotoAttachmentActionDelegate 
     }
 }
 
+// MARK: - Drop interaction handler for Attachments view
+
 @available(iOS 11.0, *)
 extension CreateExpenseTableViewController: UIDropInteractionDelegate {
-
     
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         return session.hasItemsConforming(toTypeIdentifiers: [kUTTypeImage as String, kCFURLTypeIdentifierKey as String]) && session.items.count == 1
@@ -443,10 +473,12 @@ extension CreateExpenseTableViewController: UIDropInteractionDelegate {
     }
 }
 
+// MARK: - Formatting delegate for Amount row
+
 extension CreateExpenseTableViewController: UITextFieldDelegate {
 
+    // Setting text here does not invoke the change handler, allowing formatting once the value is entered by end-user
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if let text = textField.text , let number = Double(text) {
             let numberFormatter = NumberFormatter(.currency)
             numberFormatter.currencyCode = self.expense.currencyid ?? "USD"
