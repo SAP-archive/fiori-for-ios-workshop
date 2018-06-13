@@ -54,7 +54,6 @@ class CreateReportTableViewController: FUIFormTableViewController {
         catch {
             print(error)
         }
-        
     }
 
 

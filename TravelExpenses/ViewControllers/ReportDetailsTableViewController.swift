@@ -6,8 +6,9 @@
 //  Copyright © 2018 Stadelman, Stan. All rights reserved.
 //
 
-import SAPFiori
 import UIKit
+import SAPFiori
+import SAPOData
 
 class ReportDetailsTableViewController: FioriBaseTableViewController {
     
@@ -152,7 +153,8 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     }
     
     func reloadExpenseItems() {
-        DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: self.report) { [weak self] (error) in
+        let query = DataQuery().orderBy(ExpenseItemType.itemdate)
+        DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: self.report, query: query) { [weak self] (error) in
             guard error == nil else {
                 return print(error!)
             }

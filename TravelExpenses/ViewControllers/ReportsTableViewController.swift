@@ -36,7 +36,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType)
+        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
         let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
         
         DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] (entities, error) in
