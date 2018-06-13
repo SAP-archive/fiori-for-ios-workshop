@@ -1,7 +1,7 @@
 # fiori-for-ios-workshop
 Reference iOS application for SAP Fiori for iOS 2018 workshop series.
 
-# Install package ('Delivery Unit')
+# Install database package
 
 ## Create Database
 In SAP Cloud Platform Cockpit, select **SAP HANA / SAP ASE > Database & Schemas**.  Tap to create a new Database.  
