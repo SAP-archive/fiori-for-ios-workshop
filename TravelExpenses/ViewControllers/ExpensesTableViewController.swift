@@ -45,7 +45,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
-            self?.entities = entities.filter { $0.reportid == nil }
+            self?.entities = entities
         }
     }
 
@@ -89,7 +89,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: FUITableViewHeaderFooterView.reuseIdentifier) as! FUITableViewHeaderFooterView
         switch section {
         case 0:
-            view.titleLabel.text = "Unassigned Expenses"
+            view.titleLabel.text = "Unreported Expenses"
         default:
             return nil
         }
