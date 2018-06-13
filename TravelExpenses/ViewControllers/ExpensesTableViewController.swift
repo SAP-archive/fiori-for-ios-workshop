@@ -45,7 +45,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
-            self?.entities = entities
+            self?.entities = entities.filter { $0.reportid == nil }
         }
     }
 
@@ -89,7 +89,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: FUITableViewHeaderFooterView.reuseIdentifier) as! FUITableViewHeaderFooterView
         switch section {
         case 0:
-            view.titleLabel.text = "Unreported Expenses"
+            view.titleLabel.text = "Unassigned Expenses"
         default:
             return nil
         }
@@ -107,14 +107,13 @@ class ExpensesTableViewController: FioriBaseTableViewController {
     
     // MARK: - Actions
     
+    @objc func toggleEditing() {
+        self.setEditing(!self.isEditing, animated: true)
+    }
+    
     @objc func addExpense() {
         let vc = CreateExpenseTableViewController(style: .grouped)
         let navigationController = UINavigationController(rootViewController: vc)
         self.navigationController?.present(navigationController, animated: true, completion: nil)
-        
-    }
-    
-    @objc func toggleEditing() {
-        self.setEditing(!self.isEditing, animated: true)
     }
 }

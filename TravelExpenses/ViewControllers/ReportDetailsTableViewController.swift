@@ -14,9 +14,11 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     // MARK: - Model
     
     private var report: ExpenseReportItemType!
+    private var isExpenseItemListDirty: Bool = false
 
     func setReport(_ report: ExpenseReportItemType) {
         self.report = report
+        
         self.objectHeader.headlineText = report.reportname
         self.objectHeader.subheadlineText = report.reportid
         self.objectHeader.tags = ["Active", "Not Customer Facing"].map({
@@ -103,10 +105,79 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         detailViewController.setExpense(expense)
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let entity = self.report.expenseItems[indexPath.row]
+        entity.reportid = nil
+        
+        DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
+            guard error == nil else {
+                let errorBanner = FUIBannerMessageView()
+                self?.objectHeader.bannerView = errorBanner
+                errorBanner.show(message: "Failed to remove item from Report", withDuration: 4.0, animated: true)
+                return
+            }
+            
+            self?.tableView.beginUpdates()
+            self?.report.expenseItems.remove(at: indexPath.row)
+            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self?.tableView.endUpdates()
+        })
+    }
+    
+//    override func tableView(_ tableView: UITableView,
+//                            trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+//    {
+//        let closeAction = UIContextualAction(style: .destructive, title: "Remove from\nReport") { [weak self] (action, view, success) in
+//            guard let entity = self?.report.expenseItems[indexPath.row] else { success(false) }
+//            entity.reportid = nil
+//
+//            DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
+//                guard error == nil else {
+//                    let errorBanner = FUIBannerMessageView()
+//                    self?.objectHeader.bannerView = errorBanner
+//                    errorBanner.show(message: "Failed to remove item from Report", withDuration: 4.0, animated: true)
+//                    return success(false)
+//                }
+//
+//                self?.tableView.beginUpdates()
+//                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+//                self?.tableView.endUpdates()
+//                success(true)
+//            })
+//        }
+//
+//        closeAction.backgroundColor = UIColor.preferredFioriColor(forStyle: .negative)
+//
+//        let modifyAction = UIContextualAction(style: .destructive, title:  "Accept\nTask", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+//            print("Update action ...")
+//            self.data[indexPath.row].is_accepted = true
+//            self.reloadHandler()
+//            success(true)
+//        })
+//        modifyAction.backgroundColor = UIColor.preferredFioriColor(forStyle: .map1)
+//
+//        return UISwipeActionsConfiguration(actions: [closeAction, modifyAction])
+//    }
 
     // MARK: - Actions
 
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
+        
+        // If changes were made to the data set while in editing mode, reload cleanly
+        if !isEditing && isExpenseItemListDirty {
+            self.reloadExpenseItems()
+        }
+    }
+    
+    func reloadExpenseItems() {
+        DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: self.report) { [weak self] (error) in
+            guard error == nil else {
+                return print(error!)
+            }
+            self?.tableView.reloadData()
+            self?.isExpenseItemListDirty = false
+        }
     }
 }

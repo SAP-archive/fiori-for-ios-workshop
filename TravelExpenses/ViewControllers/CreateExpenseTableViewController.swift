@@ -81,7 +81,6 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 4
     }
 
@@ -171,6 +170,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             cell.onUuidChangeHandler = { [weak self] in
                 let entity = self?.currencyPickerDataSource.singleEntity(for: $0)
                 self?.expense.currencyid = entity?.currencyid
+                
+                // MARK: - Special case:  since this value affects formatting of Amount, reload the Amount row
                 self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             }
             return cell

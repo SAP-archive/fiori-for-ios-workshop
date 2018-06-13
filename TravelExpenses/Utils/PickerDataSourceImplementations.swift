@@ -56,3 +56,16 @@ class ExpenseTypePickerDataSource: BaseEntityTypePickerDataSource<ExpenseType> {
         return cell
     }
 }
+
+// MARK: - List picker data source implementation for Report Status
+
+class ReportStatusPickerDataSource: BaseEntityTypePickerDataSource<ReportStatusType> {
+    
+    override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
+        let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell
+        let entity = self.entity(at: index)
+        cell.subheadlineText = entity.description
+        return cell
+    }
+}
+

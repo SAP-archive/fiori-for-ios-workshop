@@ -28,7 +28,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: nil)
+        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(addReport))
         self.navigationItem.rightBarButtonItems = [addButton]
         self.navigationItem.title = "Expense Reports"
     }
@@ -128,5 +128,11 @@ class ReportsTableViewController: FioriBaseTableViewController {
     
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
+    }
+    
+    @objc func addReport() {
+        let vc = CreateReportTableViewController(style: .grouped)
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 }

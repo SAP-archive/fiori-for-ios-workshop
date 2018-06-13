@@ -22,6 +22,7 @@
 		1B5F26C620CF85C90073C63D /* PickerDataSourceImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26C520CF85C90073C63D /* PickerDataSourceImplementations.swift */; };
 		1B5F26CA20CF95CD0073C63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F26C920CF95CD0073C63D /* Main.storyboard */; };
 		1B5F26D220D0D17E0073C63D /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26D120D0D17E0073C63D /* SnapshotViewController.swift */; };
+		1B5F26DB20D0F44A0073C63D /* CreateReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26DA20D0F44A0073C63D /* CreateReportTableViewController.swift */; };
 		1BA1BFA520CF833C0067F0F0 /* BaseEntityTypePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1BFA420CF833C0067F0F0 /* BaseEntityTypePickerDataSource.swift */; };
 		1BA1BFA720CF83C60067F0F0 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1BFA620CF83C60067F0F0 /* Formatters.swift */; };
 		1BC0428E20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0428B20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift */; };
@@ -92,10 +93,11 @@
 		12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPFioriFlows.framework; sourceTree = "<group>"; };
 		1B5F26C020CF84E30073C63D /* EntityTypePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTypePickerDataSource.swift; sourceTree = "<group>"; };
-		1B5F26C220CF85420073C63D /* PickableEntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickableEntityType.swift; sourceTree = "<group>"; };
+		1B5F26C220CF85420073C63D /* PickableEntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickableEntityType.swift; path = Extensions/PickableEntityType.swift; sourceTree = "<group>"; };
 		1B5F26C520CF85C90073C63D /* PickerDataSourceImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDataSourceImplementations.swift; sourceTree = "<group>"; };
 		1B5F26C920CF95CD0073C63D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1B5F26D120D0D17E0073C63D /* SnapshotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotViewController.swift; sourceTree = "<group>"; };
+		1B5F26DA20D0F44A0073C63D /* CreateReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportTableViewController.swift; sourceTree = "<group>"; };
 		1BA1BFA420CF833C0067F0F0 /* BaseEntityTypePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntityTypePickerDataSource.swift; sourceTree = "<group>"; };
 		1BA1BFA620CF83C60067F0F0 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		1BC0428B20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseReportItemType+Extensions.swift"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		1B5F26C420CF85A40073C63D /* PickerDataSources */ = {
 			isa = PBXGroup;
 			children = (
+				1B5F26C220CF85420073C63D /* PickableEntityType.swift */,
 				1B5F26C020CF84E30073C63D /* EntityTypePickerDataSource.swift */,
 				1BA1BFA420CF833C0067F0F0 /* BaseEntityTypePickerDataSource.swift */,
 				1B5F26C520CF85C90073C63D /* PickerDataSourceImplementations.swift */,
@@ -189,7 +192,6 @@
 			children = (
 				1BC0428B20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift */,
 				1BC0428D20CCE18D008BF50D /* ExpenseItemType+Extensions.swift */,
-				1B5F26C220CF85420073C63D /* PickableEntityType.swift */,
 			);
 			name = "Model Types";
 			sourceTree = "<group>";
@@ -225,6 +227,7 @@
 			children = (
 				1BC0429A20CCE290008BF50D /* ReportsTableViewController.swift */,
 				1BC0429520CCE28F008BF50D /* ReportDetailsTableViewController.swift */,
+				1B5F26DA20D0F44A0073C63D /* CreateReportTableViewController.swift */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			children = (
 				1BC042A820CCEDF6008BF50D /* DataHandler.swift */,
 				7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */,
+				1BC0428A20CCE18D008BF50D /* Extensions */,
 				1B5F26C420CF85A40073C63D /* PickerDataSources */,
 			);
 			path = Utils;
@@ -328,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				1BC0429120CCE27E008BF50D /* ViewControllers */,
-				1BC0428A20CCE18D008BF50D /* Extensions */,
 				12D066CB1F4DDAE40075EBA4 /* Onboarding */,
 				7532C1BB1D5B6917004B03AF /* Model */,
 				75D373EF1DD1FB0800888D4C /* Proxy Classes */,
@@ -482,6 +485,7 @@
 				1BC0429E20CCE290008BF50D /* ReportDetailsTableViewController.swift in Sources */,
 				1BC042A920CCEDF6008BF50D /* DataHandler.swift in Sources */,
 				1BC0429B20CCE290008BF50D /* ExpensesTableViewController.swift in Sources */,
+				1B5F26DB20D0F44A0073C63D /* CreateReportTableViewController.swift in Sources */,
 				1B5F26C620CF85C90073C63D /* PickerDataSourceImplementations.swift in Sources */,
 				1B5F26C120CF84E30073C63D /* EntityTypePickerDataSource.swift in Sources */,
 				1BC0429020CCE18D008BF50D /* ExpenseItemType+Extensions.swift in Sources */,

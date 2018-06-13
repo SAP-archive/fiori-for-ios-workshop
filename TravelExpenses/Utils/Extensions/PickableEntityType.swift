@@ -55,3 +55,23 @@ extension PaymentType: PickableEntityType {
         return id
     }
 }
+
+// MARK: - PickableEntityType implementation for Report Status
+extension ReportStatusType: PickableEntityType {
+    var pickerUUID: String {
+        guard let id = self.reportstatusid else {
+            preconditionFailure("ReportStatus \(self.debugDescription) does not have reportstatusid")
+        }
+        return id
+    }
+}
+
+// MARK: - PickableEntityType implementation for Trip
+extension TripItemType: PickableEntityType {
+    var pickerUUID: String {
+        guard let id = self.tripid else {
+            preconditionFailure("Trip \(self.debugDescription) does not have tripid")
+        }
+        return id
+    }
+}
