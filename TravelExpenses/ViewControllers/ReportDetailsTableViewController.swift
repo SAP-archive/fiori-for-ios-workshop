@@ -40,9 +40,16 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.tableView.tableHeaderView = self.objectHeader
         self.tableView.allowsSelectionDuringEditing = false
 
-        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: nil)
+        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // handle case where screen was visible, but user created new expense on "Expenses" tab.
+        self.reloadExpenseItems()
     }
 
     // MARK: - Table view data source
@@ -106,15 +113,16 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
+    // MARK: - Support deleting Expense items
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let entity = self.report.expenseItems[indexPath.row]
-        entity.reportid = nil
         
-        DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
+        DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in
             guard error == nil else {
                 let errorBanner = FUIBannerMessageView()
                 self?.objectHeader.bannerView = errorBanner
-                errorBanner.show(message: "Failed to remove item from Report", withDuration: 4.0, animated: true)
+                errorBanner.show(message: "Failed to delete expense item", withDuration: 4.0, animated: true)
                 return
             }
             
@@ -124,51 +132,23 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             self?.tableView.endUpdates()
         })
     }
-    
-//    override func tableView(_ tableView: UITableView,
-//                            trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//    {
-//        let closeAction = UIContextualAction(style: .destructive, title: "Remove from\nReport") { [weak self] (action, view, success) in
-//            guard let entity = self?.report.expenseItems[indexPath.row] else { success(false) }
-//            entity.reportid = nil
-//
-//            DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
-//                guard error == nil else {
-//                    let errorBanner = FUIBannerMessageView()
-//                    self?.objectHeader.bannerView = errorBanner
-//                    errorBanner.show(message: "Failed to remove item from Report", withDuration: 4.0, animated: true)
-//                    return success(false)
-//                }
-//
-//                self?.tableView.beginUpdates()
-//                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
-//                self?.tableView.endUpdates()
-//                success(true)
-//            })
-//        }
-//
-//        closeAction.backgroundColor = UIColor.preferredFioriColor(forStyle: .negative)
-//
-//        let modifyAction = UIContextualAction(style: .destructive, title:  "Accept\nTask", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//            print("Update action ...")
-//            self.data[indexPath.row].is_accepted = true
-//            self.reloadHandler()
-//            success(true)
-//        })
-//        modifyAction.backgroundColor = UIColor.preferredFioriColor(forStyle: .map1)
-//
-//        return UISwipeActionsConfiguration(actions: [closeAction, modifyAction])
-//    }
 
     // MARK: - Actions
 
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
         
-        // If changes were made to the data set while in editing mode, reload cleanly
-        if !isEditing && isExpenseItemListDirty {
+        // If no longer editing, reload expense items set
+        if !isEditing {
             self.reloadExpenseItems()
         }
+    }
+    
+    @objc func addExpense() {
+        let vc = CreateExpenseTableViewController(style: .grouped)
+        vc.expense.reportid = self.report.reportid
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
     
     func reloadExpenseItems() {
@@ -177,7 +157,6 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
                 return print(error!)
             }
             self?.tableView.reloadData()
-            self?.isExpenseItemListDirty = false
         }
     }
 }
