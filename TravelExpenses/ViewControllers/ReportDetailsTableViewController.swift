@@ -94,7 +94,18 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             if let date = expense.itemdate {
                 cell.subheadlineText = DateFormatter(.medium).string(from: date.utc())
             }
-            cell.footnoteText = "Employee Paid"
+            if let source = expense.paymenttypeid {
+                switch source {
+                case "EMP":
+                    cell.footnoteText = "Employee paid"
+                case "COM":
+                    cell.footnoteText = "Company paid"
+                case "AAA":
+                    cell.footnoteText = "AAA-paid"
+                default:
+                    break
+                }
+            }
             cell.statusText = NumberFormatter(.currency).string(from: expense.amount!.doubleValue() as NSNumber)
             return cell
         }
