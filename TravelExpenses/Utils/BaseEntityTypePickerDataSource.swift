@@ -3,7 +3,7 @@
 //  TravelExpenses
 //
 //  Created by Stadelman, Stan on 6/11/18.
-//  Copyright © 2018 SAP. All rights reserved.
+//  Copyright © 2018 SAP SE or an SAP affiliate company.  All rights reserved.
 //
 
 import UIKit

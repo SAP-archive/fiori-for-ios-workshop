@@ -3,7 +3,7 @@
 //  TravelExpenseApp
 //
 //  Created by Stadelman, Stan on 2/23/18.
-//  Copyright © 2018 Stadelman, Stan. All rights reserved.
+//  Copyright © 2018 SAP SE or an SAP affiliate company. All rights reserved.
 //
 
 import UIKit

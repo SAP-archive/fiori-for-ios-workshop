@@ -3,7 +3,7 @@
 //  TravelExpenseApp
 //
 //  Created by Stadelman, Stan on 2/23/18.
-//  Copyright © 2018 Stadelman, Stan. All rights reserved.
+//  Copyright © 2018 SAP SE or an SAP affiliate company. All rights reserved.
 //
 
 import SAPFiori
@@ -22,14 +22,14 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         }
     }
     
+    private var addButton: UIBarButtonItem!
+    
     // MARK: View controller hooks
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.allowsMultipleSelectionDuringEditing = true
-
-        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
+        addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
 
@@ -105,10 +105,34 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
+    // MARK: - Support deleting Expense items
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let entity = self.entities[indexPath.row]
+        
+        DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in
+            guard error == nil else {
+                if let navigationBar = self?.navigationController?.navigationBar as? FUINavigationBar {
+                    navigationBar.bannerView?.show(message: "Failed to delete expense item", withDuration: 4.0, animated: true)
+                }
+                return
+            }
+            
+            self?.tableView.beginUpdates()
+            self?.entities.remove(at: indexPath.row)
+            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self?.tableView.endUpdates()
+        })
+    }
     // MARK: - Actions
     
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
+        if isEditing, let index = self.navigationItem.rightBarButtonItems?.index(of: addButton) {
+            self.navigationItem.rightBarButtonItems?.remove(at: index)
+        } else {
+            self.navigationItem.rightBarButtonItems?.append(addButton)
+        }
     }
     
     @objc func addExpense() {
