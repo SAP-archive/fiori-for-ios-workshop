@@ -10,12 +10,8 @@
 		0AD88E5C943B5903B85D2395 /* TripItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C127397D40A7C6EDF4BF4952 /* TripItemType.swift */; };
 		0D7CAD6651744934BB8C6B37 /* ExpenseReportItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A19D1F3434AAF38A8372A /* ExpenseReportItemType.swift */; };
 		1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */; };
-		128604DA1E55B41600C698B5 /* SAPCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; };
-		128604DB1E55B43B00C698B5 /* SAPCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12D066CF1F4DDB0E0075EBA4 /* ConfigurationProvider.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D066CE1F4DDB0A0075EBA4 /* ConfigurationProvider.plist */; };
 		12E07EF21E96851800460A94 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E07EF11E96851800460A94 /* CollectionType.swift */; };
-		12E84FE31F4ECC4A0061C99E /* SAPFioriFlows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; };
-		12E84FE41F4ECC4A0061C99E /* SAPFioriFlows.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12E84FE51F4ECF220061C99E /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */; };
 		1B5F26C120CF84E30073C63D /* EntityTypePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26C020CF84E30073C63D /* EntityTypePickerDataSource.swift */; };
 		1B5F26C320CF85420073C63D /* PickableEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26C220CF85420073C63D /* PickableEntityType.swift */; };
@@ -42,14 +38,6 @@
 		47417C53AAE29967B55684A6 /* TravelexpenseMetadataText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C725A02B23CC11FC74C5E08 /* TravelexpenseMetadataText.swift */; };
 		666D56B2714F06BEFC64FC8B /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EB4170B4F5FC835970650 /* ExpenseType.swift */; };
 		687E3150709C9A7729BA425B /* TravelexpenseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E513FE41D8B0CBE362550A1B /* TravelexpenseFactory.swift */; };
-		755533981F25FD330017A1BC /* SAPOfflineOData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */; };
-		755533991F25FD330017A1BC /* SAPOfflineOData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		756192211DBE1A99007F562C /* SAPOData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7561921A1DBE1A90007F562C /* SAPOData.framework */; };
-		756192221DBE1A99007F562C /* SAPOData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7561921A1DBE1A90007F562C /* SAPOData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7569DA531E5C717C00C5D751 /* SAPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7569DA511E5C716A00C5D751 /* SAPFoundation.framework */; };
-		7569DA541E5C717C00C5D751 /* SAPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7569DA511E5C716A00C5D751 /* SAPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		759BA2701E6821A7001C32BA /* SAPFiori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759BA26F1E6821A7001C32BA /* SAPFiori.framework */; };
-		759BA2721E6821AF001C32BA /* SAPFiori.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 759BA26F1E6821A7001C32BA /* SAPFiori.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A1315B91D4B982000A5DA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1315B81D4B982000A5DA56 /* AppDelegate.swift */; };
 		7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1315C11D4B982000A5DA56 /* Assets.xcassets */; };
 		7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */; };
@@ -65,25 +53,6 @@
 		DDA3F7855166C57322E1A76B /* ExpenseItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A04CF78A20FB4F009327A /* ExpenseItemType.swift */; };
 		F65F42096B9E48596EB9E16F /* ReservationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130C03F088017CA453AD2A2 /* ReservationType.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		758AC1C31D5A265200311F39 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				7569DA541E5C717C00C5D751 /* SAPFoundation.framework in Embed Frameworks */,
-				12E84FE41F4ECC4A0061C99E /* SAPFioriFlows.framework in Embed Frameworks */,
-				128604DB1E55B43B00C698B5 /* SAPCommon.framework in Embed Frameworks */,
-				755533991F25FD330017A1BC /* SAPOfflineOData.framework in Embed Frameworks */,
-				756192221DBE1A99007F562C /* SAPOData.framework in Embed Frameworks */,
-				759BA2721E6821AF001C32BA /* SAPFiori.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAPLogo@2x.png"; sourceTree = "<group>"; };
@@ -146,12 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7569DA531E5C717C00C5D751 /* SAPFoundation.framework in Frameworks */,
-				12E84FE31F4ECC4A0061C99E /* SAPFioriFlows.framework in Frameworks */,
-				756192211DBE1A99007F562C /* SAPOData.framework in Frameworks */,
-				755533981F25FD330017A1BC /* SAPOfflineOData.framework in Frameworks */,
-				128604DA1E55B41600C698B5 /* SAPCommon.framework in Frameworks */,
-				759BA2701E6821A7001C32BA /* SAPFiori.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +350,7 @@
 				7A1315B11D4B982000A5DA56 /* Sources */,
 				7A1315B21D4B982000A5DA56 /* Frameworks */,
 				7A1315B31D4B982000A5DA56 /* Resources */,
-				758AC1C31D5A265200311F39 /* Embed Frameworks */,
+				1B50E80E20D234FD00F54209 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -448,6 +411,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B50E80E20D234FD00F54209 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nif [ $EFFECTIVE_PLATFORM_NAME  = '-iphonesimulator' ]\nthen\nMY_TARGET_DIR=$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\nMY_SOURCE_DIR=$PROJECT_DIR/frameworks/Release$EFFECTIVE_PLATFORM_NAME\necho $MY_SOURCE_DIR\necho $MY_TARGET_DIR\ncp -R $MY_SOURCE_DIR/ $MY_TARGET_DIR/\nelse\necho \"Not simulator, no need to copy\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A1315B11D4B982000A5DA56 /* Sources */ = {
@@ -634,7 +613,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/frameworks/Release$EFFECTIVE_PLATFORM_NAME\"",
 				);
 				INFOPLIST_FILE = TravelExpenses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -657,7 +636,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/frameworks/Release$EFFECTIVE_PLATFORM_NAME\"",
 				);
 				INFOPLIST_FILE = TravelExpenses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
