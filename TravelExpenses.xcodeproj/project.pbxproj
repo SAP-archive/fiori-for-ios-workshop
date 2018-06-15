@@ -12,13 +12,15 @@
 		128604DA1E55B41600C698B5 /* SAPCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; };
 		128604DB1E55B43B00C698B5 /* SAPCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		128B53061F8E667000E64DF6 /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B53051F8E667000E64DF6 /* SnapshotViewController.swift */; };
-		12D066CF1F4DDB0E0075EBA4 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		12D066CF1F4DDB0E0075EBA4 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		12E07EF21E96851800460A94 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E07EF11E96851800460A94 /* CollectionType.swift */; };
 		12E84FE31F4ECC4A0061C99E /* SAPFioriFlows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; };
 		12E84FE41F4ECC4A0061C99E /* SAPFioriFlows.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12E84FE51F4ECF220061C99E /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */; };
 		15A7E4A28AD295C49A7387E6 /* TripItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2B03B03955A8859DAAD83 /* TripItemTypeMasterViewController.swift */; };
 		1887AE60363C0A593189195B /* ExpenseReportItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66553D118EB1BA7DF7A5709E /* ExpenseReportItemTypeMasterViewController.swift */; };
+		1BDDE1CE20D391CD00BA2693 /* MyApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BDDE1CD20D391CD00BA2693 /* MyApp.storyboard */; };
+		1BDDE1D020D3930D00BA2693 /* MyOverviewFloorplan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDDE1CF20D3930D00BA2693 /* MyOverviewFloorplan.swift */; };
 		224BB775A8CC041F4B52F02B /* ReportStatusTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895163CB2783B69A09FD09B /* ReportStatusTypeDetailViewController.swift */; };
 		2587A7CA88D3CFB4265672E2 /* ReservationType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9494A94F5A377E6B7D327DCE /* ReservationType.storyboard */; };
 		2E4E4848C75A186C26BD7BB0 /* ExpenseItemType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E578E86176AB34A1EFCDE424 /* ExpenseItemType.storyboard */; };
@@ -99,7 +101,7 @@
 /* Begin PBXFileReference section */
 		05E8DAC51DCB4F09B606EB76 /* CurrencyTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrencyTypeMasterViewController.swift; path = CurrencyType/CurrencyTypeMasterViewController.swift; sourceTree = "<group>"; };
 		0749DE67E506BCD092AC7196 /* ReservationTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationTypeMasterViewController.swift; path = ReservationType/ReservationTypeMasterViewController.swift; sourceTree = "<group>"; };
-		0ABAF517834AEC9771C4F6DF /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseItemType.storyboard; sourceTree = "<group>"; };
+		0ABAF517834AEC9771C4F6DF /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseItemType.storyboard; sourceTree = "<group>"; };
 		0B59EFFD7DBF02B82D40C4C3 /* PaymentTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentTypeMasterViewController.swift; path = PaymentType/PaymentTypeMasterViewController.swift; sourceTree = "<group>"; };
 		1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAPLogo@2x.png"; sourceTree = "<group>"; };
 		128604D91E55B41600C698B5 /* SAPCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPCommon.framework; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 		12E07EF11E96851800460A94 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPFioriFlows.framework; sourceTree = "<group>"; };
+		1BDDE1CD20D391CD00BA2693 /* MyApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyApp.storyboard; sourceTree = "<group>"; };
+		1BDDE1CF20D3930D00BA2693 /* MyOverviewFloorplan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOverviewFloorplan.swift; sourceTree = "<group>"; };
 		1E394FB314577F3861F4ED35 /* ExpenseItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemTypeDetailViewController.swift; path = ExpenseItemType/ExpenseItemTypeDetailViewController.swift; sourceTree = "<group>"; };
 		21AF9769EBE53715B05A15D9 /* ReservationItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemType.swift; path = "Proxy Classes/com.sap.expense/public/ReservationItemType.swift"; sourceTree = "<group>"; };
 		2C55A0572C203B58C52B9518 /* TravelexpenseMetadataText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataText.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataText.swift"; sourceTree = "<group>"; };
@@ -133,31 +137,31 @@
 		7A26CA1B1F31BA8800B156B6 /* CellCreationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCreationHelper.swift; sourceTree = "<group>"; };
 		7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAPFioriLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CE6394D695B3445E6707D8C /* ExpenseReportItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseReportItemType.swift"; sourceTree = "<group>"; };
-		86C91032F42FAB41B3BC1F32 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReportStatusType.storyboard; sourceTree = "<group>"; };
+		86C91032F42FAB41B3BC1F32 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReportStatusType.storyboard; sourceTree = "<group>"; };
 		8F87605D013FCA25E9424BB1 /* ReservationTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationTypeDetailViewController.swift; path = ReservationType/ReservationTypeDetailViewController.swift; sourceTree = "<group>"; };
 		92EA258B8F1C45ACB17A11E3 /* Travelexpense.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Travelexpense.swift; path = "Proxy Classes/com.sap.expense/public/Travelexpense.swift"; sourceTree = "<group>"; };
 		99C3843392CCE4B8C1E2D4BE /* ExpenseTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseTypeDetailViewController.swift; path = ExpenseType/ExpenseTypeDetailViewController.swift; sourceTree = "<group>"; };
-		A02AC852526056611BA5AEF9 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseType.storyboard; sourceTree = "<group>"; };
+		A02AC852526056611BA5AEF9 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseType.storyboard; sourceTree = "<group>"; };
 		A1D0C984CB0E1ACE6E057B66 /* TravelexpenseStaticResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseStaticResolver.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseStaticResolver.swift"; sourceTree = "<group>"; };
-		A79407CAD85FB29E8F709921 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationType.storyboard; sourceTree = "<group>"; };
+		A79407CAD85FB29E8F709921 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationType.storyboard; sourceTree = "<group>"; };
 		A8EEC1C0B964CEDCF5612D76 /* ExpenseReportItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemTypeDetailViewController.swift; path = ExpenseReportItemType/ExpenseReportItemTypeDetailViewController.swift; sourceTree = "<group>"; };
 		AF3EDA892FE3C6988CDE175D /* ExpenseItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseItemType.swift"; sourceTree = "<group>"; };
 		AFB125AB10A716332128FDB3 /* TravelexpenseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseFactory.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseFactory.swift"; sourceTree = "<group>"; };
-		B1FCBC44B60B6ED22E86BD94 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseReportItemType.storyboard; sourceTree = "<group>"; };
+		B1FCBC44B60B6ED22E86BD94 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseReportItemType.storyboard; sourceTree = "<group>"; };
 		B316175E021B4992B1ED4A8F /* ReportStatusType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusType.swift; path = "Proxy Classes/com.sap.expense/public/ReportStatusType.swift"; sourceTree = "<group>"; };
-		B4EFC6E8EBA0C9945E7E8735 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CurrencyType.storyboard; sourceTree = "<group>"; };
-		B540BB4461B43BB85626FCCD /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationItemType.storyboard; sourceTree = "<group>"; };
+		B4EFC6E8EBA0C9945E7E8735 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CurrencyType.storyboard; sourceTree = "<group>"; };
+		B540BB4461B43BB85626FCCD /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationItemType.storyboard; sourceTree = "<group>"; };
 		BCAB87FF0BD217A23E0D9988 /* TripItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemTypeDetailViewController.swift; path = TripItemType/TripItemTypeDetailViewController.swift; sourceTree = "<group>"; };
 		CB909D801E38CA8800218154 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB02AE9413CE2E452E874BFE /* ExpenseTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseTypeMasterViewController.swift; path = ExpenseType/ExpenseTypeMasterViewController.swift; sourceTree = "<group>"; };
 		E13221CDC6FF6E21E50A9962 /* PaymentTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentTypeDetailViewController.swift; path = PaymentType/PaymentTypeDetailViewController.swift; sourceTree = "<group>"; };
 		E3AA43E3E978545641CFE84B /* TravelexpenseMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadata.swift; path = "Proxy Classes/com.sap.expense/public/TravelexpenseMetadata.swift"; sourceTree = "<group>"; };
-		E71D372BE9E13999387A50C2 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymentType.storyboard; sourceTree = "<group>"; };
+		E71D372BE9E13999387A50C2 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymentType.storyboard; sourceTree = "<group>"; };
 		EA78C90907064CB18DBB836A /* ReservationItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemTypeMasterViewController.swift; path = ReservationItemType/ReservationItemTypeMasterViewController.swift; sourceTree = "<group>"; };
 		F02BED3F517526510C3128D0 /* TravelexpenseMetadataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataParser.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataParser.swift"; sourceTree = "<group>"; };
 		F3C2B03B03955A8859DAAD83 /* TripItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemTypeMasterViewController.swift; path = TripItemType/TripItemTypeMasterViewController.swift; sourceTree = "<group>"; };
 		F69559D4DE142C38EDFD3731 /* ReportStatusTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusTypeMasterViewController.swift; path = ReportStatusType/ReportStatusTypeMasterViewController.swift; sourceTree = "<group>"; };
-		F7F12F644555A67C8BC1C899 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TripItemType.storyboard; sourceTree = "<group>"; };
+		F7F12F644555A67C8BC1C899 /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TripItemType.storyboard; sourceTree = "<group>"; };
 		F895163CB2783B69A09FD09B /* ReportStatusTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusTypeDetailViewController.swift; path = ReportStatusType/ReportStatusTypeDetailViewController.swift; sourceTree = "<group>"; };
 		F9BE6500287C7F468E7EDE9B /* ExpenseType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseType.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,10 +293,12 @@
 				755C10B41D5C63B000ECF6A2 /* Utils */,
 				7A1315B81D4B982000A5DA56 /* AppDelegate.swift */,
 				CBCA7A9B1E3778A9001AF49E /* Main.storyboard */,
+				1BDDE1CD20D391CD00BA2693 /* MyApp.storyboard */,
 				7A1315C11D4B982000A5DA56 /* Assets.xcassets */,
 				7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */,
 				1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */,
 				7A1315C61D4B982000A5DA56 /* Info.plist */,
+				1BDDE1CF20D3930D00BA2693 /* MyOverviewFloorplan.swift */,
 			);
 			path = TravelExpenses;
 			sourceTree = "<group>";
@@ -463,7 +469,7 @@
 			files = (
 				7A16F06D1FD1B3C700D2FABD /* README.md in Resources */,
 				7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */,
-				12D066CF1F4DDB0E0075EBA4 /* BuildFile in Resources */,
+				12D066CF1F4DDB0E0075EBA4 /* (null) in Resources */,
 				7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */,
 				CBCA7A991E3778A9001AF49E /* Main.storyboard in Resources */,
 				1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */,
@@ -475,6 +481,7 @@
 				39298AD2A7D179673BE03D8D /* ExpenseReportItemType.storyboard in Resources */,
 				B75EE071151FCC0247DBB307 /* TripItemType.storyboard in Resources */,
 				D079CB9D13E6ED6BD05BA0B0 /* CurrencyType.storyboard in Resources */,
+				1BDDE1CE20D391CD00BA2693 /* MyApp.storyboard in Resources */,
 				9B522E36F38677CA8EA2E37C /* ExpenseType.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +505,7 @@
 				9C384A77D617A48EEC0D003C /* TravelexpenseMetadataText.swift in Sources */,
 				BF980055C5AFC3C240BCB1E5 /* TravelexpenseMetadataChanges.swift in Sources */,
 				750E0F45E86B665CF6E2DC57 /* TravelexpenseStaticResolver.swift in Sources */,
+				1BDDE1D020D3930D00BA2693 /* MyOverviewFloorplan.swift in Sources */,
 				B18C7AA2AC75EB099010849C /* PaymentType.swift in Sources */,
 				D75A184C3C0F5515F93E339C /* ReservationItemType.swift in Sources */,
 				8B857020BE5328297846B604 /* TravelexpenseMetadata.swift in Sources */,

@@ -76,11 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     private func setRootViewController() {
         DispatchQueue.main.async {
-            let splitViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainSplitViewController") as! UISplitViewController
-            splitViewController.delegate = self
-            splitViewController.modalPresentationStyle = .currentContext
-            splitViewController.preferredDisplayMode = .allVisible
-            self.window!.rootViewController = splitViewController
+            let vc = UIStoryboard(name: "MyApp", bundle: Bundle.main).instantiateInitialViewController()
+            self.window!.rootViewController = vc
         }
     }
 
