@@ -15,7 +15,6 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     // MARK: - Model
     
     private var report: ExpenseReportItemType!
-    private var isExpenseItemListDirty: Bool = false
 
     func setReport(_ report: ExpenseReportItemType) {
         self.report = report
@@ -31,6 +30,9 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment https://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst?page=2&tab=votes#comment54066953_18880341
     let objectHeader = FUIObjectHeader(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+    
+    private var addButton: UIBarButtonItem!
+
 
     // MARK: View controller hooks
     
@@ -41,7 +43,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.tableView.tableHeaderView = self.objectHeader
         self.tableView.allowsSelectionDuringEditing = false
 
-        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(addExpense))
+        addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
     }
@@ -153,6 +155,12 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         // If no longer editing, reload expense items set
         if !isEditing {
             self.reloadExpenseItems()
+        }
+        
+        if isEditing, let index = self.navigationItem.rightBarButtonItems?.index(of: addButton) {
+            self.navigationItem.rightBarButtonItems?.remove(at: index)
+        } else {
+            self.navigationItem.rightBarButtonItems?.append(addButton)
         }
     }
     
