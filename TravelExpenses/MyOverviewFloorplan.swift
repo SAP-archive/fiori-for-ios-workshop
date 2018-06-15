@@ -9,16 +9,16 @@
 import UIKit
 import SAPFiori
 import SAPOData
+import SAPOfflineOData
 
 class MyOverviewFloorplan: UITableViewController {
 
     // MARK: - Model
     
-    var expenseItems: [ExpenseItemType] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var expenseItems: [ExpenseItemType] = []
+    
+    var dataService: Travelexpense<OfflineODataProvider>!
+    let dataQuery = DataQuery().expand(ExpenseItemType.paymentType)
     
     // MARK: - View controller hooks
     
@@ -34,14 +34,14 @@ class MyOverviewFloorplan: UITableViewController {
         self.tableView.register(FUITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: FUITableViewHeaderFooterView.reuseIdentifier)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let dataService = appDelegate.travelexpense
+        dataService = appDelegate.travelexpense
         
-        let dataQuery = DataQuery().expand(ExpenseItemType.paymentType)
         dataService?.fetchExpenseItem(matching: dataQuery) { [weak self] expenses, error in
             guard let expenses = expenses else {
                 return print(String(describing: error.debugDescription))
             }
             self?.expenseItems = expenses
+            self?.tableView.reloadData()
         }
     }
 
@@ -82,5 +82,21 @@ class MyOverviewFloorplan: UITableViewController {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: FUITableViewHeaderFooterView.reuseIdentifier) as! FUITableViewHeaderFooterView
         view.titleLabel.text = "Active Expenses"
         return view
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let entity = self.expenseItems[indexPath.row]
+        
+        do {
+            try self.dataService.deleteEntity(entity)
+            self.tableView.beginUpdates()
+            self.expenseItems.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.endUpdates()
+        }
+        catch {
+            print(String(describing: error))
+        }
     }
 }
