@@ -16,12 +16,23 @@ class ReportsTableViewController: FioriBaseTableViewController {
     
     var expenseReports: [ExpenseReportItemType] = [] {
         didSet {
-            self.activeExpenseReports = expenseReports.filter { $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }
             self.tableView.reloadData()
         }
     }
 
-    private(set) var activeExpenseReports: [ExpenseReportItemType] = []
+    private var activeExpenseReports: [ExpenseReportItemType] {
+        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }).sorted(by: { (lhs, rhs) in
+            guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
+            return lStart < rStart
+        })
+    }
+    
+    private var submittedExpenseReports: [ExpenseReportItemType] {
+        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) != "ACT" }).sorted(by: { (lhs, rhs) in
+            guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
+            return lStart < rStart
+        })
+    }
 
     // MARK: View controller hooks
     
@@ -58,7 +69,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
         case 0:
             return self.activeExpenseReports.count
         case 1:
-            return self.expenseReports.count - self.activeExpenseReports.count
+            return self.submittedExpenseReports.count
         default:
             return 1
         }
@@ -67,7 +78,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0, 1:
-            let report = indexPath.section == 0 ? activeExpenseReports[indexPath.row] : expenseReports[indexPath.row]
+            let report = indexPath.section == 0 ? activeExpenseReports[indexPath.row] : submittedExpenseReports[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIObjectTableViewCell.reuseIdentifier, for: indexPath) as! FUIObjectTableViewCell
             cell.headlineText = report.reportname
             cell.footnoteText = report.reportlocation
@@ -124,7 +135,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section < 2 else { return }
 
-        let report = indexPath.section == 0 ? activeExpenseReports[indexPath.row] : expenseReports[indexPath.row]
+        let report = indexPath.section == 0 ? activeExpenseReports[indexPath.row] : submittedExpenseReports[indexPath.row]
 
         let reportDetail = ReportDetailsTableViewController(style: .grouped)
         reportDetail.setReport(report)
