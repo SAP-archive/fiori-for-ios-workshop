@@ -8,6 +8,7 @@
 
 import UIKit
 import SAPFiori
+import SAPOData
 
 class MyOverviewFloorplan: UITableViewController {
 
@@ -35,12 +36,13 @@ class MyOverviewFloorplan: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let dataService = appDelegate.travelexpense
         
-        dataService?.fetchExpenseItem(completionHandler: { [weak self] expenses, error in
+        let dataQuery = DataQuery().expand(ExpenseItemType.paymentType)
+        dataService?.fetchExpenseItem(matching: dataQuery) { [weak self] expenses, error in
             guard let expenses = expenses else {
                 return print(String(describing: error.debugDescription))
             }
             self?.expenseItems = expenses
-        })
+        }
     }
 
 
@@ -70,6 +72,8 @@ class MyOverviewFloorplan: UITableViewController {
         if let amount = expense.amount?.doubleValue() {
             cell.statusText = numberFormatter.string(from: amount as NSNumber)
         }
+        
+        cell.footnoteText = expense.paymentType?.description
         
         return cell
     }
