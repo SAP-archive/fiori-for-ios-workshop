@@ -16,7 +16,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     
     var expenseReports: [ExpenseReportItemType] = [] {
         didSet {
-            self.activeExpenseReports = expenseReports.filter { $0.reportstatusid == "ACT" }
+            self.activeExpenseReports = expenseReports.filter { $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }
             self.tableView.reloadData()
         }
     }

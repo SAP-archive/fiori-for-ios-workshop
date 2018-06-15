@@ -20,11 +20,11 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.report = report
         
         self.objectHeader.headlineText = report.reportname
-        self.objectHeader.subheadlineText = report.reportid
+        self.objectHeader.subheadlineText = report.reportlocation
         self.objectHeader.tags = ["Active", "Not Customer Facing"].map({
             FUITag(title: $0)
         })
-        self.objectHeader.bodyText = report.reportlocation
+        self.objectHeader.bodyText = report.reportid
         self.objectHeader.footnoteText = report.rangeString()
     }
 

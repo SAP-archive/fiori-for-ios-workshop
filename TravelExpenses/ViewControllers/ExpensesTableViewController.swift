@@ -32,13 +32,13 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
-
-        self.navigationItem.title = "Expense Reports"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationItem.title = "Expense Reports"
         
         let query = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType)
         DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] (items, error) in

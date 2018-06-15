@@ -204,7 +204,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         case (1, 2):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
             cell.keyName = "Location"
-            cell.valueOptions = ["San Francisco, CA", "Las Vegas, NV"]
+            cell.valueOptions = Array(Set(reportsPickerDataSource.entities.compactMap { $0.reportlocation }))
             cell.allowsEmptySelection = false
             cell.allowsMultipleSelection = false
             cell.onChangeHandler = { [weak self, weak cell] in

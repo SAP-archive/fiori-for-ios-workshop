@@ -46,6 +46,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
         report.reportid = UUID().uuidString
         report.reportstart = LocalDateTime.from(utc: Date())
         report.reportend = LocalDateTime.from(utc: Date().addingTimeInterval(86400))
+        report.reportstatusid = "ACT"
         
         // Populate options for the list picker data sources
         do {
