@@ -90,13 +90,18 @@ class MyOverviewFloorplan: UITableViewController {
         
         do {
             try self.dataService.deleteEntity(entity)
-            self.tableView.beginUpdates()
-            self.expenseItems.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.endUpdates()
         }
         catch {
             print(String(describing: error))
+        }
+        
+        self.tableView.beginUpdates()
+        self.expenseItems.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+        self.tableView.endUpdates()
+        
+        if let vendor = entity.vendor {
+            FUIToastMessage.show(message: "Expense at: \(vendor) deleted")
         }
     }
 }
