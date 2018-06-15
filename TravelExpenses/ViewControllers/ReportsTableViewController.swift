@@ -72,19 +72,26 @@ class ReportsTableViewController: FioriBaseTableViewController {
             cell.headlineText = report.reportname
             cell.footnoteText = report.reportlocation
             cell.subheadlineText = report.rangeString()
-            cell.accessoryType = .disclosureIndicator
-            if let statusId = report.reportstatusid {
-                switch statusId {
-                case "ACT":
-                    cell.statusText = nil
-                case "PND":
+            
+            if let status = report.reportstatusid {
+                switch status.trimmingCharacters(in: .whitespaces) {
+                case "PEN":
                     cell.statusText = "Pending"
                     cell.statusLabel.textColor = UIColor.preferredFioriColor(forStyle: .critical)
-                default:
+                case "APP":
                     cell.statusText = "Approved"
                     cell.statusLabel.textColor = UIColor.preferredFioriColor(forStyle: .positive)
+                case "REJ":
+                    cell.statusText = "Rejected"
+                    cell.statusLabel.textColor = UIColor.preferredFioriColor(forStyle: .negative)
+                case "ACT":
+                    cell.statusText = "Active"
+                default:
+                    break
                 }
             }
+            
+            cell.accessoryType = .disclosureIndicator
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: FUITextFieldFormCell.reuseIdentifier, for: indexPath) as! FUITextFieldFormCell

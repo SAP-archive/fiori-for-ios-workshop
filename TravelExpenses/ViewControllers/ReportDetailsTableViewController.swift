@@ -96,18 +96,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             if let date = expense.itemdate {
                 cell.subheadlineText = DateFormatter(.medium).string(from: date.utc())
             }
-            if let source = expense.paymenttypeid {
-                switch source {
-                case "EMP":
-                    cell.footnoteText = "Employee paid"
-                case "COM":
-                    cell.footnoteText = "Company paid"
-                case "AAA":
-                    cell.footnoteText = "AAA-paid"
-                default:
-                    break
-                }
-            }
+            cell.footnoteText = expense.paymentType?.description
             cell.statusText = NumberFormatter(.currency).string(from: expense.amount!.doubleValue() as NSNumber)
             return cell
         }
@@ -172,7 +161,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     }
     
     func reloadExpenseItems() {
-        let query = DataQuery().orderBy(ExpenseItemType.itemdate)
+        let query = DataQuery().expand(ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
         DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: self.report, query: query) { [weak self] (error) in
             guard error == nil else {
                 return print(error!)
