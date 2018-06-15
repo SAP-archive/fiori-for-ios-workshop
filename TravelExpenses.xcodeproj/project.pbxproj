@@ -1,0 +1,819 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CF1EB9C632786E4BB273000 /* PaymentTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B59EFFD7DBF02B82D40C4C3 /* PaymentTypeMasterViewController.swift */; };
+		1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */; };
+		128604DA1E55B41600C698B5 /* SAPCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; };
+		128604DB1E55B43B00C698B5 /* SAPCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128604D91E55B41600C698B5 /* SAPCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		128B53061F8E667000E64DF6 /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B53051F8E667000E64DF6 /* SnapshotViewController.swift */; };
+		12D066CF1F4DDB0E0075EBA4 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		12E07EF21E96851800460A94 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E07EF11E96851800460A94 /* CollectionType.swift */; };
+		12E84FE31F4ECC4A0061C99E /* SAPFioriFlows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; };
+		12E84FE41F4ECC4A0061C99E /* SAPFioriFlows.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		12E84FE51F4ECF220061C99E /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */; };
+		15A7E4A28AD295C49A7387E6 /* TripItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2B03B03955A8859DAAD83 /* TripItemTypeMasterViewController.swift */; };
+		1887AE60363C0A593189195B /* ExpenseReportItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66553D118EB1BA7DF7A5709E /* ExpenseReportItemTypeMasterViewController.swift */; };
+		224BB775A8CC041F4B52F02B /* ReportStatusTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895163CB2783B69A09FD09B /* ReportStatusTypeDetailViewController.swift */; };
+		2587A7CA88D3CFB4265672E2 /* ReservationType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9494A94F5A377E6B7D327DCE /* ReservationType.storyboard */; };
+		2E4E4848C75A186C26BD7BB0 /* ExpenseItemType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E578E86176AB34A1EFCDE424 /* ExpenseItemType.storyboard */; };
+		2E50C4E2C16E49435A692C5B /* ReportStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B316175E021B4992B1ED4A8F /* ReportStatusType.swift */; };
+		33E8AA92F56D2833F9464547 /* CurrencyTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E8DAC51DCB4F09B606EB76 /* CurrencyTypeMasterViewController.swift */; };
+		36D334F83A72CACED356BAAD /* ReservationTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F87605D013FCA25E9424BB1 /* ReservationTypeDetailViewController.swift */; };
+		39298AD2A7D179673BE03D8D /* ExpenseReportItemType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E93C4DA21240B79C5DD5FFA /* ExpenseReportItemType.storyboard */; };
+		443531E01CD431EDD71958F2 /* TripItemTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB87FF0BD217A23E0D9988 /* TripItemTypeDetailViewController.swift */; };
+		4FA75945BF901642F5832FA5 /* ReservationItemTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673119F9FCE342CDC5537F6D /* ReservationItemTypeDetailViewController.swift */; };
+		5B2F207175BD98398664CB36 /* ReservationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D40E0F1FA539DF81B21A9D /* ReservationType.swift */; };
+		5DDA6DF0F45B6F0D980EB6E1 /* PaymentType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD011DD78EC81FE9AFEDC90 /* PaymentType.storyboard */; };
+		63A92F98CD8D9C8D2CA9C12C /* ReportStatusType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D627F00B48D32EF8DC938DB /* ReportStatusType.storyboard */; };
+		750E0F45E86B665CF6E2DC57 /* TravelexpenseStaticResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0C984CB0E1ACE6E057B66 /* TravelexpenseStaticResolver.swift */; };
+		755533981F25FD330017A1BC /* SAPOfflineOData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */; };
+		755533991F25FD330017A1BC /* SAPOfflineOData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		756192211DBE1A99007F562C /* SAPOData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7561921A1DBE1A90007F562C /* SAPOData.framework */; };
+		756192221DBE1A99007F562C /* SAPOData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7561921A1DBE1A90007F562C /* SAPOData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7569DA531E5C717C00C5D751 /* SAPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7569DA511E5C716A00C5D751 /* SAPFoundation.framework */; };
+		7569DA541E5C717C00C5D751 /* SAPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7569DA511E5C716A00C5D751 /* SAPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		759BA2701E6821A7001C32BA /* SAPFiori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759BA26F1E6821A7001C32BA /* SAPFiori.framework */; };
+		759BA2721E6821AF001C32BA /* SAPFiori.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 759BA26F1E6821A7001C32BA /* SAPFiori.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75AC42D41DAF824D00B445FF /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC42CE1DAF824D00B445FF /* CollectionsViewController.swift */; };
+		7A1315B91D4B982000A5DA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1315B81D4B982000A5DA56 /* AppDelegate.swift */; };
+		7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1315C11D4B982000A5DA56 /* Assets.xcassets */; };
+		7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */; };
+		7A16F06D1FD1B3C700D2FABD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7A16F06C1FD1B3C700D2FABD /* README.md */; };
+		7A26CA1C1F31BA8800B156B6 /* CellCreationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A26CA1B1F31BA8800B156B6 /* CellCreationHelper.swift */; };
+		7A9F6FF61F3883D3000A1815 /* SAPFioriLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */; };
+		7AB7106FA4F905D39A576B12 /* ExpenseReportItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE6394D695B3445E6707D8C /* ExpenseReportItemType.swift */; };
+		7DDC047B7EAFED75CFF45E72 /* ExpenseTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02AE9413CE2E452E874BFE /* ExpenseTypeMasterViewController.swift */; };
+		7F509E737A6EE4BF84E7A4FD /* ExpenseItemTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E394FB314577F3861F4ED35 /* ExpenseItemTypeDetailViewController.swift */; };
+		84EE3C6D042FF7C47BDB8E0E /* ReservationItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA78C90907064CB18DBB836A /* ReservationItemTypeMasterViewController.swift */; };
+		89CFB2E630F93CC4B0354197 /* ExpenseReportItemTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEC1C0B964CEDCF5612D76 /* ExpenseReportItemTypeDetailViewController.swift */; };
+		8B76215FA28A557C225D1FE3 /* TravelexpenseMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02BED3F517526510C3128D0 /* TravelexpenseMetadataParser.swift */; };
+		8B857020BE5328297846B604 /* TravelexpenseMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AA43E3E978545641CFE84B /* TravelexpenseMetadata.swift */; };
+		917D576EE8F18C7D14E9DF3A /* CurrencyTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F3C474F00A19E43A19746 /* CurrencyTypeDetailViewController.swift */; };
+		91F17A1B34586D8749FEEDDF /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691984FDC2D783152C15F46D /* CurrencyType.swift */; };
+		97FAA4BD76038B0E67BF55E2 /* ReportStatusTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69559D4DE142C38EDFD3731 /* ReportStatusTypeMasterViewController.swift */; };
+		9B522E36F38677CA8EA2E37C /* ExpenseType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE919E4C85E8996C17E727C /* ExpenseType.storyboard */; };
+		9BF49E0AB3CB7729E61185A9 /* ReservationTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0749DE67E506BCD092AC7196 /* ReservationTypeMasterViewController.swift */; };
+		9C384A77D617A48EEC0D003C /* TravelexpenseMetadataText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55A0572C203B58C52B9518 /* TravelexpenseMetadataText.swift */; };
+		A0121BE86234B58ED51A7067 /* ExpenseTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3843392CCE4B8C1E2D4BE /* ExpenseTypeDetailViewController.swift */; };
+		A35169A5699C81CEB32AAE6B /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE6500287C7F468E7EDE9B /* ExpenseType.swift */; };
+		A9F076E4CC25D12508E0F4F9 /* ExpenseItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EDA892FE3C6988CDE175D /* ExpenseItemType.swift */; };
+		B18C7AA2AC75EB099010849C /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858AEA0E51C0C37A69A15EE /* PaymentType.swift */; };
+		B3D104E22E95940C8790AA88 /* ReservationItemType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B826AA4DFFF32C1933EE26B0 /* ReservationItemType.storyboard */; };
+		B75EE071151FCC0247DBB307 /* TripItemType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AD518B3EE8427AD5F2A31F /* TripItemType.storyboard */; };
+		BF980055C5AFC3C240BCB1E5 /* TravelexpenseMetadataChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE8F600DE91F34BED7E2C0 /* TravelexpenseMetadataChanges.swift */; };
+		C420F2C7CCA9448F624D8A40 /* ExpenseItemTypeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F02E263B72A0781D22E390 /* ExpenseItemTypeMasterViewController.swift */; };
+		C9002CCE727A4593DD8918EB /* TripItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494E93C2BEFF1B8BF8B3BEEB /* TripItemType.swift */; };
+		CBCA7A991E3778A9001AF49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCA7A9B1E3778A9001AF49E /* Main.storyboard */; };
+		D079CB9D13E6ED6BD05BA0B0 /* CurrencyType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C206EF408F8EDD0CCD754A /* CurrencyType.storyboard */; };
+		D4A0438558757089F1FBA006 /* PaymentTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13221CDC6FF6E21E50A9962 /* PaymentTypeDetailViewController.swift */; };
+		D75A184C3C0F5515F93E339C /* ReservationItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF9769EBE53715B05A15D9 /* ReservationItemType.swift */; };
+		DE3E686219C43C9C21C691AC /* TravelexpenseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB125AB10A716332128FDB3 /* TravelexpenseFactory.swift */; };
+		E0F8EAD648A1CEA680B07BD5 /* Travelexpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA258B8F1C45ACB17A11E3 /* Travelexpense.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		758AC1C31D5A265200311F39 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7569DA541E5C717C00C5D751 /* SAPFoundation.framework in Embed Frameworks */,
+				12E84FE41F4ECC4A0061C99E /* SAPFioriFlows.framework in Embed Frameworks */,
+				128604DB1E55B43B00C698B5 /* SAPCommon.framework in Embed Frameworks */,
+				755533991F25FD330017A1BC /* SAPOfflineOData.framework in Embed Frameworks */,
+				756192221DBE1A99007F562C /* SAPOData.framework in Embed Frameworks */,
+				759BA2721E6821AF001C32BA /* SAPFiori.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		05E8DAC51DCB4F09B606EB76 /* CurrencyTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrencyTypeMasterViewController.swift; path = CurrencyType/CurrencyTypeMasterViewController.swift; sourceTree = "<group>"; };
+		0749DE67E506BCD092AC7196 /* ReservationTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationTypeMasterViewController.swift; path = ReservationType/ReservationTypeMasterViewController.swift; sourceTree = "<group>"; };
+		0ABAF517834AEC9771C4F6DF /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseItemType.storyboard; sourceTree = "<group>"; };
+		0B59EFFD7DBF02B82D40C4C3 /* PaymentTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentTypeMasterViewController.swift; path = PaymentType/PaymentTypeMasterViewController.swift; sourceTree = "<group>"; };
+		1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAPLogo@2x.png"; sourceTree = "<group>"; };
+		128604D91E55B41600C698B5 /* SAPCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPCommon.framework; sourceTree = "<group>"; };
+		128B53051F8E667000E64DF6 /* SnapshotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotViewController.swift; sourceTree = "<group>"; };
+		12E07EF11E96851800460A94 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
+		12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPFioriFlows.framework; sourceTree = "<group>"; };
+		1E394FB314577F3861F4ED35 /* ExpenseItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemTypeDetailViewController.swift; path = ExpenseItemType/ExpenseItemTypeDetailViewController.swift; sourceTree = "<group>"; };
+		21AF9769EBE53715B05A15D9 /* ReservationItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemType.swift; path = "Proxy Classes/com.sap.expense/public/ReservationItemType.swift"; sourceTree = "<group>"; };
+		2C55A0572C203B58C52B9518 /* TravelexpenseMetadataText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataText.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataText.swift"; sourceTree = "<group>"; };
+		41FE8F600DE91F34BED7E2C0 /* TravelexpenseMetadataChanges.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataChanges.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataChanges.swift"; sourceTree = "<group>"; };
+		45D40E0F1FA539DF81B21A9D /* ReservationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationType.swift; path = "Proxy Classes/com.sap.expense/public/ReservationType.swift"; sourceTree = "<group>"; };
+		494E93C2BEFF1B8BF8B3BEEB /* TripItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemType.swift; path = "Proxy Classes/com.sap.expense/public/TripItemType.swift"; sourceTree = "<group>"; };
+		551F3C474F00A19E43A19746 /* CurrencyTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrencyTypeDetailViewController.swift; path = CurrencyType/CurrencyTypeDetailViewController.swift; sourceTree = "<group>"; };
+		5858AEA0E51C0C37A69A15EE /* PaymentType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentType.swift; path = "Proxy Classes/com.sap.expense/public/PaymentType.swift"; sourceTree = "<group>"; };
+		66553D118EB1BA7DF7A5709E /* ExpenseReportItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemTypeMasterViewController.swift; path = ExpenseReportItemType/ExpenseReportItemTypeMasterViewController.swift; sourceTree = "<group>"; };
+		673119F9FCE342CDC5537F6D /* ReservationItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemTypeDetailViewController.swift; path = ReservationItemType/ReservationItemTypeDetailViewController.swift; sourceTree = "<group>"; };
+		691984FDC2D783152C15F46D /* CurrencyType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrencyType.swift; path = "Proxy Classes/com.sap.expense/public/CurrencyType.swift"; sourceTree = "<group>"; };
+		72F02E263B72A0781D22E390 /* ExpenseItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemTypeMasterViewController.swift; path = ExpenseItemType/ExpenseItemTypeMasterViewController.swift; sourceTree = "<group>"; };
+		755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPOfflineOData.framework; sourceTree = "<group>"; };
+		7561921A1DBE1A90007F562C /* SAPOData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPOData.framework; sourceTree = "<group>"; };
+		7569DA511E5C716A00C5D751 /* SAPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPFoundation.framework; sourceTree = "<group>"; };
+		759BA26F1E6821A7001C32BA /* SAPFiori.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SAPFiori.framework; sourceTree = "<group>"; };
+		75AC42CE1DAF824D00B445FF /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		7A1315B51D4B982000A5DA56 /* TravelExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1315B81D4B982000A5DA56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A1315C11D4B982000A5DA56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A1315C41D4B982000A5DA56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A1315C61D4B982000A5DA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A16F06C1FD1B3C700D2FABD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7A26CA1B1F31BA8800B156B6 /* CellCreationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCreationHelper.swift; sourceTree = "<group>"; };
+		7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAPFioriLoadingIndicator.swift; sourceTree = "<group>"; };
+		7CE6394D695B3445E6707D8C /* ExpenseReportItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseReportItemType.swift"; sourceTree = "<group>"; };
+		86C91032F42FAB41B3BC1F32 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReportStatusType.storyboard; sourceTree = "<group>"; };
+		8F87605D013FCA25E9424BB1 /* ReservationTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationTypeDetailViewController.swift; path = ReservationType/ReservationTypeDetailViewController.swift; sourceTree = "<group>"; };
+		92EA258B8F1C45ACB17A11E3 /* Travelexpense.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Travelexpense.swift; path = "Proxy Classes/com.sap.expense/public/Travelexpense.swift"; sourceTree = "<group>"; };
+		99C3843392CCE4B8C1E2D4BE /* ExpenseTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseTypeDetailViewController.swift; path = ExpenseType/ExpenseTypeDetailViewController.swift; sourceTree = "<group>"; };
+		A02AC852526056611BA5AEF9 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseType.storyboard; sourceTree = "<group>"; };
+		A1D0C984CB0E1ACE6E057B66 /* TravelexpenseStaticResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseStaticResolver.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseStaticResolver.swift"; sourceTree = "<group>"; };
+		A79407CAD85FB29E8F709921 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationType.storyboard; sourceTree = "<group>"; };
+		A8EEC1C0B964CEDCF5612D76 /* ExpenseReportItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemTypeDetailViewController.swift; path = ExpenseReportItemType/ExpenseReportItemTypeDetailViewController.swift; sourceTree = "<group>"; };
+		AF3EDA892FE3C6988CDE175D /* ExpenseItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseItemType.swift"; sourceTree = "<group>"; };
+		AFB125AB10A716332128FDB3 /* TravelexpenseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseFactory.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseFactory.swift"; sourceTree = "<group>"; };
+		B1FCBC44B60B6ED22E86BD94 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpenseReportItemType.storyboard; sourceTree = "<group>"; };
+		B316175E021B4992B1ED4A8F /* ReportStatusType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusType.swift; path = "Proxy Classes/com.sap.expense/public/ReportStatusType.swift"; sourceTree = "<group>"; };
+		B4EFC6E8EBA0C9945E7E8735 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CurrencyType.storyboard; sourceTree = "<group>"; };
+		B540BB4461B43BB85626FCCD /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReservationItemType.storyboard; sourceTree = "<group>"; };
+		BCAB87FF0BD217A23E0D9988 /* TripItemTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemTypeDetailViewController.swift; path = TripItemType/TripItemTypeDetailViewController.swift; sourceTree = "<group>"; };
+		CB909D801E38CA8800218154 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB02AE9413CE2E452E874BFE /* ExpenseTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseTypeMasterViewController.swift; path = ExpenseType/ExpenseTypeMasterViewController.swift; sourceTree = "<group>"; };
+		E13221CDC6FF6E21E50A9962 /* PaymentTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentTypeDetailViewController.swift; path = PaymentType/PaymentTypeDetailViewController.swift; sourceTree = "<group>"; };
+		E3AA43E3E978545641CFE84B /* TravelexpenseMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadata.swift; path = "Proxy Classes/com.sap.expense/public/TravelexpenseMetadata.swift"; sourceTree = "<group>"; };
+		E71D372BE9E13999387A50C2 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymentType.storyboard; sourceTree = "<group>"; };
+		EA78C90907064CB18DBB836A /* ReservationItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemTypeMasterViewController.swift; path = ReservationItemType/ReservationItemTypeMasterViewController.swift; sourceTree = "<group>"; };
+		F02BED3F517526510C3128D0 /* TravelexpenseMetadataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataParser.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataParser.swift"; sourceTree = "<group>"; };
+		F3C2B03B03955A8859DAAD83 /* TripItemTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemTypeMasterViewController.swift; path = TripItemType/TripItemTypeMasterViewController.swift; sourceTree = "<group>"; };
+		F69559D4DE142C38EDFD3731 /* ReportStatusTypeMasterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusTypeMasterViewController.swift; path = ReportStatusType/ReportStatusTypeMasterViewController.swift; sourceTree = "<group>"; };
+		F7F12F644555A67C8BC1C899 /* Base */ = {isa = PBXFileReference; includeInIndex = ""; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TripItemType.storyboard; sourceTree = "<group>"; };
+		F895163CB2783B69A09FD09B /* ReportStatusTypeDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportStatusTypeDetailViewController.swift; path = ReportStatusType/ReportStatusTypeDetailViewController.swift; sourceTree = "<group>"; };
+		F9BE6500287C7F468E7EDE9B /* ExpenseType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseType.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A1315B21D4B982000A5DA56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7569DA531E5C717C00C5D751 /* SAPFoundation.framework in Frameworks */,
+				12E84FE31F4ECC4A0061C99E /* SAPFioriFlows.framework in Frameworks */,
+				756192211DBE1A99007F562C /* SAPOData.framework in Frameworks */,
+				755533981F25FD330017A1BC /* SAPOfflineOData.framework in Frameworks */,
+				128604DA1E55B41600C698B5 /* SAPCommon.framework in Frameworks */,
+				759BA2701E6821A7001C32BA /* SAPFiori.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12D066CB1F4DDAE40075EBA4 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		3A1068F1F34ECDB1ED0DB0F4 /* ExpenseReportItemType */ = {
+			isa = PBXGroup;
+			children = (
+				4E93C4DA21240B79C5DD5FFA /* ExpenseReportItemType.storyboard */,
+				66553D118EB1BA7DF7A5709E /* ExpenseReportItemTypeMasterViewController.swift */,
+				A8EEC1C0B964CEDCF5612D76 /* ExpenseReportItemTypeDetailViewController.swift */,
+			);
+			name = ExpenseReportItemType;
+			sourceTree = "<group>";
+		};
+		4847E0BE14AB7A2CC2E8F11A /* ReportStatusType */ = {
+			isa = PBXGroup;
+			children = (
+				9D627F00B48D32EF8DC938DB /* ReportStatusType.storyboard */,
+				F69559D4DE142C38EDFD3731 /* ReportStatusTypeMasterViewController.swift */,
+				F895163CB2783B69A09FD09B /* ReportStatusTypeDetailViewController.swift */,
+			);
+			name = ReportStatusType;
+			sourceTree = "<group>";
+		};
+		552A731C77C3EC0AA87C6084 /* ExpenseItemType */ = {
+			isa = PBXGroup;
+			children = (
+				E578E86176AB34A1EFCDE424 /* ExpenseItemType.storyboard */,
+				72F02E263B72A0781D22E390 /* ExpenseItemTypeMasterViewController.swift */,
+				1E394FB314577F3861F4ED35 /* ExpenseItemTypeDetailViewController.swift */,
+			);
+			name = ExpenseItemType;
+			sourceTree = "<group>";
+		};
+		7532C1BB1D5B6917004B03AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12E07EF11E96851800460A94 /* CollectionType.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		755C10B41D5C63B000ECF6A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */,
+				7A26CA1B1F31BA8800B156B6 /* CellCreationHelper.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		75AC42C81DAF80C000B445FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75AC42CE1DAF824D00B445FF /* CollectionsViewController.swift */,
+				128B53051F8E667000E64DF6 /* SnapshotViewController.swift */,
+				CC40029F24DE45375F9CAB44 /* ReservationType */,
+				D73242FE5684EDF4BB89F975 /* PaymentType */,
+				552A731C77C3EC0AA87C6084 /* ExpenseItemType */,
+				4847E0BE14AB7A2CC2E8F11A /* ReportStatusType */,
+				7BFFE60704502BFC6AA4AF3C /* ReservationItemType */,
+				3A1068F1F34ECDB1ED0DB0F4 /* ExpenseReportItemType */,
+				A9EF8A5CB54938305886A67B /* TripItemType */,
+				A57FC382FEA240DE22CAB5EE /* CurrencyType */,
+				B7F7E49B8A977A877AD2EB37 /* ExpenseType */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		75D373EF1DD1FB0800888D4C /* Proxy Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA10BA97A7B536DA71BC250A /* internal */,
+				CC3CC34CFF63AD14637A4FE3 /* public */,
+			);
+			name = "Proxy Classes";
+			sourceTree = "<group>";
+		};
+		7A1315AC1D4B982000A5DA56 = {
+			isa = PBXGroup;
+			children = (
+				7A16F06C1FD1B3C700D2FABD /* README.md */,
+				7A1315B71D4B982000A5DA56 /* TravelExpenses */,
+				7A1315B61D4B982000A5DA56 /* Products */,
+				7A1315CC1D4B990B00A5DA56 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A1315B61D4B982000A5DA56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A1315B51D4B982000A5DA56 /* TravelExpenses.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A1315B71D4B982000A5DA56 /* TravelExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				12D066CB1F4DDAE40075EBA4 /* Onboarding */,
+				7532C1BB1D5B6917004B03AF /* Model */,
+				75AC42C81DAF80C000B445FF /* ViewControllers */,
+				75D373EF1DD1FB0800888D4C /* Proxy Classes */,
+				755C10B41D5C63B000ECF6A2 /* Utils */,
+				7A1315B81D4B982000A5DA56 /* AppDelegate.swift */,
+				CBCA7A9B1E3778A9001AF49E /* Main.storyboard */,
+				7A1315C11D4B982000A5DA56 /* Assets.xcassets */,
+				7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */,
+				1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */,
+				7A1315C61D4B982000A5DA56 /* Info.plist */,
+			);
+			path = TravelExpenses;
+			sourceTree = "<group>";
+		};
+		7A1315CC1D4B990B00A5DA56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12E84FE21F4ECC3E0061C99E /* SAPFioriFlows.framework */,
+				755533971F25FD2A0017A1BC /* SAPOfflineOData.framework */,
+				759BA26F1E6821A7001C32BA /* SAPFiori.framework */,
+				7569DA511E5C716A00C5D751 /* SAPFoundation.framework */,
+				7561921A1DBE1A90007F562C /* SAPOData.framework */,
+				128604D91E55B41600C698B5 /* SAPCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BFFE60704502BFC6AA4AF3C /* ReservationItemType */ = {
+			isa = PBXGroup;
+			children = (
+				B826AA4DFFF32C1933EE26B0 /* ReservationItemType.storyboard */,
+				EA78C90907064CB18DBB836A /* ReservationItemTypeMasterViewController.swift */,
+				673119F9FCE342CDC5537F6D /* ReservationItemTypeDetailViewController.swift */,
+			);
+			name = ReservationItemType;
+			sourceTree = "<group>";
+		};
+		A57FC382FEA240DE22CAB5EE /* CurrencyType */ = {
+			isa = PBXGroup;
+			children = (
+				95C206EF408F8EDD0CCD754A /* CurrencyType.storyboard */,
+				05E8DAC51DCB4F09B606EB76 /* CurrencyTypeMasterViewController.swift */,
+				551F3C474F00A19E43A19746 /* CurrencyTypeDetailViewController.swift */,
+			);
+			name = CurrencyType;
+			sourceTree = "<group>";
+		};
+		A9EF8A5CB54938305886A67B /* TripItemType */ = {
+			isa = PBXGroup;
+			children = (
+				25AD518B3EE8427AD5F2A31F /* TripItemType.storyboard */,
+				F3C2B03B03955A8859DAAD83 /* TripItemTypeMasterViewController.swift */,
+				BCAB87FF0BD217A23E0D9988 /* TripItemTypeDetailViewController.swift */,
+			);
+			name = TripItemType;
+			sourceTree = "<group>";
+		};
+		B7F7E49B8A977A877AD2EB37 /* ExpenseType */ = {
+			isa = PBXGroup;
+			children = (
+				7DE919E4C85E8996C17E727C /* ExpenseType.storyboard */,
+				DB02AE9413CE2E452E874BFE /* ExpenseTypeMasterViewController.swift */,
+				99C3843392CCE4B8C1E2D4BE /* ExpenseTypeDetailViewController.swift */,
+			);
+			name = ExpenseType;
+			sourceTree = "<group>";
+		};
+		BA10BA97A7B536DA71BC250A /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				AFB125AB10A716332128FDB3 /* TravelexpenseFactory.swift */,
+				F02BED3F517526510C3128D0 /* TravelexpenseMetadataParser.swift */,
+				2C55A0572C203B58C52B9518 /* TravelexpenseMetadataText.swift */,
+				41FE8F600DE91F34BED7E2C0 /* TravelexpenseMetadataChanges.swift */,
+				A1D0C984CB0E1ACE6E057B66 /* TravelexpenseStaticResolver.swift */,
+			);
+			name = internal;
+			sourceTree = "<group>";
+		};
+		CC3CC34CFF63AD14637A4FE3 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				5858AEA0E51C0C37A69A15EE /* PaymentType.swift */,
+				21AF9769EBE53715B05A15D9 /* ReservationItemType.swift */,
+				E3AA43E3E978545641CFE84B /* TravelexpenseMetadata.swift */,
+				45D40E0F1FA539DF81B21A9D /* ReservationType.swift */,
+				B316175E021B4992B1ED4A8F /* ReportStatusType.swift */,
+				691984FDC2D783152C15F46D /* CurrencyType.swift */,
+				7CE6394D695B3445E6707D8C /* ExpenseReportItemType.swift */,
+				92EA258B8F1C45ACB17A11E3 /* Travelexpense.swift */,
+				AF3EDA892FE3C6988CDE175D /* ExpenseItemType.swift */,
+				494E93C2BEFF1B8BF8B3BEEB /* TripItemType.swift */,
+				F9BE6500287C7F468E7EDE9B /* ExpenseType.swift */,
+			);
+			name = public;
+			sourceTree = "<group>";
+		};
+		CC40029F24DE45375F9CAB44 /* ReservationType */ = {
+			isa = PBXGroup;
+			children = (
+				9494A94F5A377E6B7D327DCE /* ReservationType.storyboard */,
+				0749DE67E506BCD092AC7196 /* ReservationTypeMasterViewController.swift */,
+				8F87605D013FCA25E9424BB1 /* ReservationTypeDetailViewController.swift */,
+			);
+			name = ReservationType;
+			sourceTree = "<group>";
+		};
+		D73242FE5684EDF4BB89F975 /* PaymentType */ = {
+			isa = PBXGroup;
+			children = (
+				1CD011DD78EC81FE9AFEDC90 /* PaymentType.storyboard */,
+				0B59EFFD7DBF02B82D40C4C3 /* PaymentTypeMasterViewController.swift */,
+				E13221CDC6FF6E21E50A9962 /* PaymentTypeDetailViewController.swift */,
+			);
+			name = PaymentType;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A1315B41D4B982000A5DA56 /* TravelExpenses */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A1315C91D4B982000A5DA56 /* Build configuration list for PBXNativeTarget "TravelExpenses" */;
+			buildPhases = (
+				7A1315B11D4B982000A5DA56 /* Sources */,
+				7A1315B21D4B982000A5DA56 /* Frameworks */,
+				7A1315B31D4B982000A5DA56 /* Resources */,
+				758AC1C31D5A265200311F39 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravelExpenses;
+			productName = TravelExpenses;
+			productReference = 7A1315B51D4B982000A5DA56 /* TravelExpenses.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A1315AD1D4B982000A5DA56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = SAP;
+				TargetAttributes = {
+					7A1315B41D4B982000A5DA56 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7A1315B01D4B982000A5DA56 /* Build configuration list for PBXProject "TravelExpenses" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A1315AC1D4B982000A5DA56;
+			productRefGroup = 7A1315B61D4B982000A5DA56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A1315B41D4B982000A5DA56 /* TravelExpenses */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A1315B31D4B982000A5DA56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A16F06D1FD1B3C700D2FABD /* README.md in Resources */,
+				7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */,
+				12D066CF1F4DDB0E0075EBA4 /* BuildFile in Resources */,
+				7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */,
+				CBCA7A991E3778A9001AF49E /* Main.storyboard in Resources */,
+				1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */,
+				2587A7CA88D3CFB4265672E2 /* ReservationType.storyboard in Resources */,
+				5DDA6DF0F45B6F0D980EB6E1 /* PaymentType.storyboard in Resources */,
+				2E4E4848C75A186C26BD7BB0 /* ExpenseItemType.storyboard in Resources */,
+				63A92F98CD8D9C8D2CA9C12C /* ReportStatusType.storyboard in Resources */,
+				B3D104E22E95940C8790AA88 /* ReservationItemType.storyboard in Resources */,
+				39298AD2A7D179673BE03D8D /* ExpenseReportItemType.storyboard in Resources */,
+				B75EE071151FCC0247DBB307 /* TripItemType.storyboard in Resources */,
+				D079CB9D13E6ED6BD05BA0B0 /* CurrencyType.storyboard in Resources */,
+				9B522E36F38677CA8EA2E37C /* ExpenseType.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A1315B11D4B982000A5DA56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128B53061F8E667000E64DF6 /* SnapshotViewController.swift in Sources */,
+				12E84FE51F4ECF220061C99E /* OnboardingManager.swift in Sources */,
+				7A9F6FF61F3883D3000A1815 /* SAPFioriLoadingIndicator.swift in Sources */,
+				7A26CA1C1F31BA8800B156B6 /* CellCreationHelper.swift in Sources */,
+				12E07EF21E96851800460A94 /* CollectionType.swift in Sources */,
+				75AC42D41DAF824D00B445FF /* CollectionsViewController.swift in Sources */,
+				7A1315B91D4B982000A5DA56 /* AppDelegate.swift in Sources */,
+				DE3E686219C43C9C21C691AC /* TravelexpenseFactory.swift in Sources */,
+				8B76215FA28A557C225D1FE3 /* TravelexpenseMetadataParser.swift in Sources */,
+				9C384A77D617A48EEC0D003C /* TravelexpenseMetadataText.swift in Sources */,
+				BF980055C5AFC3C240BCB1E5 /* TravelexpenseMetadataChanges.swift in Sources */,
+				750E0F45E86B665CF6E2DC57 /* TravelexpenseStaticResolver.swift in Sources */,
+				B18C7AA2AC75EB099010849C /* PaymentType.swift in Sources */,
+				D75A184C3C0F5515F93E339C /* ReservationItemType.swift in Sources */,
+				8B857020BE5328297846B604 /* TravelexpenseMetadata.swift in Sources */,
+				5B2F207175BD98398664CB36 /* ReservationType.swift in Sources */,
+				2E50C4E2C16E49435A692C5B /* ReportStatusType.swift in Sources */,
+				91F17A1B34586D8749FEEDDF /* CurrencyType.swift in Sources */,
+				7AB7106FA4F905D39A576B12 /* ExpenseReportItemType.swift in Sources */,
+				E0F8EAD648A1CEA680B07BD5 /* Travelexpense.swift in Sources */,
+				A9F076E4CC25D12508E0F4F9 /* ExpenseItemType.swift in Sources */,
+				C9002CCE727A4593DD8918EB /* TripItemType.swift in Sources */,
+				A35169A5699C81CEB32AAE6B /* ExpenseType.swift in Sources */,
+				9BF49E0AB3CB7729E61185A9 /* ReservationTypeMasterViewController.swift in Sources */,
+				36D334F83A72CACED356BAAD /* ReservationTypeDetailViewController.swift in Sources */,
+				0CF1EB9C632786E4BB273000 /* PaymentTypeMasterViewController.swift in Sources */,
+				D4A0438558757089F1FBA006 /* PaymentTypeDetailViewController.swift in Sources */,
+				C420F2C7CCA9448F624D8A40 /* ExpenseItemTypeMasterViewController.swift in Sources */,
+				7F509E737A6EE4BF84E7A4FD /* ExpenseItemTypeDetailViewController.swift in Sources */,
+				97FAA4BD76038B0E67BF55E2 /* ReportStatusTypeMasterViewController.swift in Sources */,
+				224BB775A8CC041F4B52F02B /* ReportStatusTypeDetailViewController.swift in Sources */,
+				84EE3C6D042FF7C47BDB8E0E /* ReservationItemTypeMasterViewController.swift in Sources */,
+				4FA75945BF901642F5832FA5 /* ReservationItemTypeDetailViewController.swift in Sources */,
+				1887AE60363C0A593189195B /* ExpenseReportItemTypeMasterViewController.swift in Sources */,
+				89CFB2E630F93CC4B0354197 /* ExpenseReportItemTypeDetailViewController.swift in Sources */,
+				15A7E4A28AD295C49A7387E6 /* TripItemTypeMasterViewController.swift in Sources */,
+				443531E01CD431EDD71958F2 /* TripItemTypeDetailViewController.swift in Sources */,
+				33E8AA92F56D2833F9464547 /* CurrencyTypeMasterViewController.swift in Sources */,
+				917D576EE8F18C7D14E9DF3A /* CurrencyTypeDetailViewController.swift in Sources */,
+				7DDC047B7EAFED75CFF45E72 /* ExpenseTypeMasterViewController.swift in Sources */,
+				A0121BE86234B58ED51A7067 /* ExpenseTypeDetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1CD011DD78EC81FE9AFEDC90 /* PaymentType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E71D372BE9E13999387A50C2 /* Base */,
+			);
+			name = PaymentType.storyboard;
+			path = PaymentType;
+			sourceTree = "<group>";
+		};
+		25AD518B3EE8427AD5F2A31F /* TripItemType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F12F644555A67C8BC1C899 /* Base */,
+			);
+			name = TripItemType.storyboard;
+			path = TripItemType;
+			sourceTree = "<group>";
+		};
+		4E93C4DA21240B79C5DD5FFA /* ExpenseReportItemType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1FCBC44B60B6ED22E86BD94 /* Base */,
+			);
+			name = ExpenseReportItemType.storyboard;
+			path = ExpenseReportItemType;
+			sourceTree = "<group>";
+		};
+		7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A1315C41D4B982000A5DA56 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7DE919E4C85E8996C17E727C /* ExpenseType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A02AC852526056611BA5AEF9 /* Base */,
+			);
+			name = ExpenseType.storyboard;
+			path = ExpenseType;
+			sourceTree = "<group>";
+		};
+		9494A94F5A377E6B7D327DCE /* ReservationType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A79407CAD85FB29E8F709921 /* Base */,
+			);
+			name = ReservationType.storyboard;
+			path = ReservationType;
+			sourceTree = "<group>";
+		};
+		95C206EF408F8EDD0CCD754A /* CurrencyType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4EFC6E8EBA0C9945E7E8735 /* Base */,
+			);
+			name = CurrencyType.storyboard;
+			path = CurrencyType;
+			sourceTree = "<group>";
+		};
+		9D627F00B48D32EF8DC938DB /* ReportStatusType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86C91032F42FAB41B3BC1F32 /* Base */,
+			);
+			name = ReportStatusType.storyboard;
+			path = ReportStatusType;
+			sourceTree = "<group>";
+		};
+		B826AA4DFFF32C1933EE26B0 /* ReservationItemType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B540BB4461B43BB85626FCCD /* Base */,
+			);
+			name = ReservationItemType.storyboard;
+			path = ReservationItemType;
+			sourceTree = "<group>";
+		};
+		CBCA7A9B1E3778A9001AF49E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB909D801E38CA8800218154 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E578E86176AB34A1EFCDE424 /* ExpenseItemType.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ABAF517834AEC9771C4F6DF /* Base */,
+			);
+			name = ExpenseItemType.storyboard;
+			path = ExpenseItemType;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A1315C71D4B982000A5DA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A1315C81D4B982000A5DA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A1315CA1D4B982000A5DA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TravelExpenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.i826181.travelexpenses;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		7A1315CB1D4B982000A5DA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TravelExpenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.i826181.travelexpenses;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A1315B01D4B982000A5DA56 /* Build configuration list for PBXProject "TravelExpenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A1315C71D4B982000A5DA56 /* Debug */,
+				7A1315C81D4B982000A5DA56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A1315C91D4B982000A5DA56 /* Build configuration list for PBXNativeTarget "TravelExpenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A1315CA1D4B982000A5DA56 /* Debug */,
+				7A1315CB1D4B982000A5DA56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A1315AD1D4B982000A5DA56 /* Project object */;
+}
