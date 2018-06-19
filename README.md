@@ -13,6 +13,9 @@ Use of the reference application is dependent upon the following:
  5. iOS 10 or 11
      - iOS 12-beta will be supported with Xcode 10-beta support
 
+# License
+Use of the code is governed by the terms of the SAP Developer License Agreement (see **LICENSE**, and **NOTICE**).
+
 # Download and installation
 
 ## Tools installation
