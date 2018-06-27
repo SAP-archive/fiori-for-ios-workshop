@@ -23,10 +23,13 @@ Developers should download the **SAP Cloud Platform SDK for iOS** ("the SDK"), a
 
 Developers should have **Apple Xcode** ("Xcode") installed on the same machine as the Assistant, with the desired iOS simulators.
 
+## Setup local repository
+Clone the repository at TODO.
+
 ## Project setup
 To run the reference app as-is, do the following:
 
- 1. Use the *Export Frameworks* item feature from the Assistant menu to install the SDK frameworks to the `/frameworks` directory in the repository.  
+ 1. From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
  
  2. Complete the "Install Database package" instructions below.
 
@@ -34,21 +37,25 @@ To run the reference app as-is, do the following:
 
  4. Do a find-replace of the host `hcpms-i826181trial.hanatrial.ondemand.com` in the project, substituting your own Mobile Services host.  (These are in **ConfigurationProvider.plist**, and **AppDelegate.swift**).
 
- During the workshop, you may skip steps 2-4, and build and run immediately against my system.  But, the trial system databases must be refreshed every 12 hours, so I make no warrenties regarding off-hours system uptime.
+ //TODO: add screenshot of where to find this
 
 
 ### Install database package
 
 #### Create Database
-In SAP Cloud Platform Cockpit, select **SAP HANA / SAP ASE > Database & Schemas**.  Tap to create a new Database.  
+In [SAP Cloud Platform Cockpit](https://account.hanatrial.ondemand.com), **Neo Trial**, select **SAP HANA / SAP ASE > Database & Schemas**.  Click **New** to create a new Database.  
 
 ![](https://user-images.githubusercontent.com/377404/39138253-660b6538-46d4-11e8-9b41-74dbb286c8ec.png)
 
-Select name for the database, and a SYSTEM user password.  Note that the system user password must be 15 char with lower/upper-cased characters.
+Enter name `expensedb` for the database, and create a **SYSTEM** user password.  Note that the system user password must be 15 char with lower/upper-cased characters.  You may use the Safari-generated strong password.  
+
+Existing settings may be left as-is.  Click **Create** to create.
 
 ![](https://user-images.githubusercontent.com/377404/39138254-663f9416-46d4-11e8-9d20-7443e9d5091a.png)
 
-It will take a few minutes to create the db.  You can monitor the status in the Events window.
+You'll be navigated to the Events window, where you can monitor the creation status for the few minutes it will take to create the db.  
+
+You may safely navigate from the Events window.  When completed, an Event will be created named `"Tenant DB creation finished successfully (created and configured)"`.
 
 ![](https://user-images.githubusercontent.com/377404/39138256-66822b46-46d4-11e8-9764-4b1ff5323f79.png)
 
