@@ -47,7 +47,7 @@ In [SAP Cloud Platform Cockpit](https://account.hanatrial.ondemand.com), **Neo T
 
 ![](https://user-images.githubusercontent.com/377404/39138253-660b6538-46d4-11e8-9b41-74dbb286c8ec.png)
 
-Enter name `expensedb` for the database, and create a **SYSTEM** user password.  Note that the system user password must be 15 char with lower/upper-cased characters.  You may use the Safari-generated strong password.  
+Enter name `expensedb` for the database, and create a **SYSTEM** user password.  Note that the system user password must be 15 char with lower/upper-cased characters.  ***Write this down, as you will need it in a later step***
 
 Existing settings may be left as-is.  Click **Create** to create.
 
@@ -60,9 +60,9 @@ You may safely navigate from the Events window.  When completed, an Event will b
 ![](https://user-images.githubusercontent.com/377404/39138256-66822b46-46d4-11e8-9764-4b1ff5323f79.png)
 
 #### Create DB Developer user, and grant permissions
-The SYSTEM user should not be used for developing on the database, so you'll need to create a developer user which will have rights to import and publish the package.
+The SYSTEM user should not be used for developing on the database, so you'll need to create a developer user which will have rights to import and publish the database package.
 
-From the Overview tab, follow the link **Administration Tools: SAP HANA Cockpit**, and log-in with the SYSTEM user and password you created above.  
+While on the **Database: expensesdb - Overview** page, click on the **Overview tab**, click on the **Administration Tools: SAP HANA Cockpit** link, and log-in with the SYSTEM user and password you created above.  
 
 ![](https://user-images.githubusercontent.com/377404/39138259-66a626ea-46d4-11e8-8d65-8e6304a88d41.png)
 
@@ -70,38 +70,41 @@ You'll be informed that you do not yet have the requisite privileges; click "OK"
 
 ![](https://user-images.githubusercontent.com/377404/39138260-66c68f5c-46d4-11e8-9283-050c12bcc23f.png)
 
-When completed, you can access the SAP HANA Database Administration dashboard.
+When completed, you will land the **SAP HANA Database Administration** dashboard.
 
 ![](https://user-images.githubusercontent.com/377404/39138261-66fa1c6e-46d4-11e8-95ba-6d943e90397c.png)
 
 Select **Manage Roles and Users**.
 
-Navigate in the explorer to  **Security > Users > SYSTEM**, and right-click on SYSTEM.  Select "Copy User".  
+Navigate in the explorer to  **Security > Users > SYSTEM**, and CTRL+Click on **SYSTEM**.  Click on **Copy User**.  
 
 ![](https://user-images.githubusercontent.com/377404/39138263-6740b034-46d4-11e8-8654-44843724aa31.png)
 
-A new userID will be proposed, and you need to supply a user password.  When submitted, the Job Log will indicate that they copy is in state "To be reviewed", and you can close the log box.  
+A new userID will be proposed, and you need to supply a user password.  When submitted, the Job Log will indicate that they copy is in state "To be reviewed", and you can close the log box.
 
 ![](https://user-images.githubusercontent.com/377404/39138264-67647a1e-46d4-11e8-901c-d3f2b7d1a1af.png)
 
 > Note:  the console may indicate that a number of privilege grants have failed due to insufficent privileges.  For the purpose of this project, you may ignore these warnings.
 
-Select the newly created user ('USER1' by default), switch to the "Granted Roles" tab, and tap the 'plus' button to add privileges.  
+Switch to the newly created user (**USER1** by default) in **Security > Users**, switch to the **Granted Roles** tab, and click the TODO: add plus button icon)() button to add privileges.  
 
 ![](https://user-images.githubusercontent.com/377404/39138266-67b098f4-46d4-11e8-8948-453e6962738e.png)
 
 Your developer user should have Administration and Developer privileges.  For convenience, we'll add all of both category.
 
-Search for the string "ADMIN", select all results, and click "OK".  
+Search for the string `ADMIN`, select all results, and click "OK".  
 
 ![](https://user-images.githubusercontent.com/377404/39138267-67d975d0-46d4-11e8-9fca-0f76f9ee425e.png)
-Then, do the same for the search string "Developer".  'Command+S' to save the changes to your new user.
+
+Repeat this process for the search string: `Developer`.  'Command+S' to save the changes to your new user.
 
 #### Switch to new user, and import Delivery Unit
 
-Make sure you remember your passwords for both SYSTEM and your new developer user.  You'll need to switch between them.  Click the 'power' button in the upper right to log-out as SYSTEM, so that you can log back in as USER1 (or your own userID).
+Make sure you remember your passwords for both **SYSTEM** and your new developer user (**USER1**).  You'll need to switch between them.  
 
-After logging out, enter the userID and password of your Developer user.  You'll immediately be prompted to change the password.
+Click the 'power' button in the upper right to log-out as **SYSTEM**, so that you can log back in as **USER1** (or your own Developer user ID).
+
+After logging out as **SYSTEM**, enter the user ID and password of your Developer user to log in as your Developer (**USER1**).  You'll immediately be prompted to change the Developer user's password.
 
 ![](https://user-images.githubusercontent.com/377404/39138268-67fb9188-46d4-11e8-932e-cf01ac7606d4.png)
 
