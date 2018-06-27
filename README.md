@@ -112,13 +112,15 @@ Once successful, you can close this window, and return to the SAP Cloud Platform
 
 ![](https://user-images.githubusercontent.com/377404/39138273-68919304-46d4-11e8-8ef3-9b8416e1533d.png)
 
-Switch to the **Products > Delivery Units** tab, and select "Import".  Locate the Delivery Unit file provided, and import.  When successful, the view will refresh momentarily, and you should see a new Delivery unit named "SAPDEVS_SAPEXPENSE", and it should own a set of Packages with name "saptravelexpense".
+Switch to the **Products > Delivery Units** tab, and click **Import**.  Click the **Browse** button to locate and select the Delivery Unit file named **DatabasePackage.tgz** in the root of the repository.  Click through the **Confirm Import** page.  When successful, the view will refresh momentarily, and you should see a new Delivery Unit named **SAPDEVS_SAPEXPENSE**, and it should own a set of Packages with prefix of **`codejam.saptravelexpense`**.
 
 ![](https://user-images.githubusercontent.com/377404/39151086-158437d2-46f9-11e8-8b8c-9f9e41b014d6.png)
 
-#### Switch back to SYSTEM user, and grant privileges to USER1 for imported Delivery Unit
+#### Logout to switch back to SYSTEM user, and grant privileges to USER1 for imported Delivery Unit
 
 Log out again, and log back in as SYSTEM user.  In the **SAP HANA Database Administration** dashboard, select **Manage Roles and Users**.  In the **SAP HANA Web-based Developent Workbench: Security** tool, navigate **Security > Users > USER1**, and switch to the **Granted Roles** tab.  
+
+> If you get a 403 error, close the current window, and switch back to the **SAP HANA Cockpit** page.  Try logout from this page.  In some cases, upon logging out as USER1, the cookie state in the browser will immediately log you back in correctly as SYSTEM, in which case you can proceed.
 
 ![](https://user-images.githubusercontent.com/377404/39138274-68b0debc-46d4-11e8-9d30-fc33f16fb726.png)
 
