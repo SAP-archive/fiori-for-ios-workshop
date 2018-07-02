@@ -10,9 +10,9 @@ import SAPFiori
 import UIKit
 
 class ExpenseDetailTableViewController: FUIFormTableViewController {
-    
+
     // MARK: - Model
-    
+
     private var expense: ExpenseItemType!
 
     func setExpense(_ expense: ExpenseItemType) {
@@ -20,12 +20,12 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
         self.title = self.expense.itemid
         self.tableView.reloadData()
     }
-    
+
     // TODO: add receipts to ExpenseItemType
     private var receipts: [UIImage] = [#imageLiteral(resourceName: "Receipt.jpg")]
 
     // MARK: View controller hooks
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -13,7 +13,7 @@ import UIKit
 class ExpensesTableViewController: FioriBaseTableViewController {
 
     // MARK: - Model
-    
+
     var entities: [ExpenseItemType] = [] {
         didSet {
             if self.entities != oldValue {
@@ -21,27 +21,26 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             }
         }
     }
-    
+
     private var addButton: UIBarButtonItem!
-    
+
     // MARK: View controller hooks
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
+        self.addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
-        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.navigationItem.title = "Expense Reports"
-        
+
         let query = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType)
-        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] (items, error) in
+        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
@@ -95,21 +94,21 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         }
         return view
     }
-    
+
     // MARK: - Table view delegate
-    
+
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let expense = entities[indexPath.row]
         let detailViewController = ExpenseDetailTableViewController(style: .grouped)
         detailViewController.setExpense(expense)
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
-    
+
     // MARK: - Support deleting Expense items
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+    override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let entity = self.entities[indexPath.row]
-        
+
         DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in
             guard error == nil else {
                 if let navigationBar = self?.navigationController?.navigationBar as? FUINavigationBar {
@@ -117,24 +116,25 @@ class ExpensesTableViewController: FioriBaseTableViewController {
                 }
                 return
             }
-            
+
             self?.tableView.beginUpdates()
             self?.entities.remove(at: indexPath.row)
             self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             self?.tableView.endUpdates()
         })
     }
+
     // MARK: - Actions
-    
+
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
         if isEditing, let index = self.navigationItem.rightBarButtonItems?.index(of: addButton) {
             self.navigationItem.rightBarButtonItems?.remove(at: index)
         } else {
-            self.navigationItem.rightBarButtonItems?.append(addButton)
+            self.navigationItem.rightBarButtonItems?.append(self.addButton)
         }
     }
-    
+
     @objc func addExpense() {
         let vc = CreateExpenseTableViewController(style: .grouped)
         let navigationController = UINavigationController(rootViewController: vc)

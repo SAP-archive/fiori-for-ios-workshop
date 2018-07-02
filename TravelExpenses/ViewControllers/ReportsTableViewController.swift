@@ -10,10 +10,12 @@ import SAPFiori
 import SAPOData
 import UIKit
 
+
+
 class ReportsTableViewController: FioriBaseTableViewController {
-    
+
     // MARK: - Model
-    
+
     var expenseReports: [ExpenseReportItemType] = [] {
         didSet {
             self.tableView.reloadData()
@@ -21,36 +23,39 @@ class ReportsTableViewController: FioriBaseTableViewController {
     }
 
     private var activeExpenseReports: [ExpenseReportItemType] {
-        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }).sorted(by: { (lhs, rhs) in
+        return self.expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }).sorted(by: { lhs, rhs in
             guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
             return lStart < rStart
         })
     }
-    
+
     private var submittedExpenseReports: [ExpenseReportItemType] {
-        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) != "ACT" }).sorted(by: { (lhs, rhs) in
+        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) != "ACT" }).sorted(by: { lhs, rhs in
             guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
             return lStart < rStart
         })
     }
 
     // MARK: View controller hooks
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(addReport))
+        let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addReport))
         self.navigationItem.rightBarButtonItems = [addButton]
         self.navigationItem.title = "Expense Reports"
+        
+
     }
+
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
         let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
-        
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] (entities, error) in
+
+        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] entities, error in
             guard let entities = entities else {
                 return print(String(describing: error))
             }
@@ -59,7 +64,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     }
 
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in _: UITableView) -> Int {
         return 2
     }
@@ -83,7 +88,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
             cell.headlineText = report.reportname
             cell.footnoteText = report.reportlocation
             cell.subheadlineText = report.rangeString()
-            
+
             if let status = report.reportstatusid {
                 switch status.trimmingCharacters(in: .whitespaces) {
                 case "PEN":
@@ -101,7 +106,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
                     break
                 }
             }
-            
+
             cell.accessoryType = .disclosureIndicator
             return cell
         default:
@@ -131,7 +136,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     }
 
     // MARK: - Table view delegate
-    
+
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section < 2 else { return }
 
@@ -141,13 +146,13 @@ class ReportsTableViewController: FioriBaseTableViewController {
         reportDetail.setReport(report)
         self.navigationController?.pushViewController(reportDetail, animated: true)
     }
-    
+
     // MARK: - Actions
-    
+
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
     }
-    
+
     @objc func addReport() {
         let vc = CreateReportTableViewController(style: .grouped)
         let navigationController = UINavigationController(rootViewController: vc)

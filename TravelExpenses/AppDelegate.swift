@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     private let logger = Logger.shared(named: "AppDelegateLogger")
-    var travelexpense: Travelexpense<OfflineODataProvider>!
+    var travelexpense: Travelexpense<OfflineODataProvider> {
+        return DataHandler.shared.service
+    }
     private(set) var isOfflineStoreOpened = false
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -184,7 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.currency.localName, query: "/\(TravelexpenseMetadata.EntitySets.currency.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.reportStatus.localName, query: "/\(TravelexpenseMetadata.EntitySets.reportStatus.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
         }
-        self.travelexpense = Travelexpense(provider: offlineODataProvider)
+        DataHandler.shared.service = Travelexpense(provider: offlineODataProvider)
     }
 
     private func openOfflineStore(_ sync: Bool = false) {

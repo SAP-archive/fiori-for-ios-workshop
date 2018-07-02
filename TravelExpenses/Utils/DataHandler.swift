@@ -10,17 +10,9 @@ import Foundation
 import SAPOData
 import SAPOfflineOData
 
-
 /// Helper singleton, for accessing DataService from background threads
 class DataHandler {
     static let shared = DataHandler()
     private init() {}
+    var service: Travelexpense<OfflineODataProvider>!
 }
-
-/// TODO:  move to stored property on DataHandler, so AppDelegate is not accessed
-extension DataHandler {
-    var service: Travelexpense<OfflineODataProvider> {
-        return (UIApplication.shared.delegate as! AppDelegate).travelexpense
-    }
-}
-

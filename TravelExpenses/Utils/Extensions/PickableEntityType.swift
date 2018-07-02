@@ -47,6 +47,7 @@ extension ExpenseType: PickableEntityType {
 }
 
 // MARK: - PickableEntityType implementation for Payment Type
+
 extension PaymentType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.paymenttypeid else {
@@ -57,6 +58,7 @@ extension PaymentType: PickableEntityType {
 }
 
 // MARK: - PickableEntityType implementation for Report Status
+
 extension ReportStatusType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.reportstatusid else {
@@ -67,6 +69,7 @@ extension ReportStatusType: PickableEntityType {
 }
 
 // MARK: - PickableEntityType implementation for Trip
+
 extension TripItemType: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.tripid else {

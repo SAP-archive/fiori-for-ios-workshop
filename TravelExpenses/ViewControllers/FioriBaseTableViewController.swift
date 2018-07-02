@@ -13,7 +13,7 @@ import UIKit
 class FioriBaseTableViewController: UITableViewController {
 
     // MARK: View controller hooks
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,8 +27,33 @@ class FioriBaseTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedSectionHeaderHeight = 44
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        
+
         // Hack:  eliminate hairline from bottom of UINavigationBar  https://stackoverflow.com/a/19227158/242447
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .primaryActionTriggered)
+    }
+    
+    @objc func refresh() {
+        DataHandler.shared.service.provider.upload(completionHandler: { [weak self] error in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    self?.refreshControl?.endRefreshing()
+                }
+                return print("error uploading: \(error.debugDescription)")
+            }
+            print("Offline Store is uploaded by refresh control")
+            DataHandler.shared.service.provider.download(completionHandler: { [weak self] error in
+                DispatchQueue.main.async {
+                    self?.refreshControl?.endRefreshing()
+                    guard error == nil else {
+                        return print("error downloading: \(error.debugDescription)")
+                    }
+                    self?.tableView.reloadData()
+                }
+                print("Offline Store is downloaded by refresh control")
+            })
+        })
     }
 }

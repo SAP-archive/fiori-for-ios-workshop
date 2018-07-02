@@ -11,13 +11,13 @@ import SAPOData
 import UIKit
 
 class EditExpenseTableViewController: UITableViewController {
-    
+
     // MARK: - Model
-    
+
     var attachmentURLs: [URL] = [URL]()
-    
+
     // MARK: View controller hooks
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(FUIKeyValueFormCell.self, forHeaderFooterViewReuseIdentifier: FUIKeyValueFormCell.reuseIdentifier)
@@ -75,5 +75,4 @@ class EditExpenseTableViewController: UITableViewController {
 
         return cell
     }
-
 }

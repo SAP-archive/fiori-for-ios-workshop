@@ -11,9 +11,9 @@ import SAPOData
 import UIKit
 
 class TripsTableViewController: FioriBaseTableViewController {
-    
+
     // MARK: - Model
-    
+
     var entities: [TripItemType] = [] {
         didSet {
             self.tableView.reloadData()
@@ -21,18 +21,18 @@ class TripsTableViewController: FioriBaseTableViewController {
     }
 
     // MARK: View controller hooks
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Reservations"
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let query = DataQuery().expand(TripItemType.reservations)
-        DataHandler.shared.service.fetchTripItem(matching: query) { (items, error) in
+        DataHandler.shared.service.fetchTripItem(matching: query) { items, error in
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
