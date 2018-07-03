@@ -349,8 +349,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             let changeSet = ChangeSet()
 
             // Since ExpenseItem has composite key with ExpenseReport, create as related entity
-//            changeSet.createRelatedEntity(self.expense, in: report, property: ExpenseReportItemType.expenseItems)
-            changeSet.createEntity(self.expense)
+            changeSet.createRelatedEntity(self.expense, in: report, property: ExpenseReportItemType.expenseItems)
             changeSet.createLink(from: self.expense, property: ExpenseItemType.currency, to: currency)
             changeSet.createLink(from: self.expense, property: ExpenseItemType.expenseType, to: expenseType)
             changeSet.createLink(from: self.expense, property: ExpenseItemType.paymentType, to: paymentType)
@@ -358,7 +357,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             try DataHandler.shared.service.applyChanges(changeSet)
 
             // Call loadProperty, to re-populate expenseItems of the report from db
-            try DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: report)
+//            try DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: report)
         } catch {
             print(error)
         }

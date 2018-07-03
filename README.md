@@ -112,7 +112,7 @@ Once successful, you can close this window, and return to the SAP Cloud Platform
 
 ![](https://user-images.githubusercontent.com/377404/39138273-68919304-46d4-11e8-8ef3-9b8416e1533d.png)
 
-Switch to the **Products > Delivery Units** tab, and click **Import**.  Click the **Browse** button to locate and select the Delivery Unit file named **DatabasePackage.tgz** in the root of the repository.  Click through the **Confirm Import** page.  When successful, the view will refresh momentarily, and you should see a new Delivery Unit named **SAPDEVS_SAPEXPENSE**, and it should own a set of Packages with prefix of **`codejam.saptravelexpense`**.
+Switch to the **Products > Delivery Units** tab, and click **Import**.  Click the **Browse** button to locate and select the Delivery Unit file named **DatabasePackage.tgz** in the root of the repository.  Click through the **Confirm Import** page.  When successful, the view will refresh momentarily, and you should see a new Delivery Unit named **SAPDEVS_expensedb**, and it should own a set of Packages with prefix of **`codejam.saptravelexpense`**.
 
 ![](https://user-images.githubusercontent.com/377404/39151086-158437d2-46f9-11e8-8b8c-9f9e41b014d6.png)
 
@@ -141,7 +141,7 @@ At this point, your user should be able to access the database via OData.  To ve
 https://<database name><hana trial name>.hanatrial.ondemand.com/codejam/saptravelexpense/services/travelexpense.xsodata/expensereport
 
 //e.g.:
-https://sapexpensei826181trial.hanatrial.ondemand.com/codejam/saptravelexpense/services/travelexpense.xsodata/expensereport
+https://expensedbi826181trial.hanatrial.ondemand.com/codejam/saptravelexpense/services/travelexpense.xsodata/expensereport
 ```
 
 You should see a regular OData response, with one or more expense report entries.
