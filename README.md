@@ -51,3 +51,18 @@ Please follow the guide [here](https://github.com/SAP/fiori-for-ios-workshop/wik
 Ensure that all references to the app ID `com.sap.expense` that you used when creating the scaffolding app & destination on mobile services are consistent in the reference app project.  Also, ensure that all references to the host are correctly pointing to your SAP Cloud Platform host.
 
 Then, you should be able to build & run.
+
+# Limitations
+
+ - Trips view controller does not navigate to trip details
+ - Unable to edit properties on existing Expense Items
+ - Attachment images are not stored to Expense Items
+
+# Known Issues
+None
+# How to obtain support
+Official support is not provided under the terms of the SAP Developer License Agreement.  For questions, please open an Issue on the project.
+# Contributing
+If you would like to contribute ideas or code to the project, please open an Issue, or a Pull Request.
+> Project Administrators do not commit to integrating any contributions to the project.  Contributors acknowledge that by submitting the contribution, they waive all rights to any  Intellectual Property associated with the contribution, and that any contributions which are integrated to the project will be redistributed under the terms of the SAP Developer License Agreement, under copyright by SAP.
+# To-Do (upcoming changes)
