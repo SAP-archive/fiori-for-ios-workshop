@@ -29,7 +29,9 @@ Clone the repository at TODO.
 ## Project setup
 To run the reference app as-is, do the following:
 
- 1. From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
+ 1. Launch the Assistant.  From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
+
+ > If this is your first time running the Assistant, you may be prompted to trust the developer.  Go to **System Preferences > Security**, and click TODO to enable the system to run. 
  
  2. Complete the "Install Database package" instructions below.
 
