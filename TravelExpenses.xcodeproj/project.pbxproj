@@ -10,7 +10,6 @@
 		0AD88E5C943B5903B85D2395 /* TripItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C127397D40A7C6EDF4BF4952 /* TripItemType.swift */; };
 		0D7CAD6651744934BB8C6B37 /* ExpenseReportItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A19D1F3434AAF38A8372A /* ExpenseReportItemType.swift */; };
 		1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */; };
-		12D066CF1F4DDB0E0075EBA4 /* ConfigurationProvider.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D066CE1F4DDB0A0075EBA4 /* ConfigurationProvider.plist */; };
 		12E07EF21E96851800460A94 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E07EF11E96851800460A94 /* CollectionType.swift */; };
 		12E84FE51F4ECF220061C99E /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */; };
 		1B5F26C120CF84E30073C63D /* EntityTypePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26C020CF84E30073C63D /* EntityTypePickerDataSource.swift */; };
@@ -87,7 +86,6 @@
 
 /* Begin PBXFileReference section */
 		1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAPLogo@2x.png"; sourceTree = "<group>"; };
-		12D066CE1F4DDB0A0075EBA4 /* ConfigurationProvider.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigurationProvider.plist; sourceTree = "<group>"; };
 		12E07EF11E96851800460A94 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		1B5F26C020CF84E30073C63D /* EntityTypePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTypePickerDataSource.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				1B5F26D120D0D17E0073C63D /* SnapshotViewController.swift */,
-				12D066CE1F4DDB0A0075EBA4 /* ConfigurationProvider.plist */,
 				12E84FDE1F4EBD460061C99E /* OnboardingManager.swift */,
 			);
 			name = Onboarding;
@@ -441,7 +438,6 @@
 			files = (
 				7A16F06D1FD1B3C700D2FABD /* README.md in Resources */,
 				7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */,
-				12D066CF1F4DDB0E0075EBA4 /* ConfigurationProvider.plist in Resources */,
 				7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */,
 				1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */,
 				1B5F26CA20CF95CD0073C63D /* Main.storyboard in Resources */,

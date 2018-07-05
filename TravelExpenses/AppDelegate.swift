@@ -13,6 +13,8 @@ import SAPOData
 import SAPOfflineOData
 import UserNotifications
 
+let APPLICATIONID: String = "com.sap.expense"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
@@ -66,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
-        let configurationURL = URL(string: "https://hcpms-i826181trial.hanatrial.ondemand.com/com.sap.expense")!
+        let configurationURL = URL(string: "https://hcpms-i826181trial.hanatrial.ondemand.com/" + APPLICATIONID)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
     }
 
