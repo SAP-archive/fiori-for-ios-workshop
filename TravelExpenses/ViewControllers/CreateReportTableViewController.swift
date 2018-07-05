@@ -192,16 +192,13 @@ class CreateReportTableViewController: FUIFormTableViewController {
 
             let changeSet = ChangeSet()
             changeSet.createEntity(self.report)
-            changeSet.createLink(from: self.report, property: ExpenseReportItemType.reportStatus, to: status)
+//            changeSet.createLink(from: self.report, property: ExpenseReportItemType.reportStatus, to: status)
 
             try DataHandler.shared.service.applyChanges(changeSet)
         } catch {
             print(error)
         }
 
-        self.dismiss(animated: true, completion: {
-            
-        }
-        )
+        self.dismiss(animated: true, completion: {})
     }
 }

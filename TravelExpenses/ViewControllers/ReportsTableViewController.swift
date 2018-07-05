@@ -18,23 +18,23 @@ class ReportsTableViewController: FioriBaseTableViewController {
 
     var expenseReports: [ExpenseReportItemType] = [] {
         didSet {
+            
+            activeExpenseReports = expenseReports.filter({ $0.reportstatusid == "ACT" }).sorted(by: { lhs, rhs in
+                guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
+                return lStart < rStart
+            })
+            
+            submittedExpenseReports = expenseReports.filter({ $0.reportstatusid != "ACT" }).sorted(by: { lhs, rhs in
+                guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
+                return lStart < rStart
+            })
+            
             self.tableView.reloadData()
         }
     }
 
-    private var activeExpenseReports: [ExpenseReportItemType] {
-        return self.expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) == "ACT" }).sorted(by: { lhs, rhs in
-            guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
-            return lStart < rStart
-        })
-    }
-
-    private var submittedExpenseReports: [ExpenseReportItemType] {
-        return expenseReports.filter({ $0.reportstatusid?.trimmingCharacters(in: .whitespaces) != "ACT" }).sorted(by: { lhs, rhs in
-            guard let lStart = lhs.reportstart, let rStart = rhs.reportstart else { return false }
-            return lStart < rStart
-        })
-    }
+    private var activeExpenseReports: [ExpenseReportItemType] = []
+    private var submittedExpenseReports: [ExpenseReportItemType] = []
 
     // MARK: View controller hooks
 
@@ -145,6 +145,31 @@ class ReportsTableViewController: FioriBaseTableViewController {
         let reportDetail = ReportDetailsTableViewController(style: .grouped)
         reportDetail.setReport(report)
         self.navigationController?.pushViewController(reportDetail, animated: true)
+    }
+    
+    // MARK: - Support submitting Expense Report
+    
+    override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0 else { return }
+        
+        let entity = self.activeExpenseReports[indexPath.row]
+        
+        entity.reportstatusid = "PEN"
+        DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
+            guard error == nil else {
+                let errorBanner = FUIBannerMessageView()
+                
+                errorBanner.show(message: "Failed to delete expense item", withDuration: 4.0, animated: true)
+                return
+            }
+            
+            self?.tableView.beginUpdates()
+            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            let item = self?.activeExpenseReports.remove(at: indexPath.row)
+            self?.tableView.endUpdates()
+            self?.submittedExpenseReports.append(item!)
+            self?.tableView.reloadSections([1], with: .automatic)
+        })
     }
 
     // MARK: - Actions

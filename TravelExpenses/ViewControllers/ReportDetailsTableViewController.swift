@@ -27,6 +27,8 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.objectHeader.bodyText = report.reportid
         self.objectHeader.footnoteText = report.rangeString()
     }
+    
+    var expenseItems: [ExpenseItemType] = []
 
     // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment https://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst?page=2&tab=votes#comment54066953_18880341
     let objectHeader = FUIObjectHeader(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
@@ -65,7 +67,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         case 0:
             return 2
         default:
-            return self.report.expenseItems.count
+            return self.expenseItems.count
         }
     }
 
@@ -74,7 +76,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         case (0, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
             cell.keyName = "Report Total"
-            let totalAmt: Double = report.expenseItems.reduce(0) { $0 + $1.amount!.doubleValue() }
+            let totalAmt: Double = expenseItems.reduce(0) { $0 + $1.amount!.doubleValue() }
             cell.value = NumberFormatter(.currency).string(from: totalAmt as NSNumber)!
             cell.isEditable = false
 
@@ -82,14 +84,14 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         case (0, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
             cell.keyName = "Amount Due Employee"
-            let dueAmt: Double = report.expenseItems.filter({ $0.paymenttypeid == "EMP" }).reduce(0) { $0 + $1.amount!.doubleValue() }
+            let dueAmt: Double = expenseItems.filter({ $0.paymenttypeid == "EMP" }).reduce(0) { $0 + $1.amount!.doubleValue() }
             cell.value = NumberFormatter(.currency).string(from: dueAmt as NSNumber)!
             cell.isEditable = false
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIObjectTableViewCell.reuseIdentifier, for: indexPath) as! FUIObjectTableViewCell
             cell.preserveIconStackSpacing = true
-            let expense = report.expenseItems[indexPath.row]
+            let expense = expenseItems[indexPath.row]
             cell.iconImages = expense.iconImages()
             cell.headlineText = expense.vendor
             if let date = expense.itemdate {
@@ -109,7 +111,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section > 0 else { return }
-        let expense = report.expenseItems[indexPath.row]
+        let expense = expenseItems[indexPath.row]
         let detailViewController = ExpenseDetailTableViewController(style: .grouped)
         detailViewController.setExpense(expense)
         self.navigationController?.pushViewController(detailViewController, animated: true)
@@ -118,7 +120,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     // MARK: - Support deleting Expense items
 
     override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let entity = self.report.expenseItems[indexPath.row]
+        let entity = self.expenseItems[indexPath.row]
 
         DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in
             guard error == nil else {
@@ -129,7 +131,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             }
 
             self?.tableView.beginUpdates()
-            self?.report.expenseItems.remove(at: indexPath.row)
+            self?.expenseItems.remove(at: indexPath.row)
             self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             self?.tableView.endUpdates()
         })
@@ -160,11 +162,13 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     }
 
     func reloadExpenseItems() {
-        let query = DataQuery().expand(ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
-        DataHandler.shared.service.loadProperty(ExpenseReportItemType.expenseItems, into: self.report, query: query) { [weak self] error in
-            guard error == nil else {
+        
+        let query = DataQuery().filter(ExpenseItemType.reportid == report.reportid!).expand(ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
+        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
+            guard let items = items, error == nil else {
                 return print(error!)
             }
+            self?.expenseItems = items
             self?.tableView.reloadData()
         }
     }
