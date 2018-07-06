@@ -13,8 +13,9 @@ import SAPOData
 import SAPOfflineOData
 import UserNotifications
 
+let TRIALACCOUNT: String = "i826181trial"
 let APPLICATIONID: String = "com.sap.expense"
-let DESTINATION = "com.sap.expense"
+let DESTINATION: String = "com.sap.expense"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
@@ -69,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
-        let configurationURL = URL(string: "https://hcpms-i826181trial.hanatrial.ondemand.com/" + DESTINATION)!
+        let configurationURL = URL(string: "https://hcpms-\(TRIALACCOUNT).hanatrial.ondemand.com/" + DESTINATION)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
     }
 

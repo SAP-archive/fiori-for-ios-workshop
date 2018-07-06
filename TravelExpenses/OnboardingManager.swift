@@ -76,7 +76,7 @@ class OnboardingManager {
             // TODO: Remove e-mail domain prefilling from productive code
             if let welcomeScreen = welcomeStepUI as? FUIWelcomeScreen {
                 // Configuring WelcomeScreen to prefill the e-mail domain
-                welcomeScreen.emailTextField.text = "user@trial-i826181trial.sapmobileplace.com"
+                welcomeScreen.emailTextField.text = "user@trial-\(TRIALACCOUNT).sapmobileplace.com"
             }
         }
         return welcomeScreenStep
