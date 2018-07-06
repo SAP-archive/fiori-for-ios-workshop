@@ -14,6 +14,7 @@ import SAPOfflineOData
 import UserNotifications
 
 let APPLICATIONID: String = "com.sap.expense"
+let DESTINATION = "com.sap.expense"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
