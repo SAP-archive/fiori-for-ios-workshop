@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
-        let configurationURL = URL(string: "https://hcpms-i826181trial.hanatrial.ondemand.com/" + APPLICATIONID)!
+        let configurationURL = URL(string: "https://hcpms-i826181trial.hanatrial.ondemand.com/" + DESTINATION)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
     }
 
@@ -169,7 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     private func configureOData(_ urlSession: SAPURLSession, _ serviceRoot: URL, _ onboarding: Bool) {
         var offlineParameters = OfflineODataParameters()
-        offlineParameters.customHeaders = ["X-SMP-APPID": "com.sap.expense"]
+        offlineParameters.customHeaders = ["X-SMP-APPID": APPLICATIONID]
         offlineParameters.enableRepeatableRequests = true
         // Setup an instance of delegate. See sample code below for definition of OfflineODataDelegateSample class.
         let delegate = OfflineODataDelegateSample()

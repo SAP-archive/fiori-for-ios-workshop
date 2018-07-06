@@ -62,7 +62,7 @@ class OnboardingManager {
 
     // WelcomeScreenStep
     private func configuredWelcomeScreenStep() -> WelcomeScreenStep {
-        let discoveryConfigurationTransformer = DiscoveryServiceConfigurationTransformer(applicationID: APPLICATIONID, authenticationPath: "com.sap.expense")
+        let discoveryConfigurationTransformer = DiscoveryServiceConfigurationTransformer(applicationID: APPLICATIONID, authenticationPath: DESTINATION)
         let welcomeScreenStep = WelcomeScreenStep(transformer: discoveryConfigurationTransformer, providers: [DiscoveryServiceConfigurationProvider(applicationID: APPLICATIONID)])
 
         welcomeScreenStep.welcomeScreenCustomizationHandler = { welcomeStepUI in
