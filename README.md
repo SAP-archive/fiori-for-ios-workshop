@@ -24,33 +24,29 @@ Developers should download the **SAP Cloud Platform SDK for iOS** ("the SDK"), a
 Developers should have **Apple Xcode** ("Xcode") installed on the same machine as the Assistant, with the desired iOS simulators.
 
 ## Setup local repository
-Clone the repository at TODO.
+Clone the repository at `https://github.com/SAP/fiori-for-ios-workshop.git`.
 
 ## Project setup
-To run the reference app as-is, do the following:
-
- 1. Launch the Assistant.  From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
-
- > If this is your first time running the Assistant, you may be prompted to trust the developer.  Go to **System Preferences > Security**, and click TODO to enable the system to run. 
- 
- 2. Complete the "Install Database package" instructions below.
-
- 3.  Create a new application in your Mobile Services instance, with app ID:  `com.sap.expense`.  Or, do a find-replace in the project for this ID, to match your preferred app ID.
-
- 4. Do a find-replace of the host `hcpms-i826181trial.hanatrial.ondemand.com` in the project, substituting your own Mobile Services host.  (These are in **ConfigurationProvider.plist**, and **AppDelegate.swift**).
-
- //TODO: add screenshot of where to find this
-
 
 ### Install database package
 Please follow the guide [here](https://github.com/SAP/fiori-for-ios-workshop/wiki/Install-Database-Package) to install the DatabasePackage.tgz found in the root of the repository.  This db will function as the backend of the mobile application.
 
 ### Create Mobile Application configuration in SAP Cloud Platform mobile services
+To run the reference app in the repository, you will need a corresponding application configuration on SAP Cloud Platform Mobile Services.  Follow this procedure to create that application configuration.
+
 Please follow the guide [here](https://github.com/SAP/fiori-for-ios-workshop/wiki/Create-Mobile-Application-in-SAP-Cloud-Platform-mobile-services-with-Assistant) to create a new application in mobile services, using the Assistant.
 
-### Run the reference app
+### Export Frameworks to the Reference App
+Launch the Assistant.  From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
 
-Ensure that all references to the app ID `com.sap.expense` that you used when creating the scaffolding app & destination on mobile services are consistent in the reference app project.  Also, ensure that all references to the host are correctly pointing to your SAP Cloud Platform host.
+### Run the Reference App
+To point the reference application to the newly-created configuration, edit the following properties in `AppDelegate.swift`.
+
+```swift
+let TRIALACCOUNT: String = <#My Trial Account Name#> // e.g.: "i826181trial"
+let APPLICATIONID: String = <#My Application ID#> // "com.sap.expense"
+let DESTINATION: String = <#My Destination Name#> // "com.sap.expense" (does not need to match APPLICATIONID)
+```
 
 Then, you should be able to build & run.
 
