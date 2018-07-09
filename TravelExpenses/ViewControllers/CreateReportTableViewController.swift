@@ -119,7 +119,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
             cell.keyName = "Start date"
             cell.value = self.report.reportstart!.utc()
-            cell.datePicker.datePickerMode = .date
+            cell.datePickerMode = .date
             cell.onChangeHandler = { [weak self] in
                 self?.report.reportstart = LocalDateTime.from(utc: $0)
             }
@@ -129,7 +129,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
         case (2, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
             cell.keyName = "End date"
-            cell.datePicker.datePickerMode = .date
+            cell.datePickerMode = .date
             cell.value = self.report.reportend!.utc()
             cell.onChangeHandler = { [weak self] in
                 self?.report.reportstart = LocalDateTime.from(utc: $0)

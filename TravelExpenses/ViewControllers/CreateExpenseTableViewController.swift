@@ -221,7 +221,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
             cell.keyName = "Date"
             cell.value = self.expense.itemdate!.utc()
-            cell.datePicker.datePickerMode = .date
+            cell.datePickerMode = .date
             cell.onChangeHandler = { [weak self] in
                 self?.expense.itemdate = LocalDateTime.from(utc: $0)
             }
