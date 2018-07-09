@@ -59,6 +59,7 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
 
+        cell.valueTextView.textColor = UIColor.preferredFioriColor(forStyle: .primary1)
         cell.isEditable = false
 
         switch indexPath.row {

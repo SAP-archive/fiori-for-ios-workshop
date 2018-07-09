@@ -137,6 +137,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
             cell.valueTextField.delegate = self
             cell.valueTextField.keyboardType = .decimalPad
+            cell.valueTextField.returnKeyType = .done
+            cell.valueTextField.addDoneButtonToKeyboard()
 
             cell.onChangeHandler = { [weak self, weak cell] in
                 self?.expense.amount = BigDecimal.parse($0)
