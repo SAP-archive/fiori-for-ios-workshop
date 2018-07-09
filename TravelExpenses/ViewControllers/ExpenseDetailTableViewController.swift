@@ -64,7 +64,7 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
         switch indexPath.row {
         case 0:
             cell.keyName = "Expense Type"
-            cell.value = self.expense.expenseType?.description ?? ""
+            cell.value = self.expense.expenseType?.description ?? self.expense.expensetypeid ?? ""
         case 1:
             cell.keyName = "Vendor"
             cell.value = self.expense.vendor ?? ""
@@ -73,17 +73,17 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
             cell.value = DateFormatter(.medium).string(from: self.expense.itemdate!.utc())
         case 3:
             cell.keyName = "Location"
-            cell.value = self.expense.location ?? ""
+            cell.value = self.expense.location ?? " - "
         case 4:
             cell.keyName = "Amount"
             cell.value = NumberFormatter(.currency).string(from: self.expense.amount!.doubleValue() as NSNumber)!
         case 5:
             cell.keyName = "Currency"
-            cell.value = self.expense.currency?.description ?? ""
+            cell.value = self.expense.currency?.description ?? self.expense.currencyid ?? ""
 
         default:
             cell.keyName = "Payment"
-            cell.value = self.expense.paymentType?.description ?? ""
+            cell.value = self.expense.paymentType?.description ?? self.expense.paymenttypeid ?? ""
         }
 
         return cell
