@@ -76,8 +76,8 @@ class ExpensesTableViewController: FioriBaseTableViewController {
             cell.subheadlineText = df.string(from: date.utc())
         }
         cell.footnoteText = item.paymentType?.description
-        if let amount = item.amount {
-            cell.statusText = nf.string(from: amount.doubleValue() as NSNumber)
+        if let _ = item.amount {
+            cell.statusText = nf.string(from: item.localCurrencyAmount() as NSNumber)
         }
         cell.accessoryType = .disclosureIndicator
 

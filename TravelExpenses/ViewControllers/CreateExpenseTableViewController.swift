@@ -38,15 +38,6 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
     weak var attachmentController: FUIAttachmentsViewController?
 
-    // get current currency for locale
-    let localCurrency: String = {
-        let local = NSLocale.current.currencyCode ?? "USD"
-        guard ["USD", "EUR", "GBP"].contains(local) else {
-            return "USD"
-        }
-        return local
-    }()
-    
     // MARK: View controller hooks
 
     override func viewDidLoad() {
@@ -73,7 +64,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
         // Set defaults for newly created expense item
         self.expense.itemid = UUID().uuidString
-        self.expense.currencyid = localCurrency
+        self.expense.currencyid = expense.localCurrency()
         self.expense.paymenttypeid = "EMP"
         self.expense.itemdate = LocalDateTime.from(utc: Date())
 
@@ -137,7 +128,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
 
             let numberFormatter = NumberFormatter(.currency)
-            numberFormatter.currencyCode = self.expense.currencyid ?? localCurrency
+            numberFormatter.currencyCode = self.expense.currencyid ?? self.expense.localCurrency()
             if let amount = self.expense.amount?.doubleValue() {
                 cell.valueTextField.text = numberFormatter.string(from: amount as NSNumber)
             } else {

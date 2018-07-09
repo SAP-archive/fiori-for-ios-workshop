@@ -92,6 +92,35 @@ extension ExpenseItemType {
     }
 }
 
+extension ExpenseItemType {
+    // get current currency for locale
+    func localCurrency() -> String {
+        let local = NSLocale.current.currencyCode ?? "USD"
+        guard ["USD", "EUR", "GBP"].contains(local) else {
+            return "USD"
+        }
+        return local
+    }
+    
+    // get currency conversion for locale
+    func localCurrencyAmount() -> Double {
+        
+        guard let value = amount?.doubleValue() else { return 0 }
+        let localeCode = currencyid ?? "USD"
+        var conversions = ["USD": [:], "GBP": [:], "EUR": [:]]
+        conversions["USD"]?.updateValue(0.85, forKey: "EUR")
+        conversions["USD"]?.updateValue(0.75, forKey: "GBP")
+        conversions["GBP"]?.updateValue(1.33, forKey: "USD")
+        conversions["GBP"]?.updateValue(1.13, forKey: "EUR")
+        conversions["EUR"]?.updateValue(1.18, forKey: "USD")
+        conversions["EUR"]?.updateValue(0.88, forKey: "GBP")
+        
+        guard let conversion = conversions[localeCode]?[localCurrency()] as? Double else {
+            return value
+        }
+        return value * conversion
+    }
+}
 
 
 
