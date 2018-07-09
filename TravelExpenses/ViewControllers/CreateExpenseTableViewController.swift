@@ -38,6 +38,15 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
     weak var attachmentController: FUIAttachmentsViewController?
 
+    // get current currency for locale
+    let localCurrency: String = {
+        let local = NSLocale.current.currencyCode ?? "USD"
+        guard ["USD", "EUR", "GBP"].contains(local) else {
+            return "USD"
+        }
+        return local
+    }()
+    
     // MARK: View controller hooks
 
     override func viewDidLoad() {
@@ -60,10 +69,11 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel))
         self.navigationItem.leftBarButtonItem = cancelItem
         self.navigationItem.rightBarButtonItem = createItem
+        
 
         // Set defaults for newly created expense item
         self.expense.itemid = UUID().uuidString
-        self.expense.currencyid = "USD"
+        self.expense.currencyid = localCurrency
         self.expense.paymenttypeid = "EMP"
         self.expense.itemdate = LocalDateTime.from(utc: Date())
 
@@ -127,7 +137,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
 
             let numberFormatter = NumberFormatter(.currency)
-            numberFormatter.currencyCode = self.expense.currencyid ?? "USD"
+            numberFormatter.currencyCode = self.expense.currencyid ?? localCurrency
             if let amount = self.expense.amount?.doubleValue() {
                 cell.valueTextField.text = numberFormatter.string(from: amount as NSNumber)
             } else {
@@ -164,13 +174,14 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             cell.valueTextField.text = entity?.currencyid
             cell.validationMessage = self.expense.validationMessage(for: \.currencyid)
 
-            cell.onUuidChangeHandler = { [weak self] in
-                let entity = self?.currencyPickerDataSource.singleEntity(for: $0)
-                self?.expense.currencyid = entity?.currencyid
+            cell.onUuidChangeHandler = { [unowned self] in
+                let entity = self.currencyPickerDataSource.singleEntity(for: $0)
+                self.expense.currencyid = entity?.currencyid
 
                 // MARK: - Special case:  since this value affects formatting of Amount, reload the Amount row
-
-                self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+                DispatchQueue.main.async {
+                    self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+                }
             }
             return cell
 
