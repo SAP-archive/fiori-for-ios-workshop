@@ -178,7 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let offlineODataProvider = try! OfflineODataProvider(serviceRoot: serviceRoot, parameters: offlineParameters, sapURLSession: urlSession, delegate: delegate)
         // Although it is not the best practice, we are defining this query limit as top=20.
         // If the service supports paging, then paging should be used instead of top!
-        let queryLimit = DataQuery().selectAll().top(20)
+        let queryLimit = DataQuery().selectAll()
         if onboarding {
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.payment.localName, query: "/\(TravelexpenseMetadata.EntitySets.payment.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.reservation.localName, query: "/\(TravelexpenseMetadata.EntitySets.reservation.localName)\(queryLimit)", automaticallyRetrievesStreams: false))

@@ -147,30 +147,49 @@ class ReportsTableViewController: FioriBaseTableViewController {
         self.navigationController?.pushViewController(reportDetail, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0
+    }
+    
     // MARK: - Support submitting Expense Report
     
-    override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        guard indexPath.section == 0 else { return }
-        
-        let entity = self.activeExpenseReports[indexPath.row]
-        
-        entity.reportstatusid = "PEN"
-        DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
-            guard error == nil else {
-                let errorBanner = FUIBannerMessageView()
-                
-                errorBanner.show(message: "Failed to delete expense item", withDuration: 4.0, animated: true)
-                return
-            }
+    override func tableView(_ tableView: UITableView,
+                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        guard indexPath.section == 0 else {
+            return nil
+        }
+        let submitAction = UIContextualAction(style: .normal, title:  "Submit\nReport", handler: { action, _, success in
+            guard indexPath.section == 0 else { return }
             
-            self?.tableView.beginUpdates()
-            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
-            let item = self?.activeExpenseReports.remove(at: indexPath.row)
-            self?.tableView.endUpdates()
-            self?.submittedExpenseReports.append(item!)
-            self?.tableView.reloadSections([1], with: .automatic)
+            let entity = self.activeExpenseReports[indexPath.row]
+            entity.reportstatusid = "PEN"
+            
+            DataHandler.shared.service.updateEntity(entity, completionHandler: { [weak self] error in
+                guard error == nil else {
+                    let errorBanner = FUIBannerMessageView()
+                    
+                    errorBanner.show(message: "Failed to submit Expense Report", withDuration: 4.0, animated: true)
+                    success(false)
+                    return
+                }
+                
+                self?.tableView.beginUpdates()
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                let item = self?.activeExpenseReports.remove(at: indexPath.row)
+                self?.tableView.endUpdates()
+                self?.submittedExpenseReports.append(item!)
+                self?.tableView.reloadSections([1], with: .automatic)
+                
+                FUIToastMessage.show(message: "Submitted Expense Report: \(entity.reportname ?? "")", icon: FUIIconLibrary.system.success.withRenderingMode(.alwaysTemplate), inWindow: nil, withDuration: 1.5 , maxNumberOfLines: 2)
+                success(true)
+            })
         })
+        submitAction.backgroundColor = UIColor.preferredFioriColor(forStyle: .map1)
+        return UISwipeActionsConfiguration(actions: [submitAction])
+        
     }
+
 
     // MARK: - Actions
 

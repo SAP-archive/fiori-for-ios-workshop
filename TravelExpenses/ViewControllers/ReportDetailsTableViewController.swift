@@ -121,8 +121,15 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let entity = self.expenseItems[indexPath.row]
+        
+        let changeSet = ChangeSet()
+        if report.reportstatusid != "ACT" {
+            report.reportstatusid = "ACT"
+            changeSet.updateEntity(report)
+        }
+        changeSet.deleteEntity(entity)
 
-        DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in
+        DataHandler.shared.service.applyChanges(changeSet, completionHandler: { [weak self] error in
             guard error == nil else {
                 let errorBanner = FUIBannerMessageView()
                 self?.objectHeader.bannerView = errorBanner
