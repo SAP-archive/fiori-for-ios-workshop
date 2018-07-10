@@ -18,6 +18,7 @@
 		1B5F26CA20CF95CD0073C63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F26C920CF95CD0073C63D /* Main.storyboard */; };
 		1B5F26D220D0D17E0073C63D /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26D120D0D17E0073C63D /* SnapshotViewController.swift */; };
 		1B5F26DB20D0F44A0073C63D /* CreateReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F26DA20D0F44A0073C63D /* CreateReportTableViewController.swift */; };
+		1B7BFD6C20F3AEBF003EB4C5 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BFD6B20F3AEBF003EB4C5 /* UITextField.swift */; };
 		1B9D41E320D2CEA200FD84B2 /* SAPFiori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9D41DD20D2CEA100FD84B2 /* SAPFiori.framework */; };
 		1B9D41E420D2CEA200FD84B2 /* SAPFiori.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9D41DD20D2CEA100FD84B2 /* SAPFiori.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1B9D41E520D2CEA200FD84B2 /* SAPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9D41DE20D2CEA100FD84B2 /* SAPFoundation.framework */; };
@@ -94,6 +95,7 @@
 		1B5F26C920CF95CD0073C63D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1B5F26D120D0D17E0073C63D /* SnapshotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotViewController.swift; sourceTree = "<group>"; };
 		1B5F26DA20D0F44A0073C63D /* CreateReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportTableViewController.swift; sourceTree = "<group>"; };
+		1B7BFD6B20F3AEBF003EB4C5 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		1B9D41DD20D2CEA100FD84B2 /* SAPFiori.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAPFiori.framework; path = "frameworks/Release-fat/SAPFiori.framework"; sourceTree = "<group>"; };
 		1B9D41DE20D2CEA100FD84B2 /* SAPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAPFoundation.framework; path = "frameworks/Release-fat/SAPFoundation.framework"; sourceTree = "<group>"; };
 		1B9D41DF20D2CEA100FD84B2 /* SAPFioriFlows.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAPFioriFlows.framework; path = "frameworks/Release-fat/SAPFioriFlows.framework"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				1BA1BFA620CF83C60067F0F0 /* Formatters.swift */,
+				1B7BFD6B20F3AEBF003EB4C5 /* UITextField.swift */,
 			);
 			name = "iOS Types";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				374A059D97E1D6599D4BEEEC /* TravelexpenseMetadataParser.swift in Sources */,
 				47417C53AAE29967B55684A6 /* TravelexpenseMetadataText.swift in Sources */,
 				25D82E417FAE59DC7E2D3409 /* TravelexpenseMetadataChanges.swift in Sources */,
+				1B7BFD6C20F3AEBF003EB4C5 /* UITextField.swift in Sources */,
 				9F05F5DCB5951707AB05A08C /* TravelexpenseStaticResolver.swift in Sources */,
 				A0371CF9C391016F87420544 /* PaymentType.swift in Sources */,
 				D1C15A4E56473D7E033ACB43 /* ReservationItemType.swift in Sources */,
