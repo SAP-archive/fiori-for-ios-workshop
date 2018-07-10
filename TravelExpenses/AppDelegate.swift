@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             self.logger.error("Failed to attach to root logger.", error: error)
         }
 
+        //NUISettings.initWithStylesheet(name: "Palette")
         UINavigationBar.applyFioriStyle()
 
         OnboardingManager.shared.delegate = self

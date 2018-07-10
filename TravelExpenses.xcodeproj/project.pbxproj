@@ -45,6 +45,7 @@
 		1BC042A220CCE290008BF50D /* CreateExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0429920CCE28F008BF50D /* CreateExpenseTableViewController.swift */; };
 		1BC042A320CCE290008BF50D /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0429A20CCE290008BF50D /* ReportsTableViewController.swift */; };
 		1BC042A920CCEDF6008BF50D /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC042A820CCEDF6008BF50D /* DataHandler.swift */; };
+		1BE3BD0D20F4ED3700051AA9 /* Palette.nss in Resources */ = {isa = PBXBuildFile; fileRef = 1BE3BD0C20F4ED3700051AA9 /* Palette.nss */; };
 		25D82E417FAE59DC7E2D3409 /* TravelexpenseMetadataChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F0E89819B7E84A7A8728C1 /* TravelexpenseMetadataChanges.swift */; };
 		374A059D97E1D6599D4BEEEC /* TravelexpenseMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82895CB9689A78C6E95FF7 /* TravelexpenseMetadataParser.swift */; };
 		47417C53AAE29967B55684A6 /* TravelexpenseMetadataText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C725A02B23CC11FC74C5E08 /* TravelexpenseMetadataText.swift */; };
@@ -116,6 +117,7 @@
 		1BC0429920CCE28F008BF50D /* CreateExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExpenseTableViewController.swift; sourceTree = "<group>"; };
 		1BC0429A20CCE290008BF50D /* ReportsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
 		1BC042A820CCEDF6008BF50D /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		1BE3BD0C20F4ED3700051AA9 /* Palette.nss */ = {isa = PBXFileReference; lastKnownFileType = text; path = Palette.nss; sourceTree = "<group>"; };
 		2B82895CB9689A78C6E95FF7 /* TravelexpenseMetadataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataParser.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataParser.swift"; sourceTree = "<group>"; };
 		3BDDDC45B59B840DAE7A3C04 /* TravelexpenseStaticResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseStaticResolver.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseStaticResolver.swift"; sourceTree = "<group>"; };
 		3C725A02B23CC11FC74C5E08 /* TravelexpenseMetadataText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataText.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataText.swift"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */,
 				1277F7601F8E66AC0060AF58 /* SAPLogo@2x.png */,
 				7A1315C61D4B982000A5DA56 /* Info.plist */,
+				1BE3BD0C20F4ED3700051AA9 /* Palette.nss */,
 			);
 			path = TravelExpenses;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */,
 				7A1315C21D4B982000A5DA56 /* Assets.xcassets in Resources */,
 				1277F7611F8E66AF0060AF58 /* SAPLogo@2x.png in Resources */,
+				1BE3BD0D20F4ED3700051AA9 /* Palette.nss in Resources */,
 				1B5F26CA20CF95CD0073C63D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
