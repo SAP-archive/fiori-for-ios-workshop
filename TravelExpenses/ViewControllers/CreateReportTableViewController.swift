@@ -189,12 +189,9 @@ class CreateReportTableViewController: FUIFormTableViewController {
         }
 
         do {
-            let statusQuery = DataQuery().withKey(ReportStatusType.key(reportstatusid: self.report.reportstatusid!))
-            let status = try Single.required(DataHandler.shared.service.fetchReportStatus(matching: statusQuery))
 
             let changeSet = ChangeSet()
             changeSet.createEntity(self.report)
-//            changeSet.createLink(from: self.report, property: ExpenseReportItemType.reportStatus, to: status)
 
             try DataHandler.shared.service.applyChanges(changeSet)
         } catch {

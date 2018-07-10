@@ -77,7 +77,6 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
             cell.keyName = "Report Total"
             let totalAmt: Double = expenseItems.reduce(0) { $0 + $1.localCurrencyAmount() }
-            cell.valueTextView.textColor = UIColor.preferredFioriColor(forStyle: .primary1)
             cell.value = NumberFormatter(.currency).string(from: totalAmt as NSNumber)!
             cell.isEditable = false
 
@@ -86,7 +85,6 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIKeyValueFormCell.reuseIdentifier, for: indexPath) as! FUIKeyValueFormCell
             cell.keyName = "Amount Due Employee"
             let dueAmt: Double = expenseItems.filter({ $0.paymenttypeid == "EMP" }).reduce(0) { $0 + $1.localCurrencyAmount() }
-            cell.valueTextView.textColor = UIColor.preferredFioriColor(forStyle: .primary1)
             cell.value = NumberFormatter(.currency).string(from: dueAmt as NSNumber)!
             cell.isEditable = false
             return cell
