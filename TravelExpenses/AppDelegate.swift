@@ -13,9 +13,9 @@ import SAPOData
 import SAPOfflineOData
 import UserNotifications
 
-let TRIALACCOUNT: String = "i826181trial"
-let APPLICATIONID: String = "com.sap.expense"
-let DESTINATION: String = "com.sap.expense"
+let TRIALACCOUNT: String = <#SAP Cloud Platform account name#>
+let APPLICATIONID: String = <#Application ID in Mobile Services#>
+let DESTINATION: String = <#Destination name#>
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
