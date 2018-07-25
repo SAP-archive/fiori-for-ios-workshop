@@ -18,7 +18,7 @@ Use of the code is governed by the terms of the SAP Developer License Agreement 
 
 # Download and installation
 
-Follow the steps in the [wiki](https://github.com/SAP/fiori-for-ios-workshop/wiki) to get the app to work
+Follow the steps in the [wiki](https://github.com/SAP/fiori-for-ios-workshop/wiki/Download-and-installation) to get the app to work
 
 # Limitations
 
