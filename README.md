@@ -18,37 +18,7 @@ Use of the code is governed by the terms of the SAP Developer License Agreement 
 
 # Download and installation
 
-## Tools installation
-Developers should download the **SAP Cloud Platform SDK for iOS** ("the SDK"), and install the **SAP Cloud Plaform SDK for iOS Assistant** Mac application ("the Assistant").  From the Assistant, a developer can generate a new application, or **Export Frameworks** to access the SDK frameworks to link into an existing project.
-
-Developers should have **Apple Xcode** ("Xcode") installed on the same machine as the Assistant, with the desired iOS simulators.
-
-## Setup local repository
-Clone the repository at `https://github.com/SAP/fiori-for-ios-workshop.git`.
-
-## Project setup
-
-### Install backend service
-Please follow the guide [here](https://github.com/SAP/fiori-for-ios-workshop/wiki/Install-SAPTravelExpense-war) to install the SAPTravelExpense.war found in the root of the repository.  This service will function as the backend of the mobile application.
-
-### Create Mobile Application configuration in SAP Cloud Platform mobile services
-To run the reference app in the repository, you will need a corresponding application configuration on SAP Cloud Platform Mobile Services.  Follow this procedure to create that application configuration.
-
-Please follow the guide [here](https://github.com/SAP/fiori-for-ios-workshop/wiki/Create-Mobile-Application-in-SAP-Cloud-Platform-mobile-services-with-Assistant) to create a new application in mobile services, using the Assistant.
-
-### Export Frameworks to the Reference App
-Launch the Assistant.  From the *SAP Cloud Platform SDK for iOS Assistant* menu, choose the *Export Frameworks* item to install the SDK frameworks to the `/frameworks` directory in the local repository.  
-
-### Run the Reference App
-To point the reference application to the newly-created configuration, edit the following properties in `AppDelegate.swift`.
-
-```swift
-let TRIALACCOUNT: String = <#My Trial Account Name#> // e.g.: "i826181trial"
-let APPLICATIONID: String = <#My Application ID#> // "com.sap.expense"
-let DESTINATION: String = <#My Destination Name#> // "com.sap.expense" (does not need to match APPLICATIONID)
-```
-
-Then, you should be able to build & run.
+Follow the steps in the [wiki](https://github.com/SAP/fiori-for-ios-workshop/wiki) to get the app to work
 
 # Limitations
 
