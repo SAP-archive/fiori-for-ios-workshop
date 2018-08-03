@@ -76,8 +76,12 @@ class TripsTableViewController: FioriBaseTableViewController {
         cell.detailImageView.image = #imageLiteral(resourceName: "skyline6 copy")
         cell.headlineText = item.reservationtitle
         cell.headlineLabel.numberOfLines = 2
-        cell.subheadlineText = "Confirmation: \(item.confirmation!)"
-        cell.footnoteText = "\(dateFormatter.string(from: item.reservationdate!.utc()))"
+        if let confirmation = item.confirmation {
+            cell.subheadlineText = "Confirmation: \(confirmation)"
+        }
+        if let date = item.reservationdate {
+            cell.footnoteText = "\(dateFormatter.string(from: date.utc()))"
+        }
         cell.accessoryType = .disclosureIndicator
         return cell
     }

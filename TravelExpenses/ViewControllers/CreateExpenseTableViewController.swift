@@ -365,9 +365,9 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     func addAttachmentURL(_ url: URL, withThumbnail thumbnail: UIImage) {
         if !self.attachmentURLs.contains(url) { self.attachmentURLs.append(url) }
         self.attachmentThumbnails.updateValue(thumbnail, forKey: url)
-        self.attachmentController?.reloadData()
-
         DispatchQueue.main.async {
+            self.attachmentController?.reloadData()
+            
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }
