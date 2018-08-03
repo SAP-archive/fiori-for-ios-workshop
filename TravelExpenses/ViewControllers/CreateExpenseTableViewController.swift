@@ -28,8 +28,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     private(set) var attachmentURLs: [URL] = []
     private(set) var attachmentThumbnails: [URL: UIImage?] = [:] {
         didSet {
-            self.attachmentController?.reloadData()
             DispatchQueue.main.async {
+                self.attachmentController?.reloadData()
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
             }
@@ -222,7 +222,11 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         case (1, 3):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
             cell.keyName = "Date"
-            cell.value = self.expense.itemdate!.utc()
+            if let itemDate = self.expense.itemdate {
+                cell.value = itemDate.utc()
+            } else {
+                cell.value = Date()
+            }
             cell.datePickerMode = .date
             cell.onChangeHandler = { [weak self] in
                 self?.expense.itemdate = LocalDateTime.from(utc: $0)

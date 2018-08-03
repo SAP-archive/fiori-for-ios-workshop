@@ -62,29 +62,38 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
 //        cell.valueTextView.textColor = UIColor.preferredFioriColor(forStyle: .primary1)
         cell.isEditable = false
 
+        let emptyString = " - "
         switch indexPath.row {
         case 0:
             cell.keyName = "Expense Type"
-            cell.value = self.expense.expenseType?.description ?? self.expense.expensetypeid ?? ""
+            cell.value = self.expense.expenseType?.description ?? self.expense.expensetypeid ?? emptyString
         case 1:
             cell.keyName = "Vendor"
-            cell.value = self.expense.vendor ?? ""
+            cell.value = self.expense.vendor ?? emptyString
         case 2:
             cell.keyName = "Transaction Date"
-            cell.value = DateFormatter(.medium).string(from: self.expense.itemdate!.utc())
+            if let date = self.expense.itemdate {
+                cell.value = DateFormatter(.medium).string(from: date.utc())
+            } else {
+                cell.value = emptyString
+            }
         case 3:
             cell.keyName = "Location"
-            cell.value = self.expense.location ?? " - "
+            cell.value = self.expense.location ?? emptyString
         case 4:
             cell.keyName = "Amount"
-            cell.value = NumberFormatter(.currency).string(from: self.expense.amount!.doubleValue() as NSNumber)!
+            if let amount = self.expense.amount, let amountString = NumberFormatter(.currency).string(from: amount.doubleValue() as NSNumber) {
+                cell.value = amountString
+            } else {
+                cell.value = emptyString
+            }
         case 5:
             cell.keyName = "Currency"
-            cell.value = self.expense.currency?.description ?? self.expense.currencyid ?? ""
+            cell.value = self.expense.currency?.description ?? self.expense.currencyid ?? emptyString
 
         default:
             cell.keyName = "Payment"
-            cell.value = self.expense.paymentType?.description ?? self.expense.paymenttypeid ?? ""
+            cell.value = self.expense.paymentType?.description ?? self.expense.paymenttypeid ?? emptyString
         }
 
         return cell
