@@ -32,6 +32,10 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         self.addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
+        
+        NotificationCenter.default.addObserver(forName: DOWNLOAD_COMPLETE, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            self?.reloadExpenseItems()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,13 +43,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
 
         self.navigationItem.title = "Expense Reports"
 
-        let query = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType)
-        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
-            guard let entities = items else {
-                return print(String(describing: error.debugDescription))
-            }
-            self?.entities = entities
-        }
+        self.reloadExpenseItems()
     }
 
     // MARK: - Table view data source
@@ -126,6 +124,23 @@ class ExpensesTableViewController: FioriBaseTableViewController {
 
     // MARK: - Actions
 
+    func reloadExpenseItems() {
+        
+        let query = DataQuery()
+            .filter(ExpenseReportItemType.reportstatusid == "ACT")
+            .expand(ExpenseReportItemType.expenseItems, withQuery: DataQuery()
+                .expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType))
+        
+        
+        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] items, error in
+            guard let entities = items else {
+                return print(String(describing: error.debugDescription))
+            }
+            
+            self?.entities = entities.flatMap { $0.expenseItems }
+        }
+    }
+    
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)
         if isEditing, let index = self.navigationItem.rightBarButtonItems?.index(of: addButton) {

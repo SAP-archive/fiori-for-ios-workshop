@@ -45,22 +45,16 @@ class ReportsTableViewController: FioriBaseTableViewController {
         self.navigationItem.rightBarButtonItems = [addButton]
         self.navigationItem.title = "Expense Reports"
         
-
+        NotificationCenter.default.addObserver(forName: DOWNLOAD_COMPLETE, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            self?.reloadReports()
+        }
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
-        let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
-
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] entities, error in
-            guard let entities = entities else {
-                return print(String(describing: error))
-            }
-            self?.expenseReports = entities
-        }
+        reloadReports()
     }
 
     // MARK: - Table view data source
@@ -192,6 +186,18 @@ class ReportsTableViewController: FioriBaseTableViewController {
 
 
     // MARK: - Actions
+    
+    func reloadReports() {
+        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
+        let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
+        
+        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] entities, error in
+            guard let entities = entities else {
+                return print(String(describing: error))
+            }
+            self?.expenseReports = entities
+        }
+    }
 
     @objc func toggleEditing() {
         self.setEditing(!self.isEditing, animated: true)

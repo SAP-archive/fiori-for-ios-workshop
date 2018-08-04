@@ -50,7 +50,10 @@ class FioriBaseTableViewController: UITableViewController {
                     guard error == nil else {
                         return print("error downloading: \(error.debugDescription)")
                     }
-                    self?.tableView.reloadData()
+                    
+                    let notification = Notification(name: DOWNLOAD_COMPLETE)
+                    NotificationCenter.default.post(notification)
+                    
                 }
                 print("Offline Store is downloaded by refresh control")
             })

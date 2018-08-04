@@ -18,14 +18,21 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     func setReport(_ report: ExpenseReportItemType) {
         self.report = report
-
+        setTags()
         self.objectHeader.headlineText = report.reportname
         self.objectHeader.subheadlineText = report.reportlocation
-        self.objectHeader.tags = ["Active", "Not Customer Facing"].map({
-            FUITag(title: $0)
-        })
         self.objectHeader.bodyText = report.reportid
         self.objectHeader.footnoteText = report.rangeString()
+    }
+    
+    func setTags() {
+        let statusTag = FUITag(title: report.reportstatusid == "ACT" ? "Active" : "Pending")
+        if report.reportstatusid == "PEN" {
+            statusTag.textColor = UIColor.preferredFioriColor(forStyle: .critical, background: .lightBackground)
+            statusTag.borderColor = UIColor.preferredFioriColor(forStyle: .critical, background: .darkBackground)
+        }
+        self.objectHeader.tags = [statusTag, FUITag(title: "Not Customer Facing")]
+        
     }
     
     var expenseItems: [ExpenseItemType] = []
@@ -47,12 +54,17 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addExpense))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
+        
+        NotificationCenter.default.addObserver(forName: DOWNLOAD_COMPLETE, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            self?.reloadExpenseItems()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // handle case where screen was visible, but user created new expense on "Expenses" tab.
+        self.reloadReport()
         self.reloadExpenseItems()
     }
 
@@ -138,9 +150,11 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             }
 
             self?.tableView.beginUpdates()
+            self?.setTags()
             self?.expenseItems.remove(at: indexPath.row)
             self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             self?.tableView.endUpdates()
+            self?.tableView.reloadSections([0], with: .fade)
         })
     }
 
@@ -168,9 +182,18 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 
+    func reloadReport() {
+        let query = DataQuery().withKey(ExpenseReportItemType.key(reportid: report.reportid))
+        DataHandler.shared.service.fetchExpenseReportItem(matching: query, completionHandler: { [weak self] reports, _ in
+            guard let report = reports?.first else { return }
+            self?.setReport(report)
+        })
+    }
+    
     func reloadExpenseItems() {
         
         let query = DataQuery().filter(ExpenseItemType.reportid == report.reportid!).expand(ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
+        
         DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
             guard let items = items, error == nil else {
                 return print(error!)
