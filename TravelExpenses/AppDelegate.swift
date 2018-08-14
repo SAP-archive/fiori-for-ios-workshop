@@ -16,6 +16,7 @@ import UserNotifications
 let TRIALACCOUNT: String = <#SAP Cloud Platform account name#>
 let APPLICATIONID: String = <#Application ID in Mobile Services#>
 let DESTINATION: String = <#Destination name#>
+let DOWNLOAD_COMPLETE: NSNotification.Name = NSNotification.Name(rawValue: "com.sap.travelexpense.offline.downloadcomplete")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
