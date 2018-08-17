@@ -297,6 +297,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             self.attachmentController = cell.attachmentsController
             cell.attachmentsController.dataSource = self
             cell.attachmentsController.delegate = self
+            cell.attachmentsController.customAttachmentsTitleFormat = "Receipts (%d)"
 
             let addPhotoAction = FUIAddPhotoAttachmentAction()
             addPhotoAction.delegate = self
@@ -312,6 +313,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             } else {
                 // Fallback on earlier versions
             }
+            
+            cell.attachmentsController.reloadData()
 
             return cell
         default:

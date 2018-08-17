@@ -8,6 +8,7 @@
 
 import SAPFiori
 import UIKit
+import os.log
 
 class ExpenseDetailTableViewController: FUIFormTableViewController {
 
@@ -22,12 +23,31 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
     }
 
     // TODO: add receipts to ExpenseItemType
-    private var receipts: [UIImage] = [#imageLiteral(resourceName: "Receipt.jpg")]
+    private var receiptThumbnails: [UIImage] = []
+    private var receiptFileURLs: [URL] = []
+    private weak var attachmentController: FUIAttachmentsViewController?
 
     // MARK: View controller hooks
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Load a sample file attachment
+        do {
+            if let receiptURL = Bundle.main.resourceURL?.appendingPathComponent("IMG_0268.JPG", isDirectory: false),
+                let receiptImage = try UIImage(data: Data(contentsOf: receiptURL), scale: UIScreen.main.scale) {
+                self.receiptFileURLs.append(receiptURL)
+                self.receiptThumbnails.append(receiptImage)
+                DispatchQueue.main.async {
+                    self.attachmentController?.reloadData()
+
+                }
+            }
+        }
+        catch {
+            os_log("Failed to load receipt image from file.  %@", error.localizedDescription)
+        }
+        
 
         self.tableView.register(FUIKeyValueFormCell.self, forCellReuseIdentifier: FUIKeyValueFormCell.reuseIdentifier)
         self.tableView.register(FUIAttachmentsFormCell.self, forCellReuseIdentifier: FUIAttachmentsFormCell.reuseIdentifier)
@@ -54,6 +74,8 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
             cell.attachmentsController.dataSource = self
             cell.attachmentsController.delegate = self
             cell.isEditable = false
+            cell.attachmentsController.customAttachmentsTitleFormat = "Receipts (%d)"
+            self.attachmentController = cell.attachmentsController
             return cell
         }
 
@@ -104,23 +126,24 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
 
 extension ExpenseDetailTableViewController: FUIAttachmentsViewControllerDataSource, FUIAttachmentsViewControllerDelegate {
     func numberOfAttachments(in _: FUIAttachmentsViewController) -> Int {
-        return self.receipts.count
+        return self.receiptFileURLs.count
     }
 
-    func attachmentsViewController(_: FUIAttachmentsViewController, iconForAttachmentAtIndex index: Int) -> (image: UIImage, contentMode: UIViewContentMode)? {
-        guard self.receipts.count > 0 else { return nil }
-        return (image: self.receipts[index], contentMode: .scaleAspectFill)
+    func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, iconForAttachmentAtIndex index: Int) -> (image: UIImage, contentMode: UIViewContentMode)? {
+        guard self.receiptThumbnails.count > 0 else { return nil }
+        return (image: self.receiptThumbnails[index], contentMode: .scaleAspectFill)
     }
 
-    func attachmentsViewController(_: FUIAttachmentsViewController, urlForAttachmentAtIndex _: Int) -> URL? {
-        return nil
+    func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, urlForAttachmentAtIndex index: Int) -> URL? {
+        return receiptFileURLs[index]
     }
 
     func attachmentsViewController(_: FUIAttachmentsViewController, didPressDeleteAtIndex index: Int) {
-        self.receipts.remove(at: index)
+        self.receiptThumbnails.remove(at: index)
+        self.receiptFileURLs.remove(at: index)
     }
 
-    func attachmentsViewController(_: FUIAttachmentsViewController, couldNotPresentAttachmentAtIndex _: Int) {
+    func attachmentsViewController(_ attachmentsViewController: FUIAttachmentsViewController, couldNotPresentAttachmentAtIndex _: Int) {
         let alertController = UIAlertController(title: "Attachment Unavailable", message: "Cannot read attachment. It might not be downloaded on device", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel) { [weak alertController] _ in
             alertController?.dismiss(animated: true, completion: nil)
