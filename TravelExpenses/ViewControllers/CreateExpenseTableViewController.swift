@@ -13,7 +13,8 @@ import SAPOData
 import UIKit
 
 class CreateExpenseTableViewController: FUIFormTableViewController {
-
+    private var modalProcessingView: FUIModalProcessingIndicatorView?
+    
     // MARK: - Model
 
     // Newly created Expense Item
@@ -345,29 +346,71 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             return FUIToastMessage.show(message: "Please specify a Payment Type")
         }
 
+        
+        guard attachmentURLs.count > 0 else {
+            saveToOData(imageNames: [])
+            
+            return
+        }
+        
+        self.modalProcessingView = FUIModalProcessingIndicator.show(inView: self.view)
+        DispatchQueue.global().async {
+            let imageHandler = ImageHandler.shared()
+            
+            imageHandler.uploadImages(imageUrls: self.attachmentURLs, completion: { (imageNames, error) in
+                DispatchQueue.main.async {
+                    self.modalProcessingView?.dismiss()
+                    
+                    if let error = error {
+                        print("error uploading: \(error.localizedDescription)")
+                        
+                        let errorBanner = FUIBannerMessageView()
+                        
+                        errorBanner.show(message: "Failed to upload image", withDuration: 3.0, animated: true)
+                        
+                        return
+                    }
+                    
+                    self.saveToOData(imageNames: imageNames)
+                }
+            })
+        }
+    }
+
+    
+    // MARK: - Utility methods
+    private func saveToOData(imageNames: [String]) {
         do {
             let reportQuery = DataQuery().withKey(ExpenseReportItemType.key(reportid: self.expense.reportid!))
             let report = try Single.required(DataHandler.shared.service.fetchExpenseReportItem(matching: reportQuery))
-
+            
             let changeSet = ChangeSet()
-
             changeSet.createEntity(self.expense)
-
+            
+            for imageName in imageNames {
+                let attachment = ExpenseItemAttachmentType()
+                attachment.attachmentid = imageName
+                attachment.name = "\(imageName).jpg"
+                attachment.reportid = report.reportid
+                attachment.itemid = self.expense.itemid
+                
+                changeSet.createEntity(attachment)
+                changeSet.createLink(from: attachment, property: ExpenseItemAttachmentType.expenseItem, to: self.expense)
+            }
+            
             if report.reportstatusid != "ACT" {
                 report.reportstatusid = "ACT"
                 changeSet.updateEntity(report)
             }
             try DataHandler.shared.service.applyChanges(changeSet)
-
+            
         } catch {
             print(error)
         }
-
+        
         self.dismiss(animated: true, completion: nil)
     }
-
-    // MARK: - Utility methods
-
+    
     // Utility method, for adding attachment to the local data model
     func addAttachmentURL(_ url: URL, withThumbnail thumbnail: UIImage) {
         if !self.attachmentURLs.contains(url) { self.attachmentURLs.append(url) }

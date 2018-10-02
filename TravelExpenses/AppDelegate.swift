@@ -74,11 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
         let configurationURL = URL(string: "https://hcpms-\(TRIALACCOUNT).hanatrial.ondemand.com/" + DESTINATION)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
+        
+        ImageHandler.createInstance(sapUrlSession: onboardingContext.sapURLSession, baseUrl: configurationURL)
     }
 
     func onboarded(onboardingContext: OnboardingContext) {
-        self.uploadLogs(onboardingContext.sapURLSession, onboardingContext.sapcpmsSettingsParameters!)
-        self.registerForRemoteNotification(onboardingContext.sapURLSession, onboardingContext.sapcpmsSettingsParameters!)
+//        self.uploadLogs(onboardingContext.sapURLSession, onboardingContext.sapcpmsSettingsParameters!)
+//        self.registerForRemoteNotification(onboardingContext.sapURLSession, onboardingContext.sapcpmsSettingsParameters!)
         self.openOfflineStore(true)
     }
 
@@ -191,6 +193,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.expenseReportItem.localName, query: "/\(TravelexpenseMetadata.EntitySets.expenseReportItem.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.currency.localName, query: "/\(TravelexpenseMetadata.EntitySets.currency.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.reportStatus.localName, query: "/\(TravelexpenseMetadata.EntitySets.reportStatus.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
+            try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.expenseItemAttachment.localName, query: "/\(TravelexpenseMetadata.EntitySets.expenseItemAttachment.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
         }
         DataHandler.shared.service = Travelexpense(provider: offlineODataProvider)
     }

@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -18,6 +18,9 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         Ignore.valueOf_any(metadata)
         if !TravelexpenseMetadata.EntityTypes.currencyType.isRemoved {
             TravelexpenseMetadata.EntityTypes.currencyType = metadata.entityType(withName: "codejam.saptravelexpense.services.CurrencyType")
+        }
+        if !TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.isRemoved {
+            TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemAttachmentType")
         }
         if !TravelexpenseMetadata.EntityTypes.expenseItemType.isRemoved {
             TravelexpenseMetadata.EntityTypes.expenseItemType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemType")
@@ -52,6 +55,9 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         if !TravelexpenseMetadata.EntitySets.expenseItem.isRemoved {
             TravelexpenseMetadata.EntitySets.expenseItem = metadata.entitySet(withName: "ExpenseItem")
         }
+        if !TravelexpenseMetadata.EntitySets.expenseItemAttachment.isRemoved {
+            TravelexpenseMetadata.EntitySets.expenseItemAttachment = metadata.entitySet(withName: "ExpenseItemAttachment")
+        }
         if !TravelexpenseMetadata.EntitySets.expenseReportItem.isRemoved {
             TravelexpenseMetadata.EntitySets.expenseReportItem = metadata.entitySet(withName: "ExpenseReportItem")
         }
@@ -76,6 +82,21 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         if !CurrencyType.description.isRemoved {
             CurrencyType.description = TravelexpenseMetadata.EntityTypes.currencyType.property(withName: "DESCRIPTION")
         }
+        if !ExpenseItemAttachmentType.attachmentid.isRemoved {
+            ExpenseItemAttachmentType.attachmentid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "ATTACHMENTID")
+        }
+        if !ExpenseItemAttachmentType.name.isRemoved {
+            ExpenseItemAttachmentType.name = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "NAME")
+        }
+        if !ExpenseItemAttachmentType.reportid.isRemoved {
+            ExpenseItemAttachmentType.reportid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "REPORTID")
+        }
+        if !ExpenseItemAttachmentType.itemid.isRemoved {
+            ExpenseItemAttachmentType.itemid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "ITEMID")
+        }
+        if !ExpenseItemAttachmentType.expenseItem.isRemoved {
+            ExpenseItemAttachmentType.expenseItem = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "expenseItem")
+        }
         if !ExpenseItemType.reportid.isRemoved {
             ExpenseItemType.reportid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "REPORTID")
         }
@@ -91,9 +112,6 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         if !ExpenseItemType.amount.isRemoved {
             ExpenseItemType.amount = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "AMOUNT")
         }
-        if !ExpenseItemType.paymenttypeid.isRemoved {
-            ExpenseItemType.paymenttypeid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "PAYMENTTYPEID")
-        }
         if !ExpenseItemType.vendor.isRemoved {
             ExpenseItemType.vendor = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "VENDOR")
         }
@@ -106,6 +124,12 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         if !ExpenseItemType.notes.isRemoved {
             ExpenseItemType.notes = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "NOTES")
         }
+        if !ExpenseItemType.paymenttypeid.isRemoved {
+            ExpenseItemType.paymenttypeid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "PAYMENTTYPEID")
+        }
+        if !ExpenseItemType.expenseReport.isRemoved {
+            ExpenseItemType.expenseReport = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "expenseReport")
+        }
         if !ExpenseItemType.paymentType.isRemoved {
             ExpenseItemType.paymentType = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "paymentType")
         }
@@ -114,6 +138,9 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         }
         if !ExpenseItemType.currency.isRemoved {
             ExpenseItemType.currency = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "currency")
+        }
+        if !ExpenseItemType.attachments.isRemoved {
+            ExpenseItemType.attachments = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "attachments")
         }
         if !ExpenseReportItemType.reportid.isRemoved {
             ExpenseReportItemType.reportid = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTID")
@@ -180,6 +207,9 @@ internal class TravelexpenseMetadataChanges: ObjectBase {
         }
         if !ReservationItemType.reservationType.isRemoved {
             ReservationItemType.reservationType = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "reservationType")
+        }
+        if !ReservationItemType.tripItem.isRemoved {
+            ReservationItemType.tripItem = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "tripItem")
         }
         if !ReservationType.reservationtypeid.isRemoved {
             ReservationType.reservationtypeid = TravelexpenseMetadata.EntityTypes.reservationType.property(withName: "RESERVATIONTYPEID")

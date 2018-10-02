@@ -32,23 +32,30 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load a sample file attachment
-        do {
-            if let receiptURL = Bundle.main.resourceURL?.appendingPathComponent("IMG_0268.JPG", isDirectory: false),
-                let receiptImage = try UIImage(data: Data(contentsOf: receiptURL), scale: UIScreen.main.scale) {
-                self.receiptFileURLs.append(receiptURL)
-                self.receiptThumbnails.append(receiptImage)
+        let imageHandler = ImageHandler.shared()
+        for attachment in expense.attachments {
+            guard let imageName = attachment.name else { continue }
+            
+            imageHandler.getImageWith(imageName: imageName) {[weak self] (image, error) in
+                guard let weakSelf = self else { return }
+                
+                if let error = error {
+                     os_log("Failed to load receipt image from file.  %@", error.localizedDescription)
+                }
+                
+                guard let image = image else { return }
+                let filename = imageHandler.getDocumentsDirectory().appendingPathComponent(imageName, isDirectory: false)
+                
                 DispatchQueue.main.async {
-                    self.attachmentController?.reloadData()
-
+                    weakSelf.receiptFileURLs.append(filename)
+                    weakSelf.receiptThumbnails.append(image)
+                    
+                    weakSelf.tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+                    weakSelf.attachmentController?.reloadData()
                 }
             }
         }
-        catch {
-            os_log("Failed to load receipt image from file.  %@", error.localizedDescription)
-        }
         
-
         self.tableView.register(FUIKeyValueFormCell.self, forCellReuseIdentifier: FUIKeyValueFormCell.reuseIdentifier)
         self.tableView.register(FUIAttachmentsFormCell.self, forCellReuseIdentifier: FUIAttachmentsFormCell.reuseIdentifier)
     }

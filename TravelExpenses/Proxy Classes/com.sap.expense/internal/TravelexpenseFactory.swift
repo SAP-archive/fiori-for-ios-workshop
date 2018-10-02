@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -6,6 +6,7 @@ import SAPOData
 internal class TravelexpenseFactory {
     static func registerAll() throws {
         TravelexpenseMetadata.EntityTypes.currencyType.registerFactory(ObjectFactory.with(create: { CurrencyType(withDefaults: false) }, createWithDecoder: { d in try CurrencyType(from: d) }))
+        TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.registerFactory(ObjectFactory.with(create: { ExpenseItemAttachmentType(withDefaults: false) }, createWithDecoder: { d in try ExpenseItemAttachmentType(from: d) }))
         TravelexpenseMetadata.EntityTypes.expenseItemType.registerFactory(ObjectFactory.with(create: { ExpenseItemType(withDefaults: false) }, createWithDecoder: { d in try ExpenseItemType(from: d) }))
         TravelexpenseMetadata.EntityTypes.expenseReportItemType.registerFactory(ObjectFactory.with(create: { ExpenseReportItemType(withDefaults: false) }, createWithDecoder: { d in try ExpenseReportItemType(from: d) }))
         TravelexpenseMetadata.EntityTypes.expenseType.registerFactory(ObjectFactory.with(create: { ExpenseType(withDefaults: false) }, createWithDecoder: { d in try ExpenseType(from: d) }))

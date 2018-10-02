@@ -1,9 +1,9 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
 
-final public class ExpenseItemType: EntityValue {
+open class ExpenseItemType: EntityValue {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
     }
@@ -18,8 +18,6 @@ final public class ExpenseItemType: EntityValue {
 
     public static var amount: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "AMOUNT")
 
-    public static var paymenttypeid: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "PAYMENTTYPEID")
-
     public static var vendor: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "VENDOR")
 
     public static var location: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "LOCATION")
@@ -28,11 +26,17 @@ final public class ExpenseItemType: EntityValue {
 
     public static var notes: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "NOTES")
 
+    public static var paymenttypeid: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "PAYMENTTYPEID")
+
+    public static var expenseReport: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "expenseReport")
+
     public static var paymentType: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "paymentType")
 
     public static var expenseType: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "expenseType")
 
     public static var currency: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "currency")
+
+    public static var attachments: Property = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "attachments")
 
     public init(withDefaults: Bool = true) {
         super.init(withDefaults: withDefaults, type: TravelexpenseMetadata.EntityTypes.expenseItemType)
@@ -49,6 +53,15 @@ final public class ExpenseItemType: EntityValue {
 
     open class func array(from: EntityValueList) -> Array<ExpenseItemType> {
         return ArrayConverter.convert(from.toArray(), Array<ExpenseItemType>())
+    }
+
+    open var attachments: Array<ExpenseItemAttachmentType> {
+        get {
+            return ArrayConverter.convert(EntityValueList.castRequired(self.requiredValue(for: ExpenseItemType.attachments)).toArray(), Array<ExpenseItemAttachmentType>())
+        }
+        set(value) {
+            ExpenseItemType.attachments.setEntityList(in: self, to: EntityValueList.fromArray(ArrayConverter.convert(value, Array<EntityValue>())))
+        }
     }
 
     open func copy() -> ExpenseItemType {
@@ -70,6 +83,15 @@ final public class ExpenseItemType: EntityValue {
         }
         set(value) {
             self.setOptionalValue(for: ExpenseItemType.currencyid, to: StringValue.of(optional: value))
+        }
+    }
+
+    open var expenseReport: ExpenseReportItemType? {
+        get {
+            return CastOptional<ExpenseReportItemType>.from(self.optionalValue(for: ExpenseItemType.expenseReport))
+        }
+        set(value) {
+            self.setOptionalValue(for: ExpenseItemType.expenseReport, to: value)
         }
     }
 

@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -37,6 +37,16 @@ open class Travelexpense<Provider: DataServiceProvider>: DataService<Provider> {
     @available(swift, deprecated: 4.0, renamed: "fetchExpenseItem")
     open func expenseItem(query: DataQuery = DataQuery(), completionHandler: @escaping (Array<ExpenseItemType>?, Error?) -> Void) {
         self.fetchExpenseItem(matching: query, completionHandler: completionHandler)
+    }
+
+    @available(swift, deprecated: 4.0, renamed: "fetchExpenseItemAttachment")
+    open func expenseItemAttachment(query: DataQuery = DataQuery()) throws -> Array<ExpenseItemAttachmentType> {
+        return try self.fetchExpenseItemAttachment(matching: query)
+    }
+
+    @available(swift, deprecated: 4.0, renamed: "fetchExpenseItemAttachment")
+    open func expenseItemAttachment(query: DataQuery = DataQuery(), completionHandler: @escaping (Array<ExpenseItemAttachmentType>?, Error?) -> Void) {
+        self.fetchExpenseItemAttachment(matching: query, completionHandler: completionHandler)
     }
 
     @available(swift, deprecated: 4.0, renamed: "fetchExpenseReportItem")
@@ -114,6 +124,44 @@ open class Travelexpense<Provider: DataServiceProvider>: DataService<Provider> {
         self.addBackgroundOperation {
             do {
                 let result: Array<ExpenseItemType> = try self.fetchExpenseItem(matching: query)
+                self.completionQueue.addOperation {
+                    completionHandler(result, nil)
+                }
+            } catch let error {
+                self.completionQueue.addOperation {
+                    completionHandler(nil, error)
+                }
+            }
+        }
+    }
+
+    open func fetchExpenseItemAttachment(matching query: DataQuery = DataQuery()) throws -> Array<ExpenseItemAttachmentType> {
+        return try ExpenseItemAttachmentType.array(from: self.executeQuery(query.fromDefault(TravelexpenseMetadata.EntitySets.expenseItemAttachment)).entityList())
+    }
+
+    open func fetchExpenseItemAttachment(matching query: DataQuery = DataQuery(), completionHandler: @escaping (Array<ExpenseItemAttachmentType>?, Error?) -> Void) {
+        self.addBackgroundOperation {
+            do {
+                let result: Array<ExpenseItemAttachmentType> = try self.fetchExpenseItemAttachment(matching: query)
+                self.completionQueue.addOperation {
+                    completionHandler(result, nil)
+                }
+            } catch let error {
+                self.completionQueue.addOperation {
+                    completionHandler(nil, error)
+                }
+            }
+        }
+    }
+
+    open func fetchExpenseItemAttachmentType(matching query: DataQuery) throws -> ExpenseItemAttachmentType {
+        return try CastRequired<ExpenseItemAttachmentType>.from(self.executeQuery(query.fromDefault(TravelexpenseMetadata.EntitySets.expenseItemAttachment)).requiredEntity())
+    }
+
+    open func fetchExpenseItemAttachmentType(matching query: DataQuery, completionHandler: @escaping (ExpenseItemAttachmentType?, Error?) -> Void) {
+        self.addBackgroundOperation {
+            do {
+                let result: ExpenseItemAttachmentType = try self.fetchExpenseItemAttachmentType(matching: query)
                 self.completionQueue.addOperation {
                     completionHandler(result, nil)
                 }

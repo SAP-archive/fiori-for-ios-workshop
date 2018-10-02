@@ -188,7 +188,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
     // MARK: - Actions
     
     func reloadReports() {
-        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
+        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType, ExpenseItemType.attachments).orderBy(ExpenseItemType.itemdate)
         let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
         
         DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] entities, error in

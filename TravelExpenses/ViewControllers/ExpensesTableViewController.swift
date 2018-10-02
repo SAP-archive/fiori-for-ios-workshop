@@ -129,7 +129,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         let query = DataQuery()
             .filter(ExpenseReportItemType.reportstatusid == "ACT")
             .expand(ExpenseReportItemType.expenseItems, withQuery: DataQuery()
-                .expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType))
+                .expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType, ExpenseItemType.attachments))
         
         
         DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] items, error in

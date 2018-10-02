@@ -15,7 +15,7 @@ extension FUIListPickerDataSource {
 
     func listPickerTableView(_ tableView: UITableView, cellForItemWithUniqueIdentifier uniqueIdentifier: String) -> UITableViewCell {
         let index = self.listPickerTableView!(tableView, indexForUniqueIdentifier: uniqueIdentifier)
-        return listPickerTableView(tableView, cellForRowAt: index, isFiltered: false)
+        return listPickerTableView!(tableView, cellForRowAt: index, isFiltered: false)
     }
 }
 

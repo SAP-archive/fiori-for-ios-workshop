@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -13,6 +13,7 @@ internal class TravelexpenseStaticResolver: ObjectBase {
 
     private class func resolve1() {
         Ignore.valueOf_any(TravelexpenseMetadata.EntityTypes.currencyType)
+        Ignore.valueOf_any(TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType)
         Ignore.valueOf_any(TravelexpenseMetadata.EntityTypes.expenseItemType)
         Ignore.valueOf_any(TravelexpenseMetadata.EntityTypes.expenseReportItemType)
         Ignore.valueOf_any(TravelexpenseMetadata.EntityTypes.expenseType)
@@ -24,6 +25,7 @@ internal class TravelexpenseStaticResolver: ObjectBase {
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.currency)
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.expense)
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.expenseItem)
+        Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.expenseItemAttachment)
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.expenseReportItem)
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.payment)
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.reportStatus)
@@ -32,19 +34,26 @@ internal class TravelexpenseStaticResolver: ObjectBase {
         Ignore.valueOf_any(TravelexpenseMetadata.EntitySets.tripItem)
         Ignore.valueOf_any(CurrencyType.currencyid)
         Ignore.valueOf_any(CurrencyType.description)
+        Ignore.valueOf_any(ExpenseItemAttachmentType.attachmentid)
+        Ignore.valueOf_any(ExpenseItemAttachmentType.name)
+        Ignore.valueOf_any(ExpenseItemAttachmentType.reportid)
+        Ignore.valueOf_any(ExpenseItemAttachmentType.itemid)
+        Ignore.valueOf_any(ExpenseItemAttachmentType.expenseItem)
         Ignore.valueOf_any(ExpenseItemType.reportid)
         Ignore.valueOf_any(ExpenseItemType.itemid)
         Ignore.valueOf_any(ExpenseItemType.expensetypeid)
         Ignore.valueOf_any(ExpenseItemType.itemdate)
         Ignore.valueOf_any(ExpenseItemType.amount)
-        Ignore.valueOf_any(ExpenseItemType.paymenttypeid)
         Ignore.valueOf_any(ExpenseItemType.vendor)
         Ignore.valueOf_any(ExpenseItemType.location)
         Ignore.valueOf_any(ExpenseItemType.currencyid)
         Ignore.valueOf_any(ExpenseItemType.notes)
+        Ignore.valueOf_any(ExpenseItemType.paymenttypeid)
+        Ignore.valueOf_any(ExpenseItemType.expenseReport)
         Ignore.valueOf_any(ExpenseItemType.paymentType)
         Ignore.valueOf_any(ExpenseItemType.expenseType)
         Ignore.valueOf_any(ExpenseItemType.currency)
+        Ignore.valueOf_any(ExpenseItemType.attachments)
         Ignore.valueOf_any(ExpenseReportItemType.reportid)
         Ignore.valueOf_any(ExpenseReportItemType.reportname)
         Ignore.valueOf_any(ExpenseReportItemType.reportstart)
@@ -67,6 +76,7 @@ internal class TravelexpenseStaticResolver: ObjectBase {
         Ignore.valueOf_any(ReservationItemType.location)
         Ignore.valueOf_any(ReservationItemType.tripid)
         Ignore.valueOf_any(ReservationItemType.reservationType)
+        Ignore.valueOf_any(ReservationItemType.tripItem)
         Ignore.valueOf_any(ReservationType.reservationtypeid)
         Ignore.valueOf_any(ReservationType.description)
         Ignore.valueOf_any(TripItemType.tripid)

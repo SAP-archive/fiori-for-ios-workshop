@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -14,6 +14,8 @@ public class TravelexpenseMetadata {
 
     public class EntityTypes {
         public static var currencyType: EntityType = TravelexpenseMetadataParser.parsed.entityType(withName: "codejam.saptravelexpense.services.CurrencyType")
+
+        public static var expenseItemAttachmentType: EntityType = TravelexpenseMetadataParser.parsed.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemAttachmentType")
 
         public static var expenseItemType: EntityType = TravelexpenseMetadataParser.parsed.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemType")
 
@@ -38,6 +40,8 @@ public class TravelexpenseMetadata {
         public static var expense: EntitySet = TravelexpenseMetadataParser.parsed.entitySet(withName: "Expense")
 
         public static var expenseItem: EntitySet = TravelexpenseMetadataParser.parsed.entitySet(withName: "ExpenseItem")
+
+        public static var expenseItemAttachment: EntitySet = TravelexpenseMetadataParser.parsed.entitySet(withName: "ExpenseItemAttachment")
 
         public static var expenseReportItem: EntitySet = TravelexpenseMetadataParser.parsed.entitySet(withName: "ExpenseReportItem")
 

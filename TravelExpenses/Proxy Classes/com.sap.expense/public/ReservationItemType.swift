@@ -1,4 +1,4 @@
-// # Proxy Compiler 18.3.1-fe2cc6-20180517
+// # Proxy Compiler 18.3.3-df95fb-20180723
 
 import Foundation
 import SAPOData
@@ -23,6 +23,8 @@ open class ReservationItemType: EntityValue {
     public static var tripid: Property = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "TRIPID")
 
     public static var reservationType: Property = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "reservationType")
+
+    public static var tripItem: Property = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "tripItem")
 
     public init(withDefaults: Bool = true) {
         super.init(withDefaults: withDefaults, type: TravelexpenseMetadata.EntityTypes.reservationItemType)
@@ -108,6 +110,15 @@ open class ReservationItemType: EntityValue {
         }
         set(value) {
             self.setOptionalValue(for: ReservationItemType.reservationtypeid, to: StringValue.of(optional: value))
+        }
+    }
+
+    open var tripItem: TripItemType? {
+        get {
+            return CastOptional<TripItemType>.from(self.optionalValue(for: ReservationItemType.tripItem))
+        }
+        set(value) {
+            self.setOptionalValue(for: ReservationItemType.tripItem, to: value)
         }
     }
 

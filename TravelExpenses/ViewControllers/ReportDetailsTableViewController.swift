@@ -28,8 +28,8 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     func setTags() {
         let statusTag = FUITag(title: report.reportstatusid == "ACT" ? "Active" : "Pending")
         if report.reportstatusid == "PEN" {
-            statusTag.textColor = UIColor.preferredFioriColor(forStyle: .critical, background: .lightBackground)
-            statusTag.borderColor = UIColor.preferredFioriColor(forStyle: .critical, background: .darkBackground)
+            statusTag.textColor = UIColor.preferredFioriColor(forStyle: .critical, background: .light)
+            statusTag.borderColor = UIColor.preferredFioriColor(forStyle: .critical, background: .dark)
         }
         self.objectHeader.tags = [statusTag, FUITag(title: "Not Customer Facing")]
         
@@ -139,6 +139,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
             report.reportstatusid = "ACT"
             changeSet.updateEntity(report)
         }
+
         changeSet.deleteEntity(entity)
 
         DataHandler.shared.service.applyChanges(changeSet, completionHandler: { [weak self] error in
@@ -192,7 +193,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     
     func reloadExpenseItems() {
         
-        let query = DataQuery().filter(ExpenseItemType.reportid == report.reportid!).expand(ExpenseItemType.paymentType).orderBy(ExpenseItemType.itemdate)
+        let query = DataQuery().filter(ExpenseItemType.reportid == report.reportid!).expand(ExpenseItemType.paymentType, ExpenseItemType.attachments).orderBy(ExpenseItemType.itemdate)
         
         DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
             guard let items = items, error == nil else {
