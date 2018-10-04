@@ -4,14 +4,14 @@ Reference iOS application for SAP Fiori for iOS 2018 workshop series.
 # Requirements
 Use of the reference application is dependent upon the following:
 
- 1. [SAP Cloud Platform SDK for iOS](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-ios-14485.html), version 2.0 SP02 or higher
+ 1. [SAP Cloud Platform SDK for iOS](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-ios-14485.html), version 3.0 or higher
  2. SAP Cloud Platform account ([trial](https://account.hanatrial.ondemand.com/cockpit#/home/trialhome) or production), with Mobile Services [Development & Operations](https://account.hanatrial.ondemand.com/cockpit#/home/service/mobileplatform2/overview) service
      - The application is validated on 'Neo' landscape, but should behave normally on Cloud Foundry landscape as well
  3. SAP Cloud Platform database (HANA MDC)
- 4. Apple Xcode 9.3
-     - New versions of Xcode, including 10-beta will be supported on a rolling basis
- 5. iOS 10 or 11
-     - iOS 12-beta will be supported with Xcode 10-beta support
+ 4. Apple Xcode 10
+     - New versions of Xcode will be supported on a rolling basis
+ 5. iOS 11 or 12
+     
 
 # License
 Use of the code is governed by the terms of the SAP Developer License Agreement (see **LICENSE**, and **NOTICE**).
