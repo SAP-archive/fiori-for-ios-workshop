@@ -24,7 +24,6 @@ Follow the steps in the [wiki](https://github.com/SAP/fiori-for-ios-workshop/wik
 
  - Trips view controller does not navigate to trip details
  - Unable to edit properties on existing Expense Items
- - Attachment images are not stored to Expense Items
 
 # Known Issues
 None
