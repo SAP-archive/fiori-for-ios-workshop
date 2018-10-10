@@ -1,5 +1,5 @@
-# fiori-for-ios-workshop
-Reference iOS application for SAP Fiori for iOS 2018 workshop series.
+# Fiori for iOS Workshop Demo Application
+This repository contains a demo application which you can use as a reference on how a travel expense application could look like.
 
 # Requirements
 Use of the reference application is dependent upon the following:
