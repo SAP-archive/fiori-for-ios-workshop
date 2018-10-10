@@ -76,3 +76,5 @@ SAPFioriFlows.framework
 SAPFoundation.framework
 SAPOData.framework
 SAPOfflineOData.framework
+
+.DS_Store
