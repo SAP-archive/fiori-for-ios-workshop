@@ -399,7 +399,6 @@
 				7A1315B11D4B982000A5DA56 /* Sources */,
 				7A1315B21D4B982000A5DA56 /* Frameworks */,
 				7A1315B31D4B982000A5DA56 /* Resources */,
-				1B50E80E20D234FD00F54209 /* ShellScript */,
 				1B9D41EF20D2CEA200FD84B2 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -463,22 +462,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1B50E80E20D234FD00F54209 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\nif [ $EFFECTIVE_PLATFORM_NAME  = '-iphonesimulator' ]\nthen\nMY_TARGET_DIR=$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\nMY_SOURCE_DIR=$PROJECT_DIR/frameworks/Release$EFFECTIVE_PLATFORM_NAME\necho $MY_SOURCE_DIR\necho $MY_TARGET_DIR\ncp -R $MY_SOURCE_DIR/ $MY_TARGET_DIR/\nelse\necho \"Not simulator, no need to copy\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A1315B11D4B982000A5DA56 /* Sources */ = {
