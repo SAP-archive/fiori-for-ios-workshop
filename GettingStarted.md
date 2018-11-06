@@ -6,7 +6,7 @@ This page is broken into the following sections:
 
 1. Clone this Repository
 2. Install Sample Expense Data
-3. Generate a Minimal Expense Entity Viewer App
+3. Generate a Minimal Entity Viewer App for Expense Data
 4. Configure Pre-built Travel Expense App
 
 ## Clone this Repository
@@ -64,7 +64,7 @@ Here you can review the structure of the backend data model and alter the servic
 
 Finally, copy the browser URL for use as the **Backend URL** in the following steps.
 
-## Generate a Minimal Entity Viewer App for Destination
+## Generate a Minimal Entity Viewer App for Expense Data
 
 After deploying and starting the **saptravelexpense** backend we could configure the reference application in this repository and the **Mobile Services, std** configuration now; However, as we want to develop our own T&E app later on, we will use the **SAP Cloud Platform SDK for iOS Assistant** to create the **Mobile Services, std** configuration and a minimal expense app titled MyTravelExpense app. You can extend this generated app to build your own full-featured Travel Expense app.
 
