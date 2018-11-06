@@ -1,10 +1,23 @@
 # Getting Started
 
-This guide will help you setup all necessary components to run our reference application. 
+This guide will help you setup all necessary components to explore OData, generate a minimal app with the Assistant, and run the reference app in this repository.
+
+This page is broken into the following sections:
+
+1. Clone this Repository
+2. Install Sample Expense Data
+3. Generate a Minimal Expense Entity Viewer App
+4. Configure Pre-built Travel Expense App
+
+## Clone this Repository
+
+In order to complete the steps outlined below, you’ll want to have a copy of this repository dowloaded to your Mac. To clone this repository, open Xcode and choose **clone…** from the **Source Code** menu. Paste in the URL for this repository and click **Clone**. After you’ve cloned this repository, you can close the Xcode project and continue with the following steps.
+
+![Clone-repository](https://user-images.githubusercontent.com/9074514/48091264-1066ab80-e1be-11e8-9ea1-db7e3fe4a938.png)
 
 ## Install Sample Expense Data
 
-We're using a predefined Java Application Backend you can host in your Neo Trial Cloud landscape. You can connect whatever application you're building against this backend service if you want to.
+To provide a database for our app, we’re using a predefined Java Application backend you can host in your Neo Trial Cloud landscape.
 
 Open a browser window to https://account.hanatrial.ondemand.com/cockpit#/home/trialhome
 
@@ -16,7 +29,7 @@ Next, click on **Applications** and then **Java Applications**.
 
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplications_deploy.png)
 
-To deploy a new Java application, click on **Deploy Application**. A new Pop-up should appear.
+To deploy a new Java application, click on **Deploy Application**. A new pop-up, should appear.
 
 ![Backend-setup-cloud](https://user-images.githubusercontent.com/28980634/47416270-9f62d500-d775-11e8-87ce-af6c32d44012.png)
 
@@ -24,8 +37,7 @@ From here click on **Browse** and navigate to your local version of the cloned r
 
 ![Backend-setup-cloud](https://user-images.githubusercontent.com/28980634/47416042-18156180-d775-11e8-9e28-4341ec0c254e.png)
 
-Now you have to select a Runtime where your backend should run on. For this sample Java Backend we're using the **Java Web Tomcat 8** runtime.
-Under the **Runtime Name** dropdown menu, select the **Java Web Tomcat 8** runtime and leave the rest as it is.
+Next you’ll select a Runtime where your backend should run. For this sample Java Backend we're using the **Java Web Tomcat 8** runtime. Under the **Runtime Name** dropdown menu, select the **Java Web Tomcat 8** runtime and leave the rest as it is.
 
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/UpdateApplication.png)
 
@@ -37,7 +49,7 @@ After the deployment finishes you have to start your application by clicking the
 
 Now the SAP Cloud Platform starts the Java Application so you can use it as a backend.
 
-Once the application transitions from **Starting** to **Started** your application is up and running.
+Once the application transitions from **Starting** to **Started** your backend is up and running.
 
 
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplications_started.png)
@@ -45,13 +57,16 @@ Once the application transitions from **Starting** to **Started** your applicati
 To verify the services data click on the name **saptravelexpense** and click on the link under **Applications URLs** to open the **Service Document** of the OData Service.
 
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplication_overview.png)
+
+Here you can review the structure of the backend data model and alter the service URL in the browser to explore the data.
+
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/ServiceRoot.png)
 
-Copy the URL for use as the **Backend URL** in the following steps.
+Finally, copy the browser URL for use as the **Backend URL** in the following steps.
 
-## Generate an Travel Expense Application
+## Generate a Minimal Expense Entity Viewer App
 
-After deploying and starting the Travel Expense backend we could setup the reference application and the **Mobile Services, std** configuration now. As we want to develop our own application later on we will use the **SAP Cloud Platform SDK for iOS Assistant** to create the **Mobile Services, std** configuration and an Entity Viewer Application. This generated application you can use later on to build your own Travel Expense app.
+After deploying and starting the **saptravelexpense** backend we could configure the reference application in this repository and the **Mobile Services, std** configuration now; However, as we want to develop our own T&E app later on, we will use the **SAP Cloud Platform SDK for iOS Assistant** to create the **Mobile Services, std** configuration and a minimal expense app titled MyTravelExpense app. You can extend this generated app to build your own full-featured Travel Expense app.
 
 ### Enable Mobile Services
 
@@ -74,13 +89,13 @@ Click on **Mobile Services, std** and if not enabled yet, click on **Enable**.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47416870-f4531b00-d776-11e8-9088-c616695b659f.png)
 
-After enabling the service or if already enabled, click on **Go to Service** to open **SAP Cloud Platform Mobile Services**.
+After enabling the service or if already enabled, click on **Go to Service** to open **SAP Cloud Platform Mobile Services** window.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200064-7d7f02d4-7e46-11e8-9303-1c2818decaa8.png)
 
 ### Configure the SAP Cloud Platform SDK for iOS Assistant
 
-To configure the **SAP Cloud Platform SDK for iOS Assistant** go to **Important Links** and click **Importing URLs directly**.
+To configure the **SAP Cloud Platform SDK for iOS Assistant** go to **Important Links** and click on the **Importing URLs directly** link.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200065-7d9832a4-7e46-11e8-9869-b5cf6d362bf7.png)
 
@@ -118,22 +133,20 @@ Select **Mobile Services on Neo Trial** for the **Account** and click **Next**.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46350624-8030c600-c655-11e8-8694-bf3bb2c16efe.png)
 
-The next configuration will create a **SAP Cloud Platform Mobile Services** application for you.
+The next configuration step will create a **SAP Cloud Platform Mobile Services** application for you.
 
 Enter the following information:
 
 | Field | Information |
 | --- | --- |
-| Name | *TE Scaffolding*  |
-| Identifier | *com.sap.expense* |
+| Name | *MyMobileCloudServiceApplication*  |
+| Identifier | *com.example.MyMobileCloudServiceApplication* |
 
-Select **None** from the **Authentication** dropdown menu and click **Next**.
+Select **No Authentication** from the **Authentication** dropdown menu and click **Next**. The identifier is important to get the Travel Expense app in this repository working later.
 
-> Note: The identifier is important to get the reference Application working later.
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48091993-3f7e1c80-e1c0-11e8-8908-174569e1aee1.png)
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46354829-d6a30200-c65f-11e8-9d2d-93a0414821a7.png)
-
-In the next step you need to define a **Destination** to your backend. As we just started our backend in the previous section we have to create a new destination here.
+In the next step you need to define a **Destination** to your backend. As we just started our backend in the previous section we have to create a new destination to the backend here.
 
 Click **Add new**
 
@@ -141,20 +154,20 @@ Enter the following information in the corresponding fields:
 
 | Field | Information |
 | --- | --- |
-| Name | *expensedb*  |
+| Name | *ExpenseDestination*  |
 | Backend URL | *Paste in the URL from the previous section* |
 
 Choose **No Authentication** from the **Authentication Type** dropdown and click **Save**.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46355123-7b254400-c660-11e8-8fe3-68c6b14bd736.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48092068-748a6f00-e1c0-11e8-89f3-ebb8c40eca6d.png)
 
 To continue with the project creation click **Next**.
 
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48092197-e1056e00-e1c0-11e8-96e4-b6371307405d.png)
+
+For this step select **Enable Offline Data**, keep all the defaults, and click **Next**.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46355518-3ea61800-c661-11e8-8a91-bdbc6ef5e413.png)
-
-
-On the Features screen, leave the default options checked, except: switch the OData Provider to Use Offline OData. Than click **Next**.
 
 This step will have all the information for your Xcode Project later on, so please enter the following information:
 
@@ -168,33 +181,58 @@ This step will have all the information for your Xcode Project later on, so plea
 
 Select a path where you want to create your Xcode project and click **Finish**.
 
-> Note: You could set those fields to whatever you want.
-
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200228-1348f112-7e47-11e8-96b5-bc05179f8421.png)
 
 ### Run your generated application
 
-Xcode should automatically open with your just created project.
+Xcode should automatically open your just created project.
 
-To run your application on a simulator, choose the **iPhone X** scheme and click the **Run** button.
+To run your application in the iOS simulator, choose the **iPhone X** scheme and click the **Run** button.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200381-d0978256-7e47-11e8-8106-23864ffb15ca.png)
 
-After the Simulator has started your application should be visible. The first steps to explore the life data in your application is to go through the on-boarding process. Click **Start** to begin.
+To log-on enter your SAP Cloud Platfrom account username and password.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47418834-367e5b80-d77b-11e8-8873-f5a28a1ca370.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48092356-4bb6a980-e1c1-11e8-8201-f0e82ade7753.png)
 
-After the on-boarding process you can now explore the life data from your deployed backend.
+The on-boarding screens will be presented, enter a pass code, then you’ll land on the main app screen where you can explore the data on your deployed backend.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200447-1dc68fcc-7e48-11e8-9151-33090acf4716.png)
 
-## Configure the Travel Expense Application
+Because this minimal iOS app has all the sample code required to query, create, and modify expense entities, you can use it as the base for implementing your own views leveraging Fiori for iOS controls.
 
-In the previous steps you did all necessary steps to now configure our reference app.
+To bypass requests for your passcode with every launch, turn on biometric authentication by selecting **Face ID > Enrolled** from the **Hardware** menu in the **Simulator** app.
 
-In the **Finder**, navigate to the local directory where you placed the cloned version of the **Travel Expense** project.
+
+## Configure Pre-built Travel Expense App
+
+You can leverage the backend data and cloud application created in the previous steps to configure the Travel Expense sample in this repository.
+
+In the **Finder**, navigate to the local directory where you placed the cloned version of the **Travel Expense** repository.
 
 Open the Xcode project file titled **TravelExpenses.xcodeproj**.
+
+### Replace the placeholder values
+
+Click on the **AppDelegate.swift** file in the Xcode project navigator.
+
+Scroll to the configuration value placeholders.
+
+![Reference-App](https://user-images.githubusercontent.com/28980634/47419837-5747b080-d77d-11e8-9b85-baa4cdd00c6e.png)
+
+Set the value of the **TRIALACCOUNT** string to your account name.
+
+This value is displayed after navigating to https://account.hanatrial.ondemand.com/cockpit#/home/trialhome and clicking on **Neo Trial**. The name should look something like **p1942140767trial**
+
+![Reference-App](https://user-images.githubusercontent.com/9074514/48092778-79e8b900-e1c2-11e8-8904-2ce5f9139b1f.png)
+
+Set the value of the **APPLICATIONID** string to "com.example.MyMobileCloudServiceApplication".
+
+Set the value of the **DESTINATION** string to "ExpenseDestination".
+
+> Note: If you have chosen your own names in the previous sections you have to make sure to set the correct values here.
+
+![Reference-App](https://user-images.githubusercontent.com/9074514/48092884-bd432780-e1c2-11e8-8197-ac497999caf2.png)
 
 ### Export Frameworks to the Xcode Project
 
@@ -210,27 +248,6 @@ Select the **frameworks** directory inside the **Travel Expense** folder and cli
 
 ![Reference-App](https://user-images.githubusercontent.com/28980634/47424847-ec03db80-d788-11e8-9837-488c3e8bec7c.png)
 
-### Replace the placeholder values
-
-Click on the **AppDelegate.swift** file in the Xcode project navigator.
-
-Scroll to the configuration value placeholders.
-
-![Reference-App](https://user-images.githubusercontent.com/28980634/47419837-5747b080-d77d-11e8-9b85-baa4cdd00c6e.png)
-
-Set the value of the **TRIALACCOUNT** string to your account name.
-
-This value is displayed after navigating to https://account.hanatrial.ondemand.com/cockpit#/home/trialhome and clicking on **Neo Trial**. The name should look something like **p1942218264trial**
-
-
-
-Set the value of the **APPLICATIONID** string to "com.sap.expense".
-
-Set the value of the **DESTINATION** string to "expensedb".
-
-> Note: If you have chosen your own names in the previous sections you have to make sure to set the correct values here.
-
-![Reference-App](https://user-images.githubusercontent.com/28980634/47419949-96760180-d77d-11e8-88d8-5ff7c7b9275d.png))
 
 Click the **Run** button in Xcode to run your copy of the *TravelExpense* app.
 
