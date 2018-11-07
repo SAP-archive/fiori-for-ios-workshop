@@ -131,7 +131,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     // MARK: - Support deleting Expense items
 
-    override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_: UITableView, commit _: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let entity = self.expenseItems[indexPath.row]
         
         let changeSet = ChangeSet()

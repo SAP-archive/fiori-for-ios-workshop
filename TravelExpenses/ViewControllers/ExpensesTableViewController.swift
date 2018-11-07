@@ -104,7 +104,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
 
     // MARK: - Support deleting Expense items
 
-    override func tableView(_: UITableView, commit _: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_: UITableView, commit _: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let entity = self.entities[indexPath.row]
 
         DataHandler.shared.service.deleteEntity(entity, completionHandler: { [weak self] error in

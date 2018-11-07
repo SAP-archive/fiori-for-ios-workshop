@@ -51,7 +51,6 @@ Now the SAP Cloud Platform starts the Java Application so you can use it as a ba
 
 Once the application transitions from **Starting** to **Started** your backend is up and running.
 
-
 ![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111976-10d86400-e209-11e8-875e-f4410bda8ec8.png)
 
 To verify the services data click on the name **saptravelexpense** and click on the link under **Applications URLs** to open the **Service Document** of the OData Service.
@@ -81,7 +80,6 @@ Next click on **Services** in the left navigation panel.
 Use the search field to search for **Mobile** on this page.
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112123-e3d88100-e209-11e8-8ed2-03e62d9ddfb8.png)
-
 
 Click on **Mobile Services, std** and if not enabled yet, click on **Enable**.
 

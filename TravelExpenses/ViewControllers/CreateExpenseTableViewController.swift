@@ -47,7 +47,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         // Configure table view
         self.title = "Create Expense"
         self.tableView.estimatedRowHeight = 44
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
 
         // Register cell classes
         self.tableView.register(FUITitleFormCell.self, forCellReuseIdentifier: FUITitleFormCell.reuseIdentifier)
@@ -450,7 +450,7 @@ extension CreateExpenseTableViewController: FUIAttachmentsViewControllerDataSour
         return self.attachmentURLs.count
     }
 
-    func attachmentsViewController(_: FUIAttachmentsViewController, iconForAttachmentAtIndex index: Int) -> (image: UIImage, contentMode: UIViewContentMode)? {
+    func attachmentsViewController(_: FUIAttachmentsViewController, iconForAttachmentAtIndex index: Int) -> (image: UIImage, contentMode: UIView.ContentMode)? {
         let url = self.attachmentURLs[index]
         guard let image = self.attachmentThumbnails[url] else {
             return nil
