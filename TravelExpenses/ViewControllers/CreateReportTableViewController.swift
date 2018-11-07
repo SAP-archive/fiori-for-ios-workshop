@@ -28,7 +28,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
         // Configure table view
         self.title = "Create Report"
         self.tableView.estimatedRowHeight = 44
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
 
         // Register cell classes
         self.tableView.register(FUITitleFormCell.self, forCellReuseIdentifier: FUITitleFormCell.reuseIdentifier)

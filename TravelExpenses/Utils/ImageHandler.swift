@@ -40,7 +40,7 @@ class ImageHandler {
         
         let singleUrl = imageUrls[0]
         guard let image = UIImage(contentsOfFile: singleUrl.path),
-            let imageData = UIImageJPEGRepresentation(image, 0.5) else {
+            let imageData = image.jpegData(compressionQuality: 0.5) else {
             // Should never happen
             completion([], nil)
             
