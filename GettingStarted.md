@@ -27,11 +27,11 @@ Click on **Neo Trial** to enter the **Neo Trial landscape** on the SAP Cloud Pla
 
 Next, click on **Applications** and then **Java Applications**.
 
-![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplications_deploy.png)
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111928-c9ea6e80-e208-11e8-86d4-f7bcf0eea6ec.png)
 
 To deploy a new Java application, click on **Deploy Application**. A new pop-up, should appear.
 
-![Backend-setup-cloud](https://user-images.githubusercontent.com/28980634/47416270-9f62d500-d775-11e8-87ce-af6c32d44012.png)
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111954-f1413b80-e208-11e8-8034-e3b885fd7fd4.png)
 
 From here click on **Browse** and navigate to your local version of the cloned repository. Select the **SAPTravelExpense.war** file and click **Choose**.
 
@@ -51,12 +51,11 @@ Now the SAP Cloud Platform starts the Java Application so you can use it as a ba
 
 Once the application transitions from **Starting** to **Started** your backend is up and running.
 
-
-![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplications_started.png)
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111976-10d86400-e209-11e8-875e-f4410bda8ec8.png)
 
 To verify the services data click on the name **saptravelexpense** and click on the link under **Applications URLs** to open the **Service Document** of the OData Service.
 
-![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/JavaApplication_overview.png)
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48112003-40876c00-e209-11e8-9577-45c94aae1e86.png)
 
 Here you can review the structure of the backend data model and alter the service URL in the browser to explore the data.
 
@@ -72,22 +71,21 @@ After deploying and starting the **saptravelexpense** backend we could configure
 
 First you have to activate the **Mobile Services, std** in your Neo Trial Cloud landscape. For that open a browser window to https://account.hanatrial.ondemand.com/cockpit#/home/trialhome and select **Neo Trial**.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47416873-f4531b00-d776-11e8-940e-082b2ba73563.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112076-9825d780-e209-11e8-8727-61e66f444b36.png)
 
 Next click on **Services** in the left navigation panel.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47416872-f4531b00-d776-11e8-9e06-b2dfb809211b.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112094-b8ee2d00-e209-11e8-8a5f-05b8478f48c3.png)
 
 Use the search field to search for **Mobile** on this page.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47416871-f4531b00-d776-11e8-9d5f-dca8bbd8cc36.png)
-
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112123-e3d88100-e209-11e8-8ed2-03e62d9ddfb8.png)
 
 Click on **Mobile Services, std** and if not enabled yet, click on **Enable**.
 
 > Note: This may take a while so no worries!
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47416870-f4531b00-d776-11e8-9088-c616695b659f.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112152-0ff40200-e20a-11e8-8441-53d0b577aff9.png)
 
 After enabling the service or if already enabled, click on **Go to Service** to open **SAP Cloud Platform Mobile Services** window.
 
@@ -131,7 +129,7 @@ To create a new application, click **Create New Application**.
 
 Select **Mobile Services on Neo Trial** for the **Account** and click **Next**.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46350624-8030c600-c655-11e8-8694-bf3bb2c16efe.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112200-4b8ecc00-e20a-11e8-87c9-4d06011a2777.png)
 
 The next configuration step will create a **SAP Cloud Platform Mobile Services** application for you.
 
@@ -173,15 +171,13 @@ This step will have all the information for your Xcode Project later on, so plea
 
 | Field | Information |
 | --- | --- |
-| Product Name | *TravelExpense*  |
+| Product Name | *MyTravelExpense*  |
 | Organization Name | *Your Company* |
 | Organization Identifier | *Your Company* |
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46355697-9fcdeb80-c661-11e8-9383-fc64002459ee.png)
-
 Select a path where you want to create your Xcode project and click **Finish**.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200228-1348f112-7e47-11e8-96b5-bc05179f8421.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112381-18990800-e20b-11e8-978d-20b9a5a3fb15.png)
 
 ### Run your generated application
 
@@ -189,7 +185,7 @@ Xcode should automatically open your just created project.
 
 To run your application in the iOS simulator, choose the **iPhone X** scheme and click the **Run** button.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200381-d0978256-7e47-11e8-8106-23864ffb15ca.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48112636-2307d180-e20c-11e8-8607-24b55a99674a.png)
 
 To log-on enter your SAP Cloud Platfrom account username and password.
 
