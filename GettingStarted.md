@@ -27,7 +27,7 @@ Click on **Neo Trial** to enter the **Neo Trial landscape** on the SAP Cloud Pla
 
 Next, click on **Applications** and then **Java Applications**.
 
-![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111928-c9ea6e80-e208-11e8-86d4-f7bcf0eea6ec.png)
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48163954-fb5d4b80-e295-11e8-8a16-02e271538b21.png)
 
 To deploy a new Java application, click on **Deploy Application**. A new pop-up, should appear.
 
@@ -48,6 +48,8 @@ After the deployment finishes you have to start your application by clicking the
 ![Backend-setup-cloud](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/UpdateApplication_success.png)
 
 Now the SAP Cloud Platform starts the Java Application so you can use it as a backend.
+
+![Backend-setup-cloud](https://user-images.githubusercontent.com/9074514/48111928-c9ea6e80-e208-11e8-86d4-f7bcf0eea6ec.png)
 
 Once the application transitions from **Starting** to **Started** your backend is up and running.
 
@@ -101,7 +103,7 @@ The **SAP Cloud Platform SDK for iOS Assistant** will launch and prompt you to c
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/377404/42200066-7db1476c-7e46-11e8-8a57-ba52c8424e5b.png)
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46350397-f7b22580-c654-11e8-9e3e-1caa99baf740.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48164253-d1585900-e296-11e8-9470-90932d744b3a.png)
 Enter the following information:
 
 | Field | Information |
@@ -109,23 +111,19 @@ Enter the following information:
 | Name | *Mobile Services on Neo Trial*  |
 | Authentication | *SAML* |
 
-For Authentication choose SAML and click **Save**.
-
-
-
 Click **Back** to return to the main page of the assistant.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46350396-f7b22580-c654-11e8-8313-283eec510d0a.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48164334-082e6f00-e297-11e8-8610-92de6fd36549.png)
 
 ### Create your first Xcode Project
 
 Click the **Create new** button.
 
-![Entity-Viewer]()
+![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47417490-5d875e00-d778-11e8-914d-897504ea3d41.png)
 
 To create a new application, click **Create New Application**.
 
-![Entity-Viewer](https://user-images.githubusercontent.com/28980634/47417490-5d875e00-d778-11e8-914d-897504ea3d41.png)
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48164443-5c395380-e297-11e8-9eaa-d3f2201d0dca.png)
 
 Select **Mobile Services on Neo Trial** for the **Account** and click **Next**.
 
@@ -148,6 +146,8 @@ In the next step you need to define a **Destination** to your backend. As we jus
 
 Click **Add new**
 
+![Entity-Viewer](https://user-images.githubusercontent.com/9074514/48164520-973b8700-e297-11e8-97e5-5886518be575.png)
+
 Enter the following information in the corresponding fields:
 
 | Field | Information |
@@ -167,7 +167,7 @@ For this step select **Enable Offline Data**, keep all the defaults, and click *
 
 ![Entity-Viewer](https://user-images.githubusercontent.com/28980634/46355518-3ea61800-c661-11e8-8a91-bdbc6ef5e413.png)
 
-This step will have all the information for your Xcode Project later on, so please enter the following information:
+This step populate the information in your Xcode Project later on, so please enter the following information:
 
 | Field | Information |
 | --- | --- |
@@ -214,7 +214,7 @@ Click on the **AppDelegate.swift** file in the Xcode project navigator.
 
 Scroll to the configuration value placeholders.
 
-![Reference-App](https://user-images.githubusercontent.com/28980634/47419837-5747b080-d77d-11e8-9b85-baa4cdd00c6e.png)
+![Reference-App](https://user-images.githubusercontent.com/9074514/48164684-129d3880-e298-11e8-9f97-2aeec0db03fc.png)
 
 Set the value of the **TRIALACCOUNT** string to your account name.
 
@@ -238,7 +238,7 @@ Open the **SAP Cloud Platform SDK for iOS Assistant**.
 
 From the **SAP Cloud Platform SDK for iOS Assistant** menu, select the **Export Frameworks...** menu item.
 
-![Reference-App](https://user-images.githubusercontent.com/28980634/47419433-798cfe80-d77c-11e8-8d34-49039ff1332a.png)
+![Reference-App](https://user-images.githubusercontent.com/9074514/48164756-48dab800-e298-11e8-92b9-44d291b266c4.png)
 
 Select the **frameworks** directory inside the **Travel Expense** folder and click **Export**.
 
@@ -246,5 +246,13 @@ Select the **frameworks** directory inside the **Travel Expense** folder and cli
 
 
 Click the **Run** button in Xcode to run your copy of the *TravelExpense* app.
+
+![Reference-App](https://user-images.githubusercontent.com/9074514/48164802-745da280-e298-11e8-83b4-ffa7e9990d6f.png)
+
+After the Simulator has started the TravelExpense app will launch. Click **Start** to begin.
+
+![Reference-App](https://user-images.githubusercontent.com/9074514/48164885-c0a8e280-e298-11e8-9783-3af29df235c0.png)
+
+You’re done! Tap through the on-boarding screens, enter a passcode, and review the TravelExpense sample app.  Like the minimal app we created in the previous section, this app demonstrates query and expense creation and modification techniques however this sample includes additional code examples demonstrating how to implement Fiori controls and connect them to the back end expense data.
 
 ![Reference-App](https://user-images.githubusercontent.com/28980634/47420435-b659f500-d77e-11e8-893e-018cfe152999.png)
