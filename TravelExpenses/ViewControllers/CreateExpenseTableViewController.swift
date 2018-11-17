@@ -142,7 +142,15 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
             cell.valueTextField.addDoneButtonToKeyboard()
 
             cell.onChangeHandler = { [weak self, weak cell] in
-                self?.expense.amount = BigDecimal.parse($0)
+                // The changed value may contain currency formatting, so handle both raw and formatted cases
+                // NOTE: hitting enter in field gives raw value, tabbing out of field gives formatted
+                if let value = numberFormatter.number(from: $0) {
+                    self?.expense.amount = BigDecimal(value.decimalValue)
+                } else if let doubleValue = Double($0)  {
+                    self?.expense.amount = BigDecimal(Decimal(doubleValue))
+                } else {
+                    self?.expense.amount = BigDecimal(0)
+                }
 
                 let validationMessage = self?.expense.validationMessage(for: \.amount)
                 cell?.validationMessage = validationMessage
