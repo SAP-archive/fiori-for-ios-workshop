@@ -146,8 +146,8 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
                 // NOTE: hitting enter in field gives raw value, tabbing out of field gives formatted
                 if let value = numberFormatter.number(from: $0) {
                     self?.expense.amount = BigDecimal(value.decimalValue)
-                } else if let doubleValue = Double($0)  {
-                    self?.expense.amount = BigDecimal(Decimal(doubleValue))
+                } else if let value = BigDecimal.parse($0)  {
+                    self?.expense.amount = value
                 } else {
                     self?.expense.amount = BigDecimal(0)
                 }
