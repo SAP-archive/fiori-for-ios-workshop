@@ -11,7 +11,7 @@ import SAPFiori
 
 // MARK: - List picker data source implementation for Expense Report
 
-class ReportsPickerDataSource: BaseEntityTypePickerDataSource<ExpenseReportItemType> {
+class ReportsPickerDataSource: BaseEntityTypePickerDataSource<ExpenseReportItem> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
         let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell
@@ -23,7 +23,7 @@ class ReportsPickerDataSource: BaseEntityTypePickerDataSource<ExpenseReportItemT
 
 // MARK: - List picker data source implementation for Currency
 
-class CurrencyPickerDataSource: BaseEntityTypePickerDataSource<CurrencyType> {
+class CurrencyPickerDataSource: BaseEntityTypePickerDataSource<Currency> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
         let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell
@@ -35,7 +35,7 @@ class CurrencyPickerDataSource: BaseEntityTypePickerDataSource<CurrencyType> {
 
 // MARK: - List picker data source implementation for Payment Type
 
-class PaymentTypePickerDataSource: BaseEntityTypePickerDataSource<PaymentType> {
+class PaymentTypePickerDataSource: BaseEntityTypePickerDataSource<Payment> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
         let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell
@@ -47,7 +47,7 @@ class PaymentTypePickerDataSource: BaseEntityTypePickerDataSource<PaymentType> {
 
 // MARK: - List picker data source implementation for Expense Type
 
-class ExpenseTypePickerDataSource: BaseEntityTypePickerDataSource<ExpenseType> {
+class ExpenseTypePickerDataSource: BaseEntityTypePickerDataSource<Expense> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
         let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell
@@ -59,7 +59,7 @@ class ExpenseTypePickerDataSource: BaseEntityTypePickerDataSource<ExpenseType> {
 
 // MARK: - List picker data source implementation for Report Status
 
-class ReportStatusPickerDataSource: BaseEntityTypePickerDataSource<ReportStatusType> {
+class ReportStatusPickerDataSource: BaseEntityTypePickerDataSource<ReportStatus> {
     
     override func listPickerTableView(_ tableView: UITableView, cellForRowAt index: Int, isFiltered: Bool) -> UITableViewCell {
         let cell = super.listPickerTableView(tableView, cellForRowAt: index, isFiltered: false) as! FUIObjectTableViewCell

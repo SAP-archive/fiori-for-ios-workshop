@@ -14,9 +14,9 @@ class ExpenseDetailTableViewController: FUIFormTableViewController {
 
     // MARK: - Model
 
-    private var expense: ExpenseItemType!
+    private var expense: ExpenseItem!
 
-    func setExpense(_ expense: ExpenseItemType) {
+    func setExpense(_ expense: ExpenseItem) {
         self.expense = expense
         self.title = self.expense.itemid
         self.tableView.reloadData()

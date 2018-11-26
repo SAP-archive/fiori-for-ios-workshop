@@ -15,7 +15,7 @@ protocol PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Currency
 
-extension CurrencyType: PickableEntityType {
+extension Currency: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.currencyid else {
             preconditionFailure("CurrencyType \(self.debugDescription) does not have currencyid")
@@ -26,7 +26,7 @@ extension CurrencyType: PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Expense Report
 
-extension ExpenseReportItemType: PickableEntityType {
+extension ExpenseReportItem: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.reportid else {
             preconditionFailure("ExpenseReportItemType \(self.debugDescription) does not have reportId")
@@ -37,7 +37,7 @@ extension ExpenseReportItemType: PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Expense Type
 
-extension ExpenseType: PickableEntityType {
+extension Expense: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.expensetypeid else {
             preconditionFailure("ExpenseItemType \(self.debugDescription) does not have expensetypeid")
@@ -48,7 +48,7 @@ extension ExpenseType: PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Payment Type
 
-extension PaymentType: PickableEntityType {
+extension Payment: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.paymenttypeid else {
             preconditionFailure("PaymentType \(self.debugDescription) does not have paymenttypeid")
@@ -59,7 +59,7 @@ extension PaymentType: PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Report Status
 
-extension ReportStatusType: PickableEntityType {
+extension ReportStatus: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.reportstatusid else {
             preconditionFailure("ReportStatus \(self.debugDescription) does not have reportstatusid")
@@ -70,7 +70,7 @@ extension ReportStatusType: PickableEntityType {
 
 // MARK: - PickableEntityType implementation for Trip
 
-extension TripItemType: PickableEntityType {
+extension TripItem: PickableEntityType {
     var pickerUUID: String {
         guard let id = self.tripid else {
             preconditionFailure("Trip \(self.debugDescription) does not have tripid")

@@ -15,7 +15,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
     // MARK: - Model
 
     // Newly created Report Item
-    let report = ExpenseReportItemType()
+    let report = ExpenseReportItem()
 
     // Data sources for list picker rows
     let reportStatusPickerDataSource = ReportStatusPickerDataSource()

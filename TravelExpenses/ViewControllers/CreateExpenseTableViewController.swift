@@ -18,7 +18,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     // MARK: - Model
 
     // Newly created Expense Item
-    let expense = ExpenseItemType()
+    let expense = ExpenseItem()
 
     // Data sources for list picker rows
     let currencyPickerDataSource = CurrencyPickerDataSource()
@@ -153,7 +153,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         // Setup editable `FUIListPickerFormCell` for Currency selection
         case (1, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
-            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: currencyPickerDataSource)
+            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: currencyPickerDataSource as! FUIListPickerDataSource)
 
             cell.keyName = "Currency"
 
@@ -182,7 +182,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         // Setup editable `FUIListPickerFormCell` for Expense Type selection
         case (1, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
-            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: expenseTypePickerDataSource)
+            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: expenseTypePickerDataSource as! FUIListPickerDataSource)
 
             cell.keyName = "Expense Type"
 
@@ -381,21 +381,21 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     // MARK: - Utility methods
     private func saveToOData(imageNames: [String]) {
         do {
-            let reportQuery = DataQuery().withKey(ExpenseReportItemType.key(reportid: self.expense.reportid!))
+            let reportQuery = DataQuery().withKey(ExpenseReportItem.key(reportid: self.expense.reportid!))
             let report = try Single.required(DataHandler.shared.service.fetchExpenseReportItem(matching: reportQuery))
             
             let changeSet = ChangeSet()
             changeSet.createEntity(self.expense)
             
             for imageName in imageNames {
-                let attachment = ExpenseItemAttachmentType()
+                let attachment = ExpenseItemAttachment()
                 attachment.attachmentid = imageName
                 attachment.name = "\(imageName).jpg"
                 attachment.reportid = report.reportid
                 attachment.itemid = self.expense.itemid
                 
                 changeSet.createEntity(attachment)
-                changeSet.createLink(from: attachment, property: ExpenseItemAttachmentType.expenseItem, to: self.expense)
+                changeSet.createLink(from: attachment, property: ExpenseItemAttachment.expenseItem, to: self.expense)
             }
             
             if report.reportstatusid != "ACT" {

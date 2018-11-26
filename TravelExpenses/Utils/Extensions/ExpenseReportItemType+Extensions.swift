@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ExpenseReportItemType {
+extension ExpenseReportItem {
     
     // Convenience method to format start & finish date for Expense Report
     func rangeString() -> String {
@@ -19,7 +19,7 @@ extension ExpenseReportItemType {
     }
     
     // Convenience method to get validation method for the different String type key paths of Report
-    func validationMessage(for keyPath: KeyPath<ExpenseReportItemType, String?>) -> String? {
+    func validationMessage(for keyPath: KeyPath<ExpenseReportItem, String?>) -> String? {
         switch keyPath {
         case \.reportname:
             return self[keyPath: keyPath] == nil ? "Please provide a name for your Report" : nil

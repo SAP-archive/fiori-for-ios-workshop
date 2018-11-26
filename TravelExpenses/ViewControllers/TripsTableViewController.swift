@@ -14,7 +14,7 @@ class TripsTableViewController: FioriBaseTableViewController {
 
     // MARK: - Model
 
-    var entities: [TripItemType] = [] {
+    var entities: [TripItem] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -31,12 +31,12 @@ class TripsTableViewController: FioriBaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let query = DataQuery().expand(TripItemType.reservations)
+        let query = DataQuery().expand(TripItem.reservations)
         DataHandler.shared.service.fetchTripItem(matching: query) { items, error in
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
-            self.entities = entities
+            self.entities = [entities]
         }
     }
 
