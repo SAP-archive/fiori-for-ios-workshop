@@ -50,7 +50,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
 
         // Populate options for the list picker data sources
         do {
-            try self.reportStatusPickerDataSource.entities = DataHandler.shared.service.fetchReportStatus()
+            try self.reportStatusPickerDataSource.entities = DataHandler.shared.service.fetchReportStati()
         } catch {
             print(error)
         }
