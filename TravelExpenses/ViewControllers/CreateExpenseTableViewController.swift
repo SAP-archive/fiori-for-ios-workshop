@@ -71,10 +71,10 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
 
         // Populate options for the list picker data sources
         do {
-            try self.currencyPickerDataSource.entities = DataHandler.shared.service.fetchCurrency()
-            try self.reportsPickerDataSource.entities = DataHandler.shared.service.fetchExpenseReportItem()
-            try self.expenseTypePickerDataSource.entities = DataHandler.shared.service.fetchExpense()
-            try self.paymentTypePickerDataSource.entities = DataHandler.shared.service.fetchPayment()
+            try self.currencyPickerDataSource.entities = DataHandler.shared.service.fetchCurrencies()
+            try self.reportsPickerDataSource.entities = DataHandler.shared.service.fetchExpenseReports()
+            try self.expenseTypePickerDataSource.entities = DataHandler.shared.service.fetchExpenses()
+            try self.paymentTypePickerDataSource.entities = DataHandler.shared.service.fetchPayments()
         } catch {
             print(error)
         }
@@ -382,7 +382,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
     private func saveToOData(imageNames: [String]) {
         do {
             let reportQuery = DataQuery().withKey(ExpenseReportItem.key(reportid: self.expense.reportid!))
-            let report = try Single.required(DataHandler.shared.service.fetchExpenseReportItem(matching: reportQuery))
+            let report = try Single.required(DataHandler.shared.service.fetchExpenseReports(matching: reportQuery))
             
             let changeSet = ChangeSet()
             changeSet.createEntity(self.expense)

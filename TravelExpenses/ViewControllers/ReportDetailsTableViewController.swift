@@ -195,11 +195,11 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         
         let query = DataQuery().filter(ExpenseItem.reportid == report.reportid!).expand(ExpenseItem.paymentType, ExpenseItem.attachments).orderBy(ExpenseItem.itemdate)
         
-        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
+        DataHandler.shared.service.fetchExpenseItems(matching: query) { [weak self] items, error in
             guard let items = items, error == nil else {
                 return print(error!)
             }
-            self?.expenseItems = [items]
+            self?.expenseItems = items
             self?.tableView.reloadData()
         }
     }

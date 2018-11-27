@@ -132,7 +132,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
                 .expand(ExpenseItem.currency, ExpenseItem.expenseType, ExpenseItem.paymentType, ExpenseItem.attachments))
         
         
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] items, error in
+        DataHandler.shared.service.fetchExpenseReports (matching: query) { [weak self] items, error in
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
