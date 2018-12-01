@@ -64,6 +64,7 @@
 		A0371CF9C391016F87420544 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F09A0CCE359165FE3BFE6 /* PaymentType.swift */; };
 		A0597DD7F3A7EAE1C15C7382 /* ReportStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578E28D2951A6D8AFF3DF4A /* ReportStatusType.swift */; };
 		A7AC537B7D3C78D3594EB2C8 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80DFA28E2B68D2584F87150 /* CurrencyType.swift */; };
+		AB8DC8F921B2AD3D003DF754 /* OfflineODataStoreState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */; };
 		AF78026930AD2C21D34BD3A1 /* TravelexpenseMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49380AAB313739E1C7F880B /* TravelexpenseMetadata.swift */; };
 		D1C15A4E56473D7E033ACB43 /* ReservationItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B3B91B5C50A737FD4EAE1 /* ReservationItemType.swift */; };
 		DDA3F7855166C57322E1A76B /* ExpenseItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A04CF78A20FB4F009327A /* ExpenseItemType.swift */; };
@@ -139,6 +140,7 @@
 		83F0E89819B7E84A7A8728C1 /* TravelexpenseMetadataChanges.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TravelexpenseMetadataChanges.swift; path = "Proxy Classes/com.sap.expense/internal/TravelexpenseMetadataChanges.swift"; sourceTree = "<group>"; };
 		869A19D1F3434AAF38A8372A /* ExpenseReportItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseReportItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseReportItemType.swift"; sourceTree = "<group>"; };
 		9E8A04CF78A20FB4F009327A /* ExpenseItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpenseItemType.swift; path = "Proxy Classes/com.sap.expense/public/ExpenseItemType.swift"; sourceTree = "<group>"; };
+		AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OfflineODataStoreState+Description.swift"; sourceTree = "<group>"; };
 		AD0B3B91B5C50A737FD4EAE1 /* ReservationItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationItemType.swift; path = "Proxy Classes/com.sap.expense/public/ReservationItemType.swift"; sourceTree = "<group>"; };
 		B69D37CC93C2761E0CAB3272 /* Travelexpense.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Travelexpense.swift; path = "Proxy Classes/com.sap.expense/public/Travelexpense.swift"; sourceTree = "<group>"; };
 		C127397D40A7C6EDF4BF4952 /* TripItemType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TripItemType.swift; path = "Proxy Classes/com.sap.expense/public/TripItemType.swift"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				1BC0428B20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift */,
 				1BC0428D20CCE18D008BF50D /* ExpenseItemType+Extensions.swift */,
+				AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */,
 			);
 			name = "Model Types";
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				1B5F26C320CF85420073C63D /* PickableEntityType.swift in Sources */,
 				6C9CD0F02150EDBD00FAF1D9 /* ExpenseItemAttachmentType.swift in Sources */,
 				0AD88E5C943B5903B85D2395 /* TripItemType.swift in Sources */,
+				AB8DC8F921B2AD3D003DF754 /* OfflineODataStoreState+Description.swift in Sources */,
 				666D56B2714F06BEFC64FC8B /* ExpenseType.swift in Sources */,
 				1BC0429E20CCE290008BF50D /* ReportDetailsTableViewController.swift in Sources */,
 				1BC042A920CCEDF6008BF50D /* DataHandler.swift in Sources */,

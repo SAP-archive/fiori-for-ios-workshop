@@ -307,38 +307,9 @@ class OfflineODataDelegateSample: OfflineODataDelegate {
         self.logger.info("requestFailed: \(request.httpStatusCode)")
     }
 
-    // The OfflineODataStoreState is a Swift OptionSet. Use the set operation to retrieve each setting.
-    private func storeState2String(_ state: OfflineODataStoreState) -> String {
-        var result = ""
-        if state.contains(.opening) {
-            result = result + ":opening"
-        }
-        if state.contains(.open) {
-            result = result + ":open"
-        }
-        if state.contains(.closed) {
-            result = result + ":closed"
-        }
-        if state.contains(.downloading) {
-            result = result + ":downloading"
-        }
-        if state.contains(.uploading) {
-            result = result + ":uploading"
-        }
-        if state.contains(.initializing) {
-            result = result + ":initializing"
-        }
-        if state.contains(.fileDownloading) {
-            result = result + ":fileDownloading"
-        }
-        if state.contains(.initialCommunication) {
-            result = result + ":initialCommunication"
-        }
-        return result
-    }
-
     public func offlineODataProvider(_: OfflineODataProvider, stateDidChange newState: OfflineODataStoreState) {
-        let stateString = storeState2String(newState)
-        self.logger.info("stateChanged: \(stateString)")
+        // See OfflineODataStoreState+Description.swift for the extension that
+        // provides human-readable descriptions for offline store states.
+        self.logger.info("stateChanged: \(newState)")
     }
 }
