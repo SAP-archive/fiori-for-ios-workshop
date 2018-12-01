@@ -5,13 +5,15 @@
 // Created by SAP Cloud Platform SDK for iOS Assistant application on 09/06/18
 //
 
+import UIKit
+import UserNotifications
+
 import SAPCommon
 import SAPFiori
 import SAPFioriFlows
 import SAPFoundation
 import SAPOData
 import SAPOfflineOData
-import UserNotifications
 
 let TRIALACCOUNT: String = <#SAP Cloud Platform account name#>
 let APPLICATIONID: String = <#Application ID in Mobile Services#>
