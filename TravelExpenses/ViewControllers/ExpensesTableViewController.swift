@@ -26,6 +26,14 @@ class ExpensesTableViewController: FioriBaseTableViewController {
 
     // MARK: View controller hooks
 
+    private var downloadCompleteObserver: Any?
+
+    deinit {
+        if let downloadCompleteObserver = downloadCompleteObserver {
+            NotificationCenter.default.removeObserver(downloadCompleteObserver)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +41,8 @@ class ExpensesTableViewController: FioriBaseTableViewController {
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.toggleEditing))
         self.navigationItem.rightBarButtonItems = [editButton, addButton]
         
-        NotificationCenter.default.addObserver(forName: DOWNLOAD_COMPLETE, object: nil, queue: OperationQueue.main) { [weak self] _ in
-            self?.reloadExpenseItems()
+        downloadCompleteObserver = NotificationCenter.default.addObserver(forName: DataHandler.downloadCompleteNotification, object: nil, queue: .main) { [unowned self] _ in
+            self.reloadExpenseItems()
         }
     }
 
