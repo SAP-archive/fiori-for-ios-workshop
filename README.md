@@ -16,7 +16,7 @@ To use the reference app you need the following:
 # Download and installation
 
 To get the application up and running, please follow this guide:
-[Getting Started](https://github.com/SAP/fiori-for-ios-workshop/wiki/GettingStarted)
+[Getting Started](https://github.com/SAP/fiori-for-ios-workshop/blob/master/GettingStarted.md)
 
 # Limitations
  - Trips view controller does not navigate to trip details
