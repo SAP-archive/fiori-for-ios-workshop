@@ -15,9 +15,17 @@ import SAPFoundation
 import SAPOData
 import SAPOfflineOData
 
-let TRIALACCOUNT: String = <#SAP Cloud Platform account name#>
-let APPLICATIONID: String = <#Application ID in Mobile Services#>
-let DESTINATION: String = <#Destination name#>
+
+// MARK: - Customize these for your application.
+
+enum MobileServicesConfiguration {
+    static let trialAccountName: String = <#SAP Cloud Platform account name#>
+    static let applicationID: String = <#Application ID in Mobile Services#>
+    static let destinationName: String = <#Destination name#>
+}
+
+
+// MARK: - App Delegate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
@@ -73,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
-        let configurationURL = URL(string: "https://hcpms-\(TRIALACCOUNT).hanatrial.ondemand.com/" + DESTINATION)!
+        let configurationURL = URL(string: "https://hcpms-\(MobileServicesConfiguration.trialAccountName).hanatrial.ondemand.com/" + MobileServicesConfiguration.destinationName)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
         
         ImageHandler.createInstance(sapUrlSession: onboardingContext.sapURLSession, baseUrl: configurationURL)
@@ -176,7 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     private func configureOData(_ urlSession: SAPURLSession, _ serviceRoot: URL, _ onboarding: Bool) {
         var offlineParameters = OfflineODataParameters()
-        offlineParameters.customHeaders = ["X-SMP-APPID": APPLICATIONID]
+        offlineParameters.customHeaders = ["X-SMP-APPID": MobileServicesConfiguration.applicationID]
         offlineParameters.enableRepeatableRequests = true
         // Setup an instance of delegate. See sample code below for definition of OfflineODataDelegateSample class.
         let delegate = OfflineODataDelegateSample()
