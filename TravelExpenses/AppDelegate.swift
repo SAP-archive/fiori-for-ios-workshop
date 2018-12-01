@@ -189,8 +189,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Setup an instance of delegate. See sample code below for definition of OfflineODataDelegateSample class.
         let delegate = OfflineODataDelegateSample()
         let offlineODataProvider = try! OfflineODataProvider(serviceRoot: serviceRoot, parameters: offlineParameters, sapURLSession: urlSession, delegate: delegate)
-        // Although it is not the best practice, we are defining this query limit as top=20.
-        // If the service supports paging, then paging should be used instead of top!
         let queryLimit = DataQuery().selectAll()
         if onboarding {
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.payment.localName, query: "/\(TravelexpenseMetadata.EntitySets.payment.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
