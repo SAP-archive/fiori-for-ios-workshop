@@ -10,10 +10,10 @@ import SAPFiori
 import UIKit
 import SAPOData
 
-extension ExpenseItemType {
+extension ExpenseItem {
     
     // Convenience method to get validation method for the different String type key paths of Expense Item
-    func validationMessage(for keyPath: KeyPath<ExpenseItemType, String?>) -> String? {
+    func validationMessage(for keyPath: KeyPath<ExpenseItem, String?>) -> String? {
         switch keyPath {
         case \.vendor:
             return self[keyPath: keyPath] == nil ? "Vendor is required" : nil
@@ -31,7 +31,7 @@ extension ExpenseItemType {
     }
     
     // Convenience method to get validation method for the BigDecimal type key paths of Expense Item
-    func validationMessage(for keyPath: KeyPath<ExpenseItemType, BigDecimal?>) -> String? {
+    func validationMessage(for keyPath: KeyPath<ExpenseItem, BigDecimal?>) -> String? {
         switch keyPath {
         case \.amount:
             guard let value = self[keyPath: keyPath] else { return "\"Amount\" value is required." }
@@ -47,7 +47,7 @@ extension ExpenseItemType {
 }
 
 
-extension ExpenseItemType {
+extension ExpenseItem {
     func iconImages() -> [FUIGlyphImage] {
         let attachment = FUIAttributedImage(image: FUIIconLibrary.indicator.attachment.withRenderingMode(.alwaysTemplate))
         attachment.contentMode = .center
@@ -92,7 +92,7 @@ extension ExpenseItemType {
     }
 }
 
-extension ExpenseItemType {
+extension ExpenseItem {
     // get current currency for locale
     func localCurrency() -> String {
         let local = NSLocale.current.currencyCode ?? "USD"

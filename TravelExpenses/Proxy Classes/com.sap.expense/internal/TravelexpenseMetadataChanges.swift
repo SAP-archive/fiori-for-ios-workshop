@@ -1,230 +1,227 @@
-// # Proxy Compiler 18.3.3-df95fb-20180723
+// # Proxy Compiler 18.9.2-6abc59-20180924
 
 import Foundation
 import SAPOData
 
-internal class TravelexpenseMetadataChanges: ObjectBase {
-    override init() {
-    }
-
-    class func merge(metadata: CSDLDocument) {
+internal class TravelexpenseMetadataChanges {
+    static func merge(metadata: CSDLDocument) {
         metadata.hasGeneratedProxies = true
         TravelexpenseMetadata.document = metadata
         TravelexpenseMetadataChanges.merge1(metadata: metadata)
         try! TravelexpenseFactory.registerAll()
     }
 
-    private class func merge1(metadata: CSDLDocument) {
+    private static func merge1(metadata: CSDLDocument) {
         Ignore.valueOf_any(metadata)
-        if !TravelexpenseMetadata.EntityTypes.currencyType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.currencyType = metadata.entityType(withName: "codejam.saptravelexpense.services.CurrencyType")
+        if !TravelexpenseMetadata.EntityTypes.currency.isRemoved {
+            TravelexpenseMetadata.EntityTypes.currency = metadata.entityType(withName: "codejam.saptravelexpense.services.Currency")
         }
-        if !TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemAttachmentType")
+        if !TravelexpenseMetadata.EntityTypes.expense.isRemoved {
+            TravelexpenseMetadata.EntityTypes.expense = metadata.entityType(withName: "codejam.saptravelexpense.services.Expense")
         }
-        if !TravelexpenseMetadata.EntityTypes.expenseItemType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.expenseItemType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemType")
+        if !TravelexpenseMetadata.EntityTypes.expenseItem.isRemoved {
+            TravelexpenseMetadata.EntityTypes.expenseItem = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItem")
         }
-        if !TravelexpenseMetadata.EntityTypes.expenseReportItemType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.expenseReportItemType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseReportItemType")
+        if !TravelexpenseMetadata.EntityTypes.expenseItemAttachment.isRemoved {
+            TravelexpenseMetadata.EntityTypes.expenseItemAttachment = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseItemAttachment")
         }
-        if !TravelexpenseMetadata.EntityTypes.expenseType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.expenseType = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseType")
+        if !TravelexpenseMetadata.EntityTypes.expenseReportItem.isRemoved {
+            TravelexpenseMetadata.EntityTypes.expenseReportItem = metadata.entityType(withName: "codejam.saptravelexpense.services.ExpenseReportItem")
         }
-        if !TravelexpenseMetadata.EntityTypes.paymentType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.paymentType = metadata.entityType(withName: "codejam.saptravelexpense.services.PaymentType")
+        if !TravelexpenseMetadata.EntityTypes.payment.isRemoved {
+            TravelexpenseMetadata.EntityTypes.payment = metadata.entityType(withName: "codejam.saptravelexpense.services.Payment")
         }
-        if !TravelexpenseMetadata.EntityTypes.reportStatusType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.reportStatusType = metadata.entityType(withName: "codejam.saptravelexpense.services.ReportStatusType")
+        if !TravelexpenseMetadata.EntityTypes.reportStatus.isRemoved {
+            TravelexpenseMetadata.EntityTypes.reportStatus = metadata.entityType(withName: "codejam.saptravelexpense.services.ReportStatus")
         }
-        if !TravelexpenseMetadata.EntityTypes.reservationItemType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.reservationItemType = metadata.entityType(withName: "codejam.saptravelexpense.services.ReservationItemType")
+        if !TravelexpenseMetadata.EntityTypes.reservation.isRemoved {
+            TravelexpenseMetadata.EntityTypes.reservation = metadata.entityType(withName: "codejam.saptravelexpense.services.Reservation")
         }
-        if !TravelexpenseMetadata.EntityTypes.reservationType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.reservationType = metadata.entityType(withName: "codejam.saptravelexpense.services.ReservationType")
+        if !TravelexpenseMetadata.EntityTypes.reservationItem.isRemoved {
+            TravelexpenseMetadata.EntityTypes.reservationItem = metadata.entityType(withName: "codejam.saptravelexpense.services.ReservationItem")
         }
-        if !TravelexpenseMetadata.EntityTypes.tripItemType.isRemoved {
-            TravelexpenseMetadata.EntityTypes.tripItemType = metadata.entityType(withName: "codejam.saptravelexpense.services.TripItemType")
+        if !TravelexpenseMetadata.EntityTypes.tripItem.isRemoved {
+            TravelexpenseMetadata.EntityTypes.tripItem = metadata.entityType(withName: "codejam.saptravelexpense.services.TripItem")
         }
-        if !TravelexpenseMetadata.EntitySets.currency.isRemoved {
-            TravelexpenseMetadata.EntitySets.currency = metadata.entitySet(withName: "Currency")
+        if !TravelexpenseMetadata.EntitySets.currencies.isRemoved {
+            TravelexpenseMetadata.EntitySets.currencies = metadata.entitySet(withName: "Currencies")
         }
-        if !TravelexpenseMetadata.EntitySets.expense.isRemoved {
-            TravelexpenseMetadata.EntitySets.expense = metadata.entitySet(withName: "Expense")
+        if !TravelexpenseMetadata.EntitySets.expenseItemAttachments.isRemoved {
+            TravelexpenseMetadata.EntitySets.expenseItemAttachments = metadata.entitySet(withName: "ExpenseItemAttachments")
         }
-        if !TravelexpenseMetadata.EntitySets.expenseItem.isRemoved {
-            TravelexpenseMetadata.EntitySets.expenseItem = metadata.entitySet(withName: "ExpenseItem")
+        if !TravelexpenseMetadata.EntitySets.expenseItems.isRemoved {
+            TravelexpenseMetadata.EntitySets.expenseItems = metadata.entitySet(withName: "ExpenseItems")
         }
-        if !TravelexpenseMetadata.EntitySets.expenseItemAttachment.isRemoved {
-            TravelexpenseMetadata.EntitySets.expenseItemAttachment = metadata.entitySet(withName: "ExpenseItemAttachment")
+        if !TravelexpenseMetadata.EntitySets.expenseReports.isRemoved {
+            TravelexpenseMetadata.EntitySets.expenseReports = metadata.entitySet(withName: "ExpenseReports")
         }
-        if !TravelexpenseMetadata.EntitySets.expenseReportItem.isRemoved {
-            TravelexpenseMetadata.EntitySets.expenseReportItem = metadata.entitySet(withName: "ExpenseReportItem")
+        if !TravelexpenseMetadata.EntitySets.expenses.isRemoved {
+            TravelexpenseMetadata.EntitySets.expenses = metadata.entitySet(withName: "Expenses")
         }
-        if !TravelexpenseMetadata.EntitySets.payment.isRemoved {
-            TravelexpenseMetadata.EntitySets.payment = metadata.entitySet(withName: "Payment")
+        if !TravelexpenseMetadata.EntitySets.payments.isRemoved {
+            TravelexpenseMetadata.EntitySets.payments = metadata.entitySet(withName: "Payments")
         }
-        if !TravelexpenseMetadata.EntitySets.reportStatus.isRemoved {
-            TravelexpenseMetadata.EntitySets.reportStatus = metadata.entitySet(withName: "ReportStatus")
+        if !TravelexpenseMetadata.EntitySets.reportStati.isRemoved {
+            TravelexpenseMetadata.EntitySets.reportStati = metadata.entitySet(withName: "ReportStati")
         }
-        if !TravelexpenseMetadata.EntitySets.reservation.isRemoved {
-            TravelexpenseMetadata.EntitySets.reservation = metadata.entitySet(withName: "Reservation")
+        if !TravelexpenseMetadata.EntitySets.reservationItems.isRemoved {
+            TravelexpenseMetadata.EntitySets.reservationItems = metadata.entitySet(withName: "ReservationItems")
         }
-        if !TravelexpenseMetadata.EntitySets.reservationItem.isRemoved {
-            TravelexpenseMetadata.EntitySets.reservationItem = metadata.entitySet(withName: "ReservationItem")
+        if !TravelexpenseMetadata.EntitySets.reservations.isRemoved {
+            TravelexpenseMetadata.EntitySets.reservations = metadata.entitySet(withName: "Reservations")
         }
-        if !TravelexpenseMetadata.EntitySets.tripItem.isRemoved {
-            TravelexpenseMetadata.EntitySets.tripItem = metadata.entitySet(withName: "TripItem")
+        if !TravelexpenseMetadata.EntitySets.tripItems.isRemoved {
+            TravelexpenseMetadata.EntitySets.tripItems = metadata.entitySet(withName: "TripItems")
         }
-        if !CurrencyType.currencyid.isRemoved {
-            CurrencyType.currencyid = TravelexpenseMetadata.EntityTypes.currencyType.property(withName: "CURRENCYID")
+        if !Currency.currencyid.isRemoved {
+            Currency.currencyid = TravelexpenseMetadata.EntityTypes.currency.property(withName: "CURRENCYID")
         }
-        if !CurrencyType.description.isRemoved {
-            CurrencyType.description = TravelexpenseMetadata.EntityTypes.currencyType.property(withName: "DESCRIPTION")
+        if !Currency.description.isRemoved {
+            Currency.description = TravelexpenseMetadata.EntityTypes.currency.property(withName: "DESCRIPTION")
         }
-        if !ExpenseItemAttachmentType.attachmentid.isRemoved {
-            ExpenseItemAttachmentType.attachmentid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "ATTACHMENTID")
+        if !Expense.expensetypeid.isRemoved {
+            Expense.expensetypeid = TravelexpenseMetadata.EntityTypes.expense.property(withName: "EXPENSETYPEID")
         }
-        if !ExpenseItemAttachmentType.name.isRemoved {
-            ExpenseItemAttachmentType.name = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "NAME")
+        if !Expense.description.isRemoved {
+            Expense.description = TravelexpenseMetadata.EntityTypes.expense.property(withName: "DESCRIPTION")
         }
-        if !ExpenseItemAttachmentType.reportid.isRemoved {
-            ExpenseItemAttachmentType.reportid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "REPORTID")
+        if !ExpenseItem.reportid.isRemoved {
+            ExpenseItem.reportid = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "REPORTID")
         }
-        if !ExpenseItemAttachmentType.itemid.isRemoved {
-            ExpenseItemAttachmentType.itemid = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "ITEMID")
+        if !ExpenseItem.itemid.isRemoved {
+            ExpenseItem.itemid = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "ITEMID")
         }
-        if !ExpenseItemAttachmentType.expenseItem.isRemoved {
-            ExpenseItemAttachmentType.expenseItem = TravelexpenseMetadata.EntityTypes.expenseItemAttachmentType.property(withName: "expenseItem")
+        if !ExpenseItem.expensetypeid.isRemoved {
+            ExpenseItem.expensetypeid = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "EXPENSETYPEID")
         }
-        if !ExpenseItemType.reportid.isRemoved {
-            ExpenseItemType.reportid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "REPORTID")
+        if !ExpenseItem.itemdate.isRemoved {
+            ExpenseItem.itemdate = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "ITEMDATE")
         }
-        if !ExpenseItemType.itemid.isRemoved {
-            ExpenseItemType.itemid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "ITEMID")
+        if !ExpenseItem.amount.isRemoved {
+            ExpenseItem.amount = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "AMOUNT")
         }
-        if !ExpenseItemType.expensetypeid.isRemoved {
-            ExpenseItemType.expensetypeid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "EXPENSETYPEID")
+        if !ExpenseItem.vendor.isRemoved {
+            ExpenseItem.vendor = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "VENDOR")
         }
-        if !ExpenseItemType.itemdate.isRemoved {
-            ExpenseItemType.itemdate = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "ITEMDATE")
+        if !ExpenseItem.location.isRemoved {
+            ExpenseItem.location = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "LOCATION")
         }
-        if !ExpenseItemType.amount.isRemoved {
-            ExpenseItemType.amount = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "AMOUNT")
+        if !ExpenseItem.currencyid.isRemoved {
+            ExpenseItem.currencyid = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "CURRENCYID")
         }
-        if !ExpenseItemType.vendor.isRemoved {
-            ExpenseItemType.vendor = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "VENDOR")
+        if !ExpenseItem.notes.isRemoved {
+            ExpenseItem.notes = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "NOTES")
         }
-        if !ExpenseItemType.location.isRemoved {
-            ExpenseItemType.location = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "LOCATION")
+        if !ExpenseItem.paymenttypeid.isRemoved {
+            ExpenseItem.paymenttypeid = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "PAYMENTTYPEID")
         }
-        if !ExpenseItemType.currencyid.isRemoved {
-            ExpenseItemType.currencyid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "CURRENCYID")
+        if !ExpenseItem.expenseReport.isRemoved {
+            ExpenseItem.expenseReport = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "expenseReport")
         }
-        if !ExpenseItemType.notes.isRemoved {
-            ExpenseItemType.notes = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "NOTES")
+        if !ExpenseItem.paymentType.isRemoved {
+            ExpenseItem.paymentType = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "paymentType")
         }
-        if !ExpenseItemType.paymenttypeid.isRemoved {
-            ExpenseItemType.paymenttypeid = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "PAYMENTTYPEID")
+        if !ExpenseItem.expenseType.isRemoved {
+            ExpenseItem.expenseType = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "expenseType")
         }
-        if !ExpenseItemType.expenseReport.isRemoved {
-            ExpenseItemType.expenseReport = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "expenseReport")
+        if !ExpenseItem.currency.isRemoved {
+            ExpenseItem.currency = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "currency")
         }
-        if !ExpenseItemType.paymentType.isRemoved {
-            ExpenseItemType.paymentType = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "paymentType")
+        if !ExpenseItem.attachments.isRemoved {
+            ExpenseItem.attachments = TravelexpenseMetadata.EntityTypes.expenseItem.property(withName: "attachments")
         }
-        if !ExpenseItemType.expenseType.isRemoved {
-            ExpenseItemType.expenseType = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "expenseType")
+        if !ExpenseItemAttachment.attachmentid.isRemoved {
+            ExpenseItemAttachment.attachmentid = TravelexpenseMetadata.EntityTypes.expenseItemAttachment.property(withName: "ATTACHMENTID")
         }
-        if !ExpenseItemType.currency.isRemoved {
-            ExpenseItemType.currency = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "currency")
+        if !ExpenseItemAttachment.name.isRemoved {
+            ExpenseItemAttachment.name = TravelexpenseMetadata.EntityTypes.expenseItemAttachment.property(withName: "NAME")
         }
-        if !ExpenseItemType.attachments.isRemoved {
-            ExpenseItemType.attachments = TravelexpenseMetadata.EntityTypes.expenseItemType.property(withName: "attachments")
+        if !ExpenseItemAttachment.reportid.isRemoved {
+            ExpenseItemAttachment.reportid = TravelexpenseMetadata.EntityTypes.expenseItemAttachment.property(withName: "REPORTID")
         }
-        if !ExpenseReportItemType.reportid.isRemoved {
-            ExpenseReportItemType.reportid = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTID")
+        if !ExpenseItemAttachment.itemid.isRemoved {
+            ExpenseItemAttachment.itemid = TravelexpenseMetadata.EntityTypes.expenseItemAttachment.property(withName: "ITEMID")
         }
-        if !ExpenseReportItemType.reportname.isRemoved {
-            ExpenseReportItemType.reportname = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTNAME")
+        if !ExpenseItemAttachment.expenseItem.isRemoved {
+            ExpenseItemAttachment.expenseItem = TravelexpenseMetadata.EntityTypes.expenseItemAttachment.property(withName: "expenseItem")
         }
-        if !ExpenseReportItemType.reportstart.isRemoved {
-            ExpenseReportItemType.reportstart = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTSTART")
+        if !ExpenseReportItem.reportid.isRemoved {
+            ExpenseReportItem.reportid = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTID")
         }
-        if !ExpenseReportItemType.reportend.isRemoved {
-            ExpenseReportItemType.reportend = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTEND")
+        if !ExpenseReportItem.reportname.isRemoved {
+            ExpenseReportItem.reportname = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTNAME")
         }
-        if !ExpenseReportItemType.reportlocation.isRemoved {
-            ExpenseReportItemType.reportlocation = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTLOCATION")
+        if !ExpenseReportItem.reportstart.isRemoved {
+            ExpenseReportItem.reportstart = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTSTART")
         }
-        if !ExpenseReportItemType.reportstatusid.isRemoved {
-            ExpenseReportItemType.reportstatusid = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "REPORTSTATUSID")
+        if !ExpenseReportItem.reportend.isRemoved {
+            ExpenseReportItem.reportend = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTEND")
         }
-        if !ExpenseReportItemType.expenseItems.isRemoved {
-            ExpenseReportItemType.expenseItems = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "expenseItems")
+        if !ExpenseReportItem.reportlocation.isRemoved {
+            ExpenseReportItem.reportlocation = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTLOCATION")
         }
-        if !ExpenseReportItemType.reportStatus.isRemoved {
-            ExpenseReportItemType.reportStatus = TravelexpenseMetadata.EntityTypes.expenseReportItemType.property(withName: "reportStatus")
+        if !ExpenseReportItem.reportstatusid.isRemoved {
+            ExpenseReportItem.reportstatusid = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "REPORTSTATUSID")
         }
-        if !ExpenseType.expensetypeid.isRemoved {
-            ExpenseType.expensetypeid = TravelexpenseMetadata.EntityTypes.expenseType.property(withName: "EXPENSETYPEID")
+        if !ExpenseReportItem.expenseItems.isRemoved {
+            ExpenseReportItem.expenseItems = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "expenseItems")
         }
-        if !ExpenseType.description.isRemoved {
-            ExpenseType.description = TravelexpenseMetadata.EntityTypes.expenseType.property(withName: "DESCRIPTION")
+        if !ExpenseReportItem.reportStatus.isRemoved {
+            ExpenseReportItem.reportStatus = TravelexpenseMetadata.EntityTypes.expenseReportItem.property(withName: "reportStatus")
         }
-        if !PaymentType.paymenttypeid.isRemoved {
-            PaymentType.paymenttypeid = TravelexpenseMetadata.EntityTypes.paymentType.property(withName: "PAYMENTTYPEID")
+        if !Payment.paymenttypeid.isRemoved {
+            Payment.paymenttypeid = TravelexpenseMetadata.EntityTypes.payment.property(withName: "PAYMENTTYPEID")
         }
-        if !PaymentType.description.isRemoved {
-            PaymentType.description = TravelexpenseMetadata.EntityTypes.paymentType.property(withName: "DESCRIPTION")
+        if !Payment.description.isRemoved {
+            Payment.description = TravelexpenseMetadata.EntityTypes.payment.property(withName: "DESCRIPTION")
         }
-        if !ReportStatusType.reportstatusid.isRemoved {
-            ReportStatusType.reportstatusid = TravelexpenseMetadata.EntityTypes.reportStatusType.property(withName: "REPORTSTATUSID")
+        if !ReportStatus.reportstatusid.isRemoved {
+            ReportStatus.reportstatusid = TravelexpenseMetadata.EntityTypes.reportStatus.property(withName: "REPORTSTATUSID")
         }
-        if !ReportStatusType.description.isRemoved {
-            ReportStatusType.description = TravelexpenseMetadata.EntityTypes.reportStatusType.property(withName: "DESCRIPTION")
+        if !ReportStatus.description.isRemoved {
+            ReportStatus.description = TravelexpenseMetadata.EntityTypes.reportStatus.property(withName: "DESCRIPTION")
         }
-        if !ReservationItemType.reservationid.isRemoved {
-            ReservationItemType.reservationid = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "RESERVATIONID")
+        if !Reservation.reservationtypeid.isRemoved {
+            Reservation.reservationtypeid = TravelexpenseMetadata.EntityTypes.reservation.property(withName: "RESERVATIONTYPEID")
         }
-        if !ReservationItemType.reservationtitle.isRemoved {
-            ReservationItemType.reservationtitle = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "RESERVATIONTITLE")
+        if !Reservation.description.isRemoved {
+            Reservation.description = TravelexpenseMetadata.EntityTypes.reservation.property(withName: "DESCRIPTION")
         }
-        if !ReservationItemType.confirmation.isRemoved {
-            ReservationItemType.confirmation = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "CONFIRMATION")
+        if !ReservationItem.reservationid.isRemoved {
+            ReservationItem.reservationid = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "RESERVATIONID")
         }
-        if !ReservationItemType.reservationdate.isRemoved {
-            ReservationItemType.reservationdate = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "RESERVATIONDATE")
+        if !ReservationItem.reservationtitle.isRemoved {
+            ReservationItem.reservationtitle = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "RESERVATIONTITLE")
         }
-        if !ReservationItemType.reservationtypeid.isRemoved {
-            ReservationItemType.reservationtypeid = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "RESERVATIONTYPEID")
+        if !ReservationItem.confirmation.isRemoved {
+            ReservationItem.confirmation = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "CONFIRMATION")
         }
-        if !ReservationItemType.location.isRemoved {
-            ReservationItemType.location = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "LOCATION")
+        if !ReservationItem.reservationdate.isRemoved {
+            ReservationItem.reservationdate = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "RESERVATIONDATE")
         }
-        if !ReservationItemType.tripid.isRemoved {
-            ReservationItemType.tripid = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "TRIPID")
+        if !ReservationItem.reservationtypeid.isRemoved {
+            ReservationItem.reservationtypeid = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "RESERVATIONTYPEID")
         }
-        if !ReservationItemType.reservationType.isRemoved {
-            ReservationItemType.reservationType = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "reservationType")
+        if !ReservationItem.location.isRemoved {
+            ReservationItem.location = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "LOCATION")
         }
-        if !ReservationItemType.tripItem.isRemoved {
-            ReservationItemType.tripItem = TravelexpenseMetadata.EntityTypes.reservationItemType.property(withName: "tripItem")
+        if !ReservationItem.tripid.isRemoved {
+            ReservationItem.tripid = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "TRIPID")
         }
-        if !ReservationType.reservationtypeid.isRemoved {
-            ReservationType.reservationtypeid = TravelexpenseMetadata.EntityTypes.reservationType.property(withName: "RESERVATIONTYPEID")
+        if !ReservationItem.reservationType.isRemoved {
+            ReservationItem.reservationType = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "reservationType")
         }
-        if !ReservationType.description.isRemoved {
-            ReservationType.description = TravelexpenseMetadata.EntityTypes.reservationType.property(withName: "DESCRIPTION")
+        if !ReservationItem.tripItem.isRemoved {
+            ReservationItem.tripItem = TravelexpenseMetadata.EntityTypes.reservationItem.property(withName: "tripItem")
         }
-        if !TripItemType.tripid.isRemoved {
-            TripItemType.tripid = TravelexpenseMetadata.EntityTypes.tripItemType.property(withName: "TRIPID")
+        if !TripItem.tripid.isRemoved {
+            TripItem.tripid = TravelexpenseMetadata.EntityTypes.tripItem.property(withName: "TRIPID")
         }
-        if !TripItemType.description.isRemoved {
-            TripItemType.description = TravelexpenseMetadata.EntityTypes.tripItemType.property(withName: "DESCRIPTION")
+        if !TripItem.description.isRemoved {
+            TripItem.description = TravelexpenseMetadata.EntityTypes.tripItem.property(withName: "DESCRIPTION")
         }
-        if !TripItemType.reservations.isRemoved {
-            TripItemType.reservations = TravelexpenseMetadata.EntityTypes.tripItemType.property(withName: "reservations")
+        if !TripItem.reservations.isRemoved {
+            TripItem.reservations = TravelexpenseMetadata.EntityTypes.tripItem.property(withName: "reservations")
         }
     }
 }

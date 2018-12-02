@@ -14,7 +14,7 @@ class ExpensesTableViewController: FioriBaseTableViewController {
 
     // MARK: - Model
 
-    var entities: [ExpenseItemType] = [] {
+    var entities: [ExpenseItem] = [] {
         didSet {
             if self.entities != oldValue {
                 self.tableView.reloadData()
@@ -127,12 +127,12 @@ class ExpensesTableViewController: FioriBaseTableViewController {
     func reloadExpenseItems() {
         
         let query = DataQuery()
-            .filter(ExpenseReportItemType.reportstatusid == "ACT")
-            .expand(ExpenseReportItemType.expenseItems, withQuery: DataQuery()
-                .expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType, ExpenseItemType.attachments))
+            .filter(ExpenseReportItem.reportstatusid == "ACT")
+            .expand(ExpenseReportItem.expenseItems, withQuery: DataQuery()
+                .expand(ExpenseItem.currency, ExpenseItem.expenseType, ExpenseItem.paymentType, ExpenseItem.attachments))
         
         
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] items, error in
+        DataHandler.shared.service.fetchExpenseReports (matching: query) { [weak self] items, error in
             guard let entities = items else {
                 return print(String(describing: error.debugDescription))
             }
