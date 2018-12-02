@@ -14,9 +14,9 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
 
     // MARK: - Model
 
-    private var report: ExpenseReportItemType!
+    private var report: ExpenseReportItem!
 
-    func setReport(_ report: ExpenseReportItemType) {
+    func setReport(_ report: ExpenseReportItem) {
         self.report = report
         setTags()
         self.objectHeader.headlineText = report.reportname
@@ -35,7 +35,7 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
         
     }
     
-    var expenseItems: [ExpenseItemType] = []
+    var expenseItems: [ExpenseItem] = []
 
     // Hack: in Grouped table view mode, init the Object Header with a non-zero height, to prevent content offset adjustment https://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst?page=2&tab=votes#comment54066953_18880341
     let objectHeader = FUIObjectHeader(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
@@ -192,18 +192,18 @@ class ReportDetailsTableViewController: FioriBaseTableViewController {
     }
 
     func reloadReport() {
-        let query = DataQuery().withKey(ExpenseReportItemType.key(reportid: report.reportid))
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query, completionHandler: { [weak self] reports, _ in
-            guard let report = reports?.first else { return }
+        let query = DataQuery().withKey(ExpenseReportItem.key(reportid: report.reportid))
+        DataHandler.shared.service.fetchExpenseReportItem(matching: query, completionHandler: { [weak self] report, _ in
+            guard let report = report else { return }
             self?.setReport(report)
         })
     }
     
     func reloadExpenseItems() {
         
-        let query = DataQuery().filter(ExpenseItemType.reportid == report.reportid!).expand(ExpenseItemType.paymentType, ExpenseItemType.attachments).orderBy(ExpenseItemType.itemdate)
+        let query = DataQuery().filter(ExpenseItem.reportid == report.reportid!).expand(ExpenseItem.paymentType, ExpenseItem.attachments).orderBy(ExpenseItem.itemdate)
         
-        DataHandler.shared.service.fetchExpenseItem(matching: query) { [weak self] items, error in
+        DataHandler.shared.service.fetchExpenseItems(matching: query) { [weak self] items, error in
             guard let items = items, error == nil else {
                 return print(error!)
             }

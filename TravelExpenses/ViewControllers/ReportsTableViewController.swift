@@ -16,7 +16,7 @@ class ReportsTableViewController: FioriBaseTableViewController {
 
     // MARK: - Model
 
-    var expenseReports: [ExpenseReportItemType] = [] {
+    var expenseReports: [ExpenseReportItem] = [] {
         didSet {
             
             activeExpenseReports = expenseReports.filter({ $0.reportstatusid == "ACT" }).sorted(by: { lhs, rhs in
@@ -33,8 +33,8 @@ class ReportsTableViewController: FioriBaseTableViewController {
         }
     }
 
-    private var activeExpenseReports: [ExpenseReportItemType] = []
-    private var submittedExpenseReports: [ExpenseReportItemType] = []
+    private var activeExpenseReports: [ExpenseReportItem] = []
+    private var submittedExpenseReports: [ExpenseReportItem] = []
 
     // MARK: View controller hooks
 
@@ -196,10 +196,10 @@ class ReportsTableViewController: FioriBaseTableViewController {
     // MARK: - Actions
     
     func reloadReports() {
-        let nestedQuery = DataQuery().expand(ExpenseItemType.currency, ExpenseItemType.expenseType, ExpenseItemType.paymentType, ExpenseItemType.attachments).orderBy(ExpenseItemType.itemdate)
-        let query = DataQuery().expand(ExpenseReportItemType.expenseItems, withQuery: nestedQuery)
+        let nestedQuery = DataQuery().expand(ExpenseItem.currency, ExpenseItem.expenseType, ExpenseItem.paymentType, ExpenseItem.attachments).orderBy(ExpenseItem.itemdate)
+        let query = DataQuery().expand(ExpenseReportItem.expenseItems, withQuery: nestedQuery)
         
-        DataHandler.shared.service.fetchExpenseReportItem(matching: query) { [weak self] entities, error in
+        DataHandler.shared.service.fetchExpenseReports(matching: query) { [weak self] entities, error in
             guard let entities = entities else {
                 return print(String(describing: error))
             }

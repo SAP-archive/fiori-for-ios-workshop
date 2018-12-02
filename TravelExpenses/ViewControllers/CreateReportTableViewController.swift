@@ -15,7 +15,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
     // MARK: - Model
 
     // Newly created Report Item
-    let report = ExpenseReportItemType()
+    let report = ExpenseReportItem()
 
     // Data sources for list picker rows
     let reportStatusPickerDataSource = ReportStatusPickerDataSource()
@@ -50,7 +50,7 @@ class CreateReportTableViewController: FUIFormTableViewController {
 
         // Populate options for the list picker data sources
         do {
-            try self.reportStatusPickerDataSource.entities = DataHandler.shared.service.fetchReportStatus()
+            try self.reportStatusPickerDataSource.entities = DataHandler.shared.service.fetchReportStati()
         } catch {
             print(error)
         }
