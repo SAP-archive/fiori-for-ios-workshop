@@ -62,8 +62,8 @@ class OnboardingManager {
 
     // WelcomeScreenStep
     private func configuredWelcomeScreenStep() -> WelcomeScreenStep {
-        let discoveryConfigurationTransformer = DiscoveryServiceConfigurationTransformer(applicationID: APPLICATIONID, authenticationPath: DESTINATION)
-        let welcomeScreenStep = WelcomeScreenStep(transformer: discoveryConfigurationTransformer, providers: [DiscoveryServiceConfigurationProvider(applicationID: APPLICATIONID)])
+        let discoveryConfigurationTransformer = DiscoveryServiceConfigurationTransformer(applicationID: MobileServicesConfiguration.applicationID, authenticationPath: MobileServicesConfiguration.destinationName)
+        let welcomeScreenStep = WelcomeScreenStep(transformer: discoveryConfigurationTransformer, providers: [DiscoveryServiceConfigurationProvider(applicationID: MobileServicesConfiguration.applicationID)])
 
         welcomeScreenStep.welcomeScreenCustomizationHandler = { welcomeStepUI in
             welcomeStepUI.headlineLabel.text = "TravelExpenses"
@@ -76,7 +76,7 @@ class OnboardingManager {
             // TODO: Remove e-mail domain prefilling from productive code
             if let welcomeScreen = welcomeStepUI as? FUIWelcomeScreen {
                 // Configuring WelcomeScreen to prefill the e-mail domain
-                welcomeScreen.emailTextField.text = "user@trial-\(TRIALACCOUNT).sapmobileplace.com"
+                welcomeScreen.emailTextField.text = "user@trial-\(MobileServicesConfiguration.trialAccountName).sapmobileplace.com"
             }
         }
         return welcomeScreenStep
