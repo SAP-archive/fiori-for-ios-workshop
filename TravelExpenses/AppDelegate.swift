@@ -16,7 +16,9 @@ import SAPOData
 import SAPOfflineOData
 
 
-// MARK: - Customize these for your application.
+// -----------------------------------------------------------------------------
+
+// Customize these for your Mobile Services application.
 
 enum MobileServicesConfiguration {
     static let trialAccountName: String = <#SAP Cloud Platform account name#>
@@ -24,8 +26,8 @@ enum MobileServicesConfiguration {
     static let destinationName: String = <#Destination name#>
 }
 
+// -----------------------------------------------------------------------------
 
-// MARK: - App Delegate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
