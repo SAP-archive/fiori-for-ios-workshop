@@ -38,15 +38,23 @@ class ReportsTableViewController: FioriBaseTableViewController {
 
     // MARK: View controller hooks
 
+    private var downloadCompleteObserver: Any?
+
+    deinit {
+        if let downloadCompleteObserver = downloadCompleteObserver {
+            NotificationCenter.default.removeObserver(downloadCompleteObserver)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let addButton = UIBarButtonItem(image: FUIIconLibrary.system.create.withRenderingMode(.alwaysTemplate), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.addReport))
         self.navigationItem.rightBarButtonItems = [addButton]
         self.navigationItem.title = "Expense Reports"
-        
-        NotificationCenter.default.addObserver(forName: DOWNLOAD_COMPLETE, object: nil, queue: OperationQueue.main) { [weak self] _ in
-            self?.reloadReports()
+
+        downloadCompleteObserver = NotificationCenter.default.addObserver(forName: DataHandler.downloadCompleteNotification, object: nil, queue: .main) { [unowned self] _ in
+            self.reloadReports()
         }
     }
 

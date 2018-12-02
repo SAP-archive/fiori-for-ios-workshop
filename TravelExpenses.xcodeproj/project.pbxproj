@@ -68,6 +68,7 @@
 		7A1315C51D4B982000A5DA56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1315C31D4B982000A5DA56 /* LaunchScreen.storyboard */; };
 		7A16F06D1FD1B3C700D2FABD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7A16F06C1FD1B3C700D2FABD /* README.md */; };
 		7A9F6FF61F3883D3000A1815 /* SAPFioriLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */; };
+		AB8DC8F921B2AD3D003DF754 /* OfflineODataStoreState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -147,6 +148,7 @@
 		7A1315C61D4B982000A5DA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A16F06C1FD1B3C700D2FABD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7A9F6FF51F3883D3000A1815 /* SAPFioriLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAPFioriLoadingIndicator.swift; sourceTree = "<group>"; };
+		AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OfflineODataStoreState+Description.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			children = (
 				1BC0428B20CCE18D008BF50D /* ExpenseReportItemType+Extensions.swift */,
 				1BC0428D20CCE18D008BF50D /* ExpenseItemType+Extensions.swift */,
+				AB8DC8F821B2AD3D003DF754 /* OfflineODataStoreState+Description.swift */,
 			);
 			name = "Model Types";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				1BC042A020CCE290008BF50D /* TripsTableViewController.swift in Sources */,
 				6C67CF6821AC48D4001440ED /* ExpenseItem.swift in Sources */,
 				1B5F26C320CF85420073C63D /* PickableEntityType.swift in Sources */,
+				AB8DC8F921B2AD3D003DF754 /* OfflineODataStoreState+Description.swift in Sources */,
 				1BC0429E20CCE290008BF50D /* ReportDetailsTableViewController.swift in Sources */,
 				6C67CF5E21AC48D4001440ED /* TravelexpenseMetadata.swift in Sources */,
 				1BC042A920CCEDF6008BF50D /* DataHandler.swift in Sources */,

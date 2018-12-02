@@ -5,18 +5,29 @@
 // Created by SAP Cloud Platform SDK for iOS Assistant application on 09/06/18
 //
 
+import UIKit
+import UserNotifications
+
 import SAPCommon
 import SAPFiori
 import SAPFioriFlows
 import SAPFoundation
 import SAPOData
 import SAPOfflineOData
-import UserNotifications
 
-let TRIALACCOUNT: String = <#SAP Cloud Platform account name#>
-let APPLICATIONID: String = <#Application ID in Mobile Services#>
-let DESTINATION: String = <#Destination name#>
-let DOWNLOAD_COMPLETE: NSNotification.Name = NSNotification.Name(rawValue: "com.sap.travelexpense.offline.downloadcomplete")
+
+// -----------------------------------------------------------------------------
+
+// Customize these for your Mobile Services application.
+
+enum MobileServicesConfiguration {
+    static let trialAccountName: String = <#SAP Cloud Platform account name#>
+    static let applicationID: String = <#Application ID in Mobile Services#>
+    static let destinationName: String = <#Destination name#>
+}
+
+// -----------------------------------------------------------------------------
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, OnboardingManagerDelegate, UNUserNotificationCenterDelegate {
@@ -72,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func onboardingContextCreated(onboardingContext: OnboardingContext, onboarding: Bool) {
-        let configurationURL = URL(string: "https://hcpms-\(TRIALACCOUNT).hanatrial.ondemand.com/" + DESTINATION)!
+        let configurationURL = URL(string: "https://hcpms-\(MobileServicesConfiguration.trialAccountName).hanatrial.ondemand.com/" + MobileServicesConfiguration.destinationName)!
         self.configureOData(onboardingContext.sapURLSession, configurationURL, onboarding)
         
         ImageHandler.createInstance(sapUrlSession: onboardingContext.sapURLSession, baseUrl: configurationURL)
@@ -175,13 +186,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     private func configureOData(_ urlSession: SAPURLSession, _ serviceRoot: URL, _ onboarding: Bool) {
         var offlineParameters = OfflineODataParameters()
-        offlineParameters.customHeaders = ["X-SMP-APPID": APPLICATIONID]
+        offlineParameters.customHeaders = ["X-SMP-APPID": MobileServicesConfiguration.applicationID]
         offlineParameters.enableRepeatableRequests = true
         // Setup an instance of delegate. See sample code below for definition of OfflineODataDelegateSample class.
         let delegate = OfflineODataDelegateSample()
         let offlineODataProvider = try! OfflineODataProvider(serviceRoot: serviceRoot, parameters: offlineParameters, sapURLSession: urlSession, delegate: delegate)
-        // Although it is not the best practice, we are defining this query limit as top=20.
-        // If the service supports paging, then paging should be used instead of top!
         let queryLimit = DataQuery().selectAll()
         if onboarding {
             try! offlineODataProvider.add(definingQuery: OfflineODataDefiningQuery(name: TravelexpenseMetadata.EntitySets.payments.localName, query: "/\(TravelexpenseMetadata.EntitySets.payments.localName)\(queryLimit)", automaticallyRetrievesStreams: false))
@@ -298,38 +307,9 @@ class OfflineODataDelegateSample: OfflineODataDelegate {
         self.logger.info("requestFailed: \(request.httpStatusCode)")
     }
 
-    // The OfflineODataStoreState is a Swift OptionSet. Use the set operation to retrieve each setting.
-    private func storeState2String(_ state: OfflineODataStoreState) -> String {
-        var result = ""
-        if state.contains(.opening) {
-            result = result + ":opening"
-        }
-        if state.contains(.open) {
-            result = result + ":open"
-        }
-        if state.contains(.closed) {
-            result = result + ":closed"
-        }
-        if state.contains(.downloading) {
-            result = result + ":downloading"
-        }
-        if state.contains(.uploading) {
-            result = result + ":uploading"
-        }
-        if state.contains(.initializing) {
-            result = result + ":initializing"
-        }
-        if state.contains(.fileDownloading) {
-            result = result + ":fileDownloading"
-        }
-        if state.contains(.initialCommunication) {
-            result = result + ":initialCommunication"
-        }
-        return result
-    }
-
     public func offlineODataProvider(_: OfflineODataProvider, stateDidChange newState: OfflineODataStoreState) {
-        let stateString = storeState2String(newState)
-        self.logger.info("stateChanged: \(stateString)")
+        // See OfflineODataStoreState+Description.swift for the extension that
+        // provides human-readable descriptions for offline store states.
+        self.logger.info("stateChanged: \(newState)")
     }
 }
