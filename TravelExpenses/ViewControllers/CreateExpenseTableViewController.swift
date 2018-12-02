@@ -161,7 +161,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         // Setup editable `FUIListPickerFormCell` for Currency selection
         case (1, 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
-            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: currencyPickerDataSource as! FUIListPickerDataSource)
+            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: currencyPickerDataSource)
 
             cell.keyName = "Currency"
 
@@ -190,7 +190,7 @@ class CreateExpenseTableViewController: FUIFormTableViewController {
         // Setup editable `FUIListPickerFormCell` for Expense Type selection
         case (1, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath) as! FUIListPickerFormCell
-            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: expenseTypePickerDataSource as! FUIListPickerDataSource)
+            applyDefaultConfiguration(forListPickerFormCell: cell, dataSource: expenseTypePickerDataSource)
 
             cell.keyName = "Expense Type"
 
