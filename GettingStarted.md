@@ -252,4 +252,4 @@ After the Simulator has started, the TravelExpense app will launch. Click **Star
 
 You’re done! Tap through the on-boarding screens, enter a passcode, and review the TravelExpense sample app.  Like the minimal app you created in the previous section, this app demonstrates query and expense creation and modification techniques. This sample goes further, however, in that it also includes code examples demonstrating how to implement Fiori controls and connect them to the backend expense data.
 
-![Reference app report list](https://user-images.githubusercontent.com/9074514/49339337-11241d80-f656-11e8-97b9-53ccdbedbe3e.png)
+![Reference app report list](https://user-images.githubusercontent.com/76681/49339585-65310100-f65a-11e8-9c09-42e01c2e3964.png)
