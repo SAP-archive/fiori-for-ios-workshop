@@ -13,14 +13,14 @@ The code in each of these examples can be used with any of the proxy classes. Th
 
 ## Getting a list of reports
 
-* Assume a property called `reports` of type `[ExpenseReportItemType]`.
+* Assume a property called `reports` of type `[ExpenseReportItem]`.
 
 ```swift
 // Order the results by the end date of the expense report, descending.
-let query = DataQuery().orderBy(ExpenseReportItemType.reportend, .descending)
+let query = DataQuery().orderBy(ExpenseReportItem.reportend, .descending)
 
 // Fetch all expense reports, using the query parameters defined above.
-dataService.fetchExpenseReportItem(matching: query) { [weak self] reports, error in
+dataService.fetchExpenseReports(matching: query) { [weak self] reports, error in
 
     // Make sure no errors occurred.
     guard let reports = reports else {
@@ -38,20 +38,20 @@ dataService.fetchExpenseReportItem(matching: query) { [weak self] reports, error
 
 When displaying the details for a selected report, you will likely want to display the list of associated expense items.
 
-* Assume a property called `report` of type `ExpenseReportItemType`.
-* Assume a property called `expenses` of type `[ExpenseItemType]`.
+* Assume a property called `report` of type `ExpenseReportItem`.
+* Assume a property called `expenses` of type `[ExpenseItem]`.
 
 ```swift
 // Filter the results by the selected report ID, automatically retrieving
 // associated records for the payment type and attachments, and ordering
 // by the expense date, ascending.
 let reportID = report.reportid!
-let query = DataQuery().filter(ExpenseItemType.reportid == reportID)
-                       .expand(ExpenseItemType.paymentType, ExpenseItemType.attachments)
-                       .orderBy(ExpenseItemType.itemdate)
+let query = DataQuery().filter(ExpenseItem.reportid == reportID)
+                       .expand(ExpenseItem.paymentType, ExpenseItem.attachments)
+                       .orderBy(ExpenseItem.itemdate)
 
 // Fetch all expense items, using the query parameters defined above.
-dataService.fetchExpenseItem(matching: query) { [weak self] expenses, error in
+dataService.fetchExpenseItems(matching: query) { [weak self] expenses, error in
 
     // Make sure no errors occurred.
     guard let expenses = expenses else {
@@ -67,8 +67,8 @@ dataService.fetchExpenseItem(matching: query) { [weak self] expenses, error in
 
 ## Creating a new expense
 
-* Assume a property called `report` of type `ExpenseReportItemType`.
-* Assume a property called `newExpense` of type `ExpenseItemType`.
+* Assume a property called `report` of type `ExpenseReportItem`.
+* Assume a property called `newExpense` of type `ExpenseItem`.
 * Assume the properties of `newExpense` have been filled in from the UI.
 
 ```swift
@@ -86,7 +86,7 @@ dataService.createEntity(newExpense) { error in
 
 ## Updating an existing expense
 
-* Assume a property called `existingExpense` of type `ExpenseItemType`.
+* Assume a property called `existingExpense` of type `ExpenseItem`.
 
 ```swift
 dataService.updateEntity(existingExpense) { error in
@@ -99,7 +99,7 @@ dataService.updateEntity(existingExpense) { error in
 
 ## Deleting an existing expense
 
-* Assume a property called `existingExpense` of type `ExpenseItemType`.
+* Assume a property called `existingExpense` of type `ExpenseItem`.
 
 ```swift
 dataService.deleteEntity(existingExpense) { error in
@@ -116,19 +116,19 @@ For reference, here are the OData entities that are part of the Travel Expense s
 
 ### Expense data
 
-| OData Entity  | Proxy Class name |
-| ------------- | ------------- |
-| Expense Report  | `ExpenseReportItemType`  |
-| Report Status  | `ReportStatusType`  |
-| Expense Item  | `ExpenseItemType`  |
-| Currency  | `CurrencyType`  |
-| Expense Type  | `ExpenseType`  |
-| Payment Type  | `PaymentType`  |
+| OData Entity   | Proxy Class name    |
+| -------------- | ------------------- |
+| Expense Report | `ExpenseReportItem` |
+| Report Status  | `ReportStatus`      |
+| Expense Item   | `ExpenseItem`       |
+| Currency       | `Currency`          |
+| Expense Type   | `Expense`           |
+| Payment Type   | `Payment`           |
 
 ### Trip and Reservation data
 
-| OData Entity  | Proxy Class name |
-| ------------- | ------------- |
-| Trip  | `TripItemType`  |
-| Reservation  | `ReservationItemType`    |
-| Reservation Type  | `ReservationType`   |
+| OData Entity     | Proxy Class name  |
+| ---------------- | ----------------- |
+| Trip             | `TripItem`        |
+| Reservation Item | `ReservationItem` |
+| Reservation Type | `Reservation`     |
