@@ -61,7 +61,7 @@ To verify the service data, click on the name **saptravelexpense** and click on 
 
 Here you can review the structure of the backend data model and alter the service URL in the browser to explore the data.
 
-![OData service XML](https://raw.githubusercontent.com/wiki/SAP/fiori-for-ios-workshop/images/ServiceRoot.png)
+![OData service XML](https://user-images.githubusercontent.com/9074514/49339338-11241d80-f656-11e8-9d72-aa290ab55b26.png)
 
 Finally, copy the browser URL for use as the **Backend URL** in the following steps.
 
@@ -188,13 +188,13 @@ To run your application in the iOS simulator, choose the **iPhone XR** simulator
 
 After the Simulator has started, the generated app will launch. Click **Start** to begin the onboarding process. After a few screens that demonstrate an onboarding agreement flow, you will be prompted to set a passcode for your app.
 
-![Generated app Start button]()
+![Generated app Start button](https://user-images.githubusercontent.com/9074514/49339330-0a95a600-f656-11e8-8d47-3bbe6b02b12f.png)
 
 > **Note:** To bypass requests for your passcode with every launch, turn on biometric authentication by selecting both **Face ID > Enrolled** and **Face ID > Matching Face** from the **Hardware** menu in the **Simulator** app, before you set your passcode.
 
 Once you have set a passcode, you’ll land on the main app screen, where you can explore the data on your deployed backend.
 
-![Generated app Collections view](https://user-images.githubusercontent.com/377404/42200447-1dc68fcc-7e48-11e8-9151-33090acf4716.png)
+![Generated app Collections view](https://user-images.githubusercontent.com/9074514/49339328-036e9800-f656-11e8-9e76-097172d0a15b.png)
 
 Because this minimal iOS app has all the sample code required to query, create, and modify expense entities, you can use it as the base for implementing your own views leveraging Fiori for iOS controls.
 
@@ -212,7 +212,7 @@ Click on the **AppDelegate.swift** file in the Xcode project navigator.
 
 Scroll to the configuration value placeholders.
 
-![Reference app configuration placeholders](https://user-images.githubusercontent.com/9074514/48164684-129d3880-e298-11e8-9f97-2aeec0db03fc.png)
+![Reference app configuration placeholders](https://user-images.githubusercontent.com/9074514/49339335-108b8700-f656-11e8-8dda-f2af30fc3d14.png)
 
 Set the value of the **trialAccountName** string to your account name.
 
@@ -226,7 +226,7 @@ Set the value of the **destinationName** string to `"ExpenseDestination"`.
 
 > **Note:** If you have chosen your own names in the previous sections, be sure to set the correct values here.
 
-![Reference app configuration completed](https://user-images.githubusercontent.com/9074514/48092884-bd432780-e1c2-11e8-8197-ac497999caf2.png)
+![Reference app configuration completed](https://user-images.githubusercontent.com/9074514/49339336-108b8700-f656-11e8-95b6-a61dc9bf48d8.png)
 
 ### Export Frameworks to the Xcode Project
 
@@ -244,12 +244,12 @@ Select the **frameworks** folder inside the **Travel Expense** folder and click 
 
 Click the **Run** button in Xcode to run your copy of the *TravelExpense* app.
 
-![Reference app with frameworks in place](https://user-images.githubusercontent.com/9074514/48164802-745da280-e298-11e8-83b4-ffa7e9990d6f.png)
+![Reference app with frameworks in place](https://user-images.githubusercontent.com/9074514/49339339-11241d80-f656-11e8-98e2-a17d45b66066.png)
 
 After the Simulator has started, the TravelExpense app will launch. Click **Start** to begin.
 
-![Reference app Start button](https://user-images.githubusercontent.com/9074514/48164885-c0a8e280-e298-11e8-9783-3af29df235c0.png)
+![Reference app Start button](https://user-images.githubusercontent.com/9074514/49339334-0ff2f080-f656-11e8-985f-296d8982b946.png)
 
 You’re done! Tap through the on-boarding screens, enter a passcode, and review the TravelExpense sample app.  Like the minimal app you created in the previous section, this app demonstrates query and expense creation and modification techniques. This sample goes further, however, in that it also includes code examples demonstrating how to implement Fiori controls and connect them to the backend expense data.
 
-![Reference app report list](https://user-images.githubusercontent.com/28980634/47420435-b659f500-d77e-11e8-893e-018cfe152999.png)
+![Reference app report list](https://user-images.githubusercontent.com/9074514/49339337-11241d80-f656-11e8-97b9-53ccdbedbe3e.png)
