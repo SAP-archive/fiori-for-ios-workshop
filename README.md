@@ -1,3 +1,6 @@
+## ARCHIVED
+As SAP Cloud Platform 'Neo' landscape is not supported for Trial, this repository is archived until updated for Cloud Foundry.
+
 # Fiori for iOS Workshop
 ![overview](images/overview.png)
 This repository contains a demo application which you can use as a reference on how a travel expense application could look like.
